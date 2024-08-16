@@ -10,6 +10,6 @@
 	],
 	"server": [],
 	"client": [
-		"AccessGuiModularStorage"
+		"AccessStorageWithCraft"
 	]
 }

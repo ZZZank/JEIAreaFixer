@@ -5,7 +5,7 @@ import mcjty.rftools.craftinggrid.GuiCraftingGrid;
 /**
  * @author ZZZank
  */
-public interface GuiModularStorageAccessor {
+public interface StorageWithCraftGuiAccessor {
 
     GuiCraftingGrid jeiArea$craftingGrid();
 }

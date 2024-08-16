@@ -5,6 +5,7 @@ import mezz.jei.api.IModRegistry;
 import mezz.jei.api.JEIPlugin;
 import zzzank.mod.bookmark_area_fixer.mods.ModState;
 import zzzank.mod.bookmark_area_fixer.mods.rftools.ModularStorageArea;
+import zzzank.mod.bookmark_area_fixer.mods.rftools.StorageScannerArea;
 import zzzank.mod.bookmark_area_fixer.mods.xnet.XNetControllerArea;
 
 import javax.annotation.Nonnull;
@@ -22,6 +23,7 @@ public class BookmarkAreaFixerJEIPlugin implements IModPlugin {
         }
         if (ModState.RFTOOLS) {
             registry.addAdvancedGuiHandlers(new ModularStorageArea());
+            registry.addAdvancedGuiHandlers(new StorageScannerArea());
         }
     }
 }
