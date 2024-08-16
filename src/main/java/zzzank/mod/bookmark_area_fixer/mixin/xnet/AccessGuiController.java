@@ -2,7 +2,6 @@ package zzzank.mod.bookmark_area_fixer.mixin.xnet;
 
 import mcjty.lib.base.ModBase;
 import mcjty.lib.gui.GenericGuiContainer;
-import mcjty.lib.gui.widgets.Panel;
 import mcjty.lib.gui.widgets.WidgetList;
 import mcjty.xnet.blocks.controller.TileEntityController;
 import mcjty.xnet.blocks.controller.gui.GuiController;
@@ -19,9 +18,6 @@ import zzzank.mod.bookmark_area_fixer.mods.xnet.GuiContainerAccessor;
 public abstract class AccessGuiController
     extends GenericGuiContainer<TileEntityController>
     implements GuiContainerAccessor {
-
-    @Accessor(value = "channelEditPanel", remap = false)
-    public abstract Panel jeiArea$channelEditPanel();
 
     @Accessor(value = "connectorList", remap = false)
     public abstract WidgetList jeiArea$connectorList();
