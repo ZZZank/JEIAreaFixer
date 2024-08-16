@@ -13,7 +13,7 @@ import java.util.List;
     modid = Tags.MOD_ID,
     name = Tags.MOD_NAME,
     version = Tags.VERSION,
-    dependencies = "after:jei@[4.16.0,);",
+    dependencies = "after:jei@[4.16.0,);required-after:mixinbooter;",
     clientSideOnly = true
 )
 public class BookmarkAreaFixer {
