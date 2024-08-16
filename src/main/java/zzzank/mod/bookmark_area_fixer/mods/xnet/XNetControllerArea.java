@@ -22,7 +22,8 @@ public class XNetControllerArea implements IAdvancedGuiHandler<GuiController> {
     @Nullable
     @Override
     public List<Rectangle> getGuiExtraAreas(@Nonnull GuiController gui) {
-        var channelPanel = ((GuiContainerAccessor) gui).jeiarea$channelEditPanel();
-        return Collections.singletonList(channelPanel.getBounds());
+        var connectorList = ((GuiContainerAccessor) gui).jeiArea$connectorList();
+        var bound = connectorList.getBounds();
+        return bound == null ? Collections.emptyList() : Collections.singletonList(bound);
     }
 }
