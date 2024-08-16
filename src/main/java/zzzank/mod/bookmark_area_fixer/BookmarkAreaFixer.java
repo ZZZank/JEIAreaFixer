@@ -2,6 +2,10 @@ package zzzank.mod.bookmark_area_fixer;
 
 import net.minecraftforge.fml.common.Mod;
 
+import java.awt.*;
+import java.util.Collections;
+import java.util.List;
+
 /**
  * @author ZZZank
  */
@@ -17,4 +21,10 @@ public class BookmarkAreaFixer {
     public static final String MOD_NAME = Tags.MOD_NAME;
     public static final String VERSION = Tags.VERSION;
 
+    /**
+     * @return singleton list if not null, otherwise an empty list
+     */
+    public static List<Rectangle> nullableWrap(Rectangle rectangle) {
+        return rectangle == null ? Collections.emptyList() : Collections.singletonList(rectangle);
+    }
 }
