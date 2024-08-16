@@ -7,7 +7,6 @@ import zzzank.mod.bookmark_area_fixer.BookmarkAreaFixer;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.awt.*;
-import java.util.Collections;
 import java.util.List;
 
 /**
