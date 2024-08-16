@@ -18,10 +18,10 @@ public class BookmarkAreaFixerJEIPlugin implements IModPlugin {
 
     @Override
     public void register(@Nonnull IModRegistry registry) {
-        if (ModState.XNET) {
+        if (ModState.XNET && BookmarkAreaFixerConfig.enableForXNet) {
             registry.addAdvancedGuiHandlers(new XNetControllerArea());
         }
-        if (ModState.RFTOOLS) {
+        if (ModState.RFTOOLS && BookmarkAreaFixerConfig.enableForRFTools) {
             registry.addAdvancedGuiHandlers(new ModularStorageArea());
             registry.addAdvancedGuiHandlers(new StorageScannerArea());
         }
