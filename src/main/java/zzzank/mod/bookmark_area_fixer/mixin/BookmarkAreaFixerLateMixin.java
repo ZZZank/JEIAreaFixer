@@ -16,7 +16,7 @@ public class BookmarkAreaFixerLateMixin implements ILateMixinLoader {
     public List<String> getMixinConfigs() {
         return Arrays
             .stream(Tags.MIXIN_CONFIGS.split(" "))
-            .filter(ModState::modloaded)
+            .filter(ModState::loaded)
             .map(id -> String.format(Tags.MIXIN_CONFIG_FORMAT, id))
             .collect(Collectors.toList());
     }

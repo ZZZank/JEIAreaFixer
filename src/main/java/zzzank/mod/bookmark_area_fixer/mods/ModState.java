@@ -7,10 +7,10 @@ import net.minecraftforge.fml.common.Loader;
  */
 public interface ModState {
 
-    boolean XNET = modloaded("xnet");
-    boolean RFTOOLS = modloaded("rftools");
+    boolean XNET = loaded("xnet");
+    boolean RFTOOLS = loaded("rftools");
 
-    static boolean modloaded(String modid) {
+    static boolean loaded(String modid) {
         return Loader.isModLoaded(modid);
     }
 }
