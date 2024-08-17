@@ -1,9 +1,7 @@
 package zzzank.mod.jei_area_fixer.mods.openmods;
 
-import com.google.common.collect.ImmutableList;
 import mezz.jei.api.gui.IAdvancedGuiHandler;
 import openmods.gui.ComponentGui;
-import openmods.gui.component.BaseComponent;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -29,7 +27,12 @@ public class OpenModsSeriesGuiArea implements IAdvancedGuiHandler<ComponentGui> 
         var components = ((BaseCompositeAccessor) root).get$components();
         var areas = new ArrayList<Rectangle>(components.size());
         for (var component : components) {
-            areas.add(new Rectangle(component.getX(), component.getY(), component.getWidth(), component.getHeight()));
+            areas.add(new Rectangle(
+                component.getX() + guiContainer.getGuiLeft(),
+                component.getY() + guiContainer.getGuiTop(),
+                component.getWidth(),
+                component.getHeight()
+            ));
         }
         return areas;
     }
