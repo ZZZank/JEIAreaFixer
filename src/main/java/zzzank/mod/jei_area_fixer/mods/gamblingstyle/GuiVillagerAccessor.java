@@ -1,4 +1,4 @@
-package zzzank.mod.bookmark_area_fixer.mods.gamblingstyle;
+package zzzank.mod.jei_area_fixer.mods.gamblingstyle;
 
 import com.fuzs.gamblingstyle.client.gui.GuiTradingBook;
 

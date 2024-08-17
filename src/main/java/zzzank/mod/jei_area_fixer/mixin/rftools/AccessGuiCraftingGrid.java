@@ -1,10 +1,10 @@
-package zzzank.mod.bookmark_area_fixer.mixin.rftools;
+package zzzank.mod.jei_area_fixer.mixin.rftools;
 
 import mcjty.lib.gui.Window;
 import mcjty.rftools.craftinggrid.GuiCraftingGrid;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
-import zzzank.mod.bookmark_area_fixer.mods.rftools.GuiCraftingGridAccessor;
+import zzzank.mod.jei_area_fixer.mods.rftools.GuiCraftingGridAccessor;
 
 /**
  * @author ZZZank

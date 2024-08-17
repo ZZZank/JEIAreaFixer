@@ -1,4 +1,4 @@
-package zzzank.mod.bookmark_area_fixer;
+package zzzank.mod.jei_area_fixer;
 
 import net.minecraftforge.fml.common.Mod;
 
@@ -16,7 +16,7 @@ import java.util.List;
     dependencies = "after:jei@[4.16.0,);required-after:mixinbooter;",
     clientSideOnly = true
 )
-public class BookmarkAreaFixer {
+public class JEIAreaFixer {
 
     /**
      * @return singleton list if not null, otherwise an empty list

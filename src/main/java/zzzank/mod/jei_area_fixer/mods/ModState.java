@@ -1,4 +1,4 @@
-package zzzank.mod.bookmark_area_fixer.mods;
+package zzzank.mod.jei_area_fixer.mods;
 
 import net.minecraftforge.fml.common.Loader;
 

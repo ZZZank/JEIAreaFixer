@@ -1,4 +1,4 @@
-package zzzank.mod.bookmark_area_fixer.mixin.xnet;
+package zzzank.mod.jei_area_fixer.mixin.xnet;
 
 import mcjty.lib.base.ModBase;
 import mcjty.lib.gui.GenericGuiContainer;
@@ -9,7 +9,7 @@ import net.minecraft.inventory.Container;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
-import zzzank.mod.bookmark_area_fixer.mods.xnet.GuiContainerAccessor;
+import zzzank.mod.jei_area_fixer.mods.xnet.GuiControllerAccessor;
 
 /**
  * @author ZZZank
@@ -17,7 +17,7 @@ import zzzank.mod.bookmark_area_fixer.mods.xnet.GuiContainerAccessor;
 @Mixin(GuiController.class)
 public abstract class AccessGuiController
     extends GenericGuiContainer<TileEntityController>
-    implements GuiContainerAccessor {
+    implements GuiControllerAccessor {
 
     @Accessor(value = "connectorList", remap = false)
     public abstract WidgetList get$connectorList();

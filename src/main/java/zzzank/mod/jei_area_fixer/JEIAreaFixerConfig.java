@@ -1,4 +1,4 @@
-package zzzank.mod.bookmark_area_fixer;
+package zzzank.mod.jei_area_fixer;
 
 import net.minecraftforge.common.config.Config;
 
@@ -7,7 +7,7 @@ import net.minecraftforge.common.config.Config;
  */
 @Config(modid = Tags.MOD_ID, category = "client")
 @Config.RequiresMcRestart
-public class BookmarkAreaFixerConfig {
+public class JEIAreaFixerConfig {
 
     public static boolean enableForXNet = true;
 

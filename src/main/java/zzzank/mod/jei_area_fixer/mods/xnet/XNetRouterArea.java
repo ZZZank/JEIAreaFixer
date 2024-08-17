@@ -1,8 +1,8 @@
-package zzzank.mod.bookmark_area_fixer.mods.xnet;
+package zzzank.mod.jei_area_fixer.mods.xnet;
 
 import mcjty.xnet.blocks.router.GuiRouter;
 import mezz.jei.api.gui.IAdvancedGuiHandler;
-import zzzank.mod.bookmark_area_fixer.BookmarkAreaFixer;
+import zzzank.mod.jei_area_fixer.JEIAreaFixer;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -23,6 +23,6 @@ public class XNetRouterArea implements IAdvancedGuiHandler<GuiRouter> {
     @Override
     public List<Rectangle> getGuiExtraAreas(@Nonnull GuiRouter gui) {
         var bound = gui.getWindow().getToplevel().getBounds();
-        return BookmarkAreaFixer.nullableWrap(bound);
+        return JEIAreaFixer.nullableWrap(bound);
     }
 }

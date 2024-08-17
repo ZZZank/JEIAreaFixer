@@ -1,5 +1,5 @@
 {
-	"package": "zzzank.mod.bookmark_area_fixer.mixin.xnet",
+	"package": "zzzank.mod.jei_area_fixer.mixin.xnet",
 	"required": true,
 	"refmap": "mixins.${mod_id}.refmap.json",
 	"target": "@env(DEFAULT)",

@@ -1,4 +1,4 @@
-package zzzank.mod.bookmark_area_fixer.mods.rftools;
+package zzzank.mod.jei_area_fixer.mods.rftools;
 
 import mcjty.lib.gui.Window;
 
