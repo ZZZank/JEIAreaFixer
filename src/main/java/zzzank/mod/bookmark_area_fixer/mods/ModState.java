@@ -7,8 +7,9 @@ import net.minecraftforge.fml.common.Loader;
  */
 public interface ModState {
 
-    boolean XNET = loaded("xnet");
-    boolean RFTOOLS = loaded("rftools");
+    boolean X_NET = loaded("xnet");
+    boolean RF_TOOLS = loaded("rftools");
+    boolean GAMBLING_STYLE = loaded("gamblingstyle");
 
     static boolean loaded(String modid) {
         return Loader.isModLoaded(modid);

@@ -12,4 +12,6 @@ public class BookmarkAreaFixerConfig {
     public static boolean enableForXNet = true;
 
     public static boolean enableForRFTools = true;
+
+    public static boolean enableForGamblingStyle = true;
 }
