@@ -18,10 +18,6 @@ import java.util.List;
 )
 public class BookmarkAreaFixer {
 
-    public static final String MOD_ID = Tags.MOD_ID;
-    public static final String MOD_NAME = Tags.MOD_NAME;
-    public static final String VERSION = Tags.VERSION;
-
     /**
      * @return singleton list if not null, otherwise an empty list
      */
