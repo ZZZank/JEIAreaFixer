@@ -14,4 +14,6 @@ public class JEIAreaFixerConfig {
     public static boolean enableForRFTools = true;
 
     public static boolean enableForGamblingStyle = true;
+
+    public static boolean enableForOpenMods = true;
 }

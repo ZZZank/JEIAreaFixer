@@ -10,6 +10,7 @@ public interface ModState {
     boolean X_NET = loaded("xnet");
     boolean RF_TOOLS = loaded("rftools");
     boolean GAMBLING_STYLE = loaded("gamblingstyle");
+    boolean OPEN_MODS_LIB = loaded("openmods");
 
     static boolean loaded(String modid) {
         return Loader.isModLoaded(modid);
