@@ -1,5 +1,12 @@
 # Changelog
 
+## JEIAreaFixer 1.1.0 -> 1.2.0
+
+Rebranding & OpenMods support
+
+- Rebrand to JETAreaFixer
+- Supports mods made by OpenMods, e.g. OpenBlocks
+
 ## BookmarkAreaFixer 1.0.0 -> 1.1.0
 
 Supports Gambling Style
