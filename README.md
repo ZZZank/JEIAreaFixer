@@ -1,20 +1,9 @@
-## TemplateDevEnv
+## JEI Area Fixer
+provides patches to fix GUI overlapping issues of JEI, with a config for enabling/disabling patches targeting specific mods.
 
-Template workspace for modding Minecraft 1.12.2. Licensed under MIT, it is made for public use.
+Currently(version 1.2.0) supports:
+- XNet
+- RFTools
+- mods made by OpenMods, like OpenBlocks
 
-This template currently utilizies **Gradle 8.7** + **[RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle) 1.3.35** + **Forge 14.23.5.2847**.
-
-With **coremod and mixin support** that is easy to configure.
-
-### Instructions:
-
-1. Click `use this template` at the top.
-2. Clone the repository you have created with this template.
-3. In the local repository, run the command `gradlew setupDecompWorkspace`
-4. Open the project folder in IDEA.
-5. Right-click in IDEA `build.gradle` of your project, and select `Link Gradle Project`, after completion, hit `Refresh All` in the gradle tab on the right.
-6. Run `gradlew runClient` and `gradlew runServer`, or use the auto-imported run configurations in IntelliJ like `1. Run Client`.
-
-### Mixins:
-
-- When writing Mixins on IntelliJ, it is advisable to use latest [MinecraftDev Fork for RetroFuturaGradle](https://github.com/eigenraven/MinecraftDev/releases).
+[![after-rftools-stroagescanner.png](https://i.postimg.cc/g09Q5yJ8/after-rftools-stroagescanner.png)](https://postimg.cc/DSgx4X1w)
