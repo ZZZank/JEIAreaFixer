@@ -22,7 +22,7 @@ public class XNetControllerArea implements IAdvancedGuiHandler<GuiController> {
     @Nullable
     @Override
     public List<Rectangle> getGuiExtraAreas(@Nonnull GuiController gui) {
-        var connectorList = ((GuiContainerAccessor) gui).jeiArea$connectorList();
+        var connectorList = ((GuiContainerAccessor) gui).get$connectorList();
         var bound = connectorList.getBounds();
         return BookmarkAreaFixer.nullableWrap(bound);
     }

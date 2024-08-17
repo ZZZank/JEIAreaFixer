@@ -7,5 +7,5 @@ import mcjty.lib.gui.widgets.WidgetList;
  */
 public interface GuiContainerAccessor {
 
-    WidgetList jeiArea$connectorList();
+    WidgetList get$connectorList();
 }

@@ -23,8 +23,8 @@ public class StorageScannerArea implements IAdvancedGuiHandler<GuiStorageScanner
     @Nullable
     @Override
     public List<Rectangle> getGuiExtraAreas(@Nonnull GuiStorageScanner gui) {
-        var craftingGrid = ((StorageWithCraftGuiAccessor) gui).jeiArea$craftingGrid();
-        var window = ((GuiCraftingGridAccessor) craftingGrid).jeiArea$craftWindow();
+        var craftingGrid = ((StorageWithCraftGuiAccessor) gui).get$craftingGrid();
+        var window = ((GuiCraftingGridAccessor) craftingGrid).get$craftWindow();
         var bound = window.getToplevel().getBounds();
         return BookmarkAreaFixer.nullableWrap(bound);
     }

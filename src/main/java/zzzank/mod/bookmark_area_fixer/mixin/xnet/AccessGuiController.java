@@ -20,7 +20,7 @@ public abstract class AccessGuiController
     implements GuiContainerAccessor {
 
     @Accessor(value = "connectorList", remap = false)
-    public abstract WidgetList jeiArea$connectorList();
+    public abstract WidgetList get$connectorList();
 
     private AccessGuiController(
         ModBase mod,

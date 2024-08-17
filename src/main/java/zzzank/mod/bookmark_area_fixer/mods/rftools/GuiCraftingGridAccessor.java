@@ -7,5 +7,5 @@ import mcjty.lib.gui.Window;
  */
 public interface GuiCraftingGridAccessor {
 
-    Window jeiArea$craftWindow();
+    Window get$craftWindow();
 }

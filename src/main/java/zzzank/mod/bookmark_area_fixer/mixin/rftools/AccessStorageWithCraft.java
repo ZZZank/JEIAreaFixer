@@ -14,5 +14,5 @@ import zzzank.mod.bookmark_area_fixer.mods.rftools.StorageWithCraftGuiAccessor;
 public interface AccessStorageWithCraft extends StorageWithCraftGuiAccessor {
 
     @Accessor(value = "craftingGrid",remap = false)
-    GuiCraftingGrid jeiArea$craftingGrid();
+    GuiCraftingGrid get$craftingGrid();
 }
