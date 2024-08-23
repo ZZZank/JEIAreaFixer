@@ -15,6 +15,8 @@ import zzzank.mod.jei_area_fixer.mods.xnet.XNetRouterArea;
 
 import javax.annotation.Nonnull;
 
+import static zzzank.mod.jei_area_fixer.JEIAreaFixerConfig.*;
+
 /**
  * @author ZZZank
  */
@@ -23,23 +25,35 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
 
     @Override
     public void register(@Nonnull IModRegistry registry) {
-        if (ModState.X_NET && JEIAreaFixerConfig.enableForXNet) {
-            registry.addAdvancedGuiHandlers(new XNetControllerArea());
-            registry.addAdvancedGuiHandlers(new XNetRouterArea());
+        if (ModState.X_NET && XNet$All) {
+            if (XNet$Controller) {
+                registry.addAdvancedGuiHandlers(new XNetControllerArea());
+            }
+            if (XNet$Router) {
+                registry.addAdvancedGuiHandlers(new XNetRouterArea());
+            }
         }
-        if (ModState.RF_TOOLS && JEIAreaFixerConfig.enableForRFTools) {
-            registry.addAdvancedGuiHandlers(new ModularStorageArea());
-            registry.addAdvancedGuiHandlers(new StorageScannerArea());
+        if (ModState.RF_TOOLS && RFTools$All) {
+            if (RFTools$ModularStorage) {
+                registry.addAdvancedGuiHandlers(new ModularStorageArea());
+            }
+            if (RFTools$StorageScanner) {
+                registry.addAdvancedGuiHandlers(new StorageScannerArea());
+            }
         }
-        if (ModState.GAMBLING_STYLE && JEIAreaFixerConfig.enableForGamblingStyle) {
+        if (ModState.GAMBLING_STYLE && GamblingStyle$All) {
             registry.addAdvancedGuiHandlers(new GuiVillagerArea());
         }
-        if (ModState.OPEN_MODS_LIB && JEIAreaFixerConfig.enableForOpenMods) {
+        if (ModState.OPEN_MODS_LIB && OpenMods$All) {
             registry.addAdvancedGuiHandlers(new OpenModsSeriesGuiArea());
         }
-        if (ModState.SMELTERY_IO && JEIAreaFixerConfig.enableForSmelteryIO) {
-            registry.addAdvancedGuiHandlers(new FuelControllerArea());
-            registry.addAdvancedGuiHandlers(new CastingMachineArea());
+        if (ModState.SMELTERY_IO && SmelteryIO$All) {
+            if (SmelteryIO$CastingMachine) {
+                registry.addAdvancedGuiHandlers(new FuelControllerArea());
+            }
+            if (SmelteryIO$FuelController) {
+                registry.addAdvancedGuiHandlers(new CastingMachineArea());
+            }
         }
     }
 }

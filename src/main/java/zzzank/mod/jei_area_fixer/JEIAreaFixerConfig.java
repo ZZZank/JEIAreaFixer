@@ -9,13 +9,19 @@ import net.minecraftforge.common.config.Config;
 @Config.RequiresMcRestart
 public class JEIAreaFixerConfig {
 
-    public static boolean enableForXNet = true;
+    public static boolean XNet$All = true;
+    public static boolean XNet$Controller = true;
+    public static boolean XNet$Router = true;
 
-    public static boolean enableForRFTools = true;
+    public static boolean RFTools$All = true;
+    public static boolean RFTools$ModularStorage = true;
+    public static boolean RFTools$StorageScanner = true;
 
-    public static boolean enableForGamblingStyle = true;
+    public static boolean GamblingStyle$All = true;
 
-    public static boolean enableForOpenMods = true;
+    public static boolean OpenMods$All = true;
 
-    public static boolean enableForSmelteryIO = true;
+    public static boolean SmelteryIO$All = true;
+    public static boolean SmelteryIO$FuelController = true;
+    public static boolean SmelteryIO$CastingMachine = true;
 }
