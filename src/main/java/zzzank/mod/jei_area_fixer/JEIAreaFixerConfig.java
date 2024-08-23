@@ -16,4 +16,6 @@ public class JEIAreaFixerConfig {
     public static boolean enableForGamblingStyle = true;
 
     public static boolean enableForOpenMods = true;
+
+    public static boolean enableForSmelteryIO = true;
 }
