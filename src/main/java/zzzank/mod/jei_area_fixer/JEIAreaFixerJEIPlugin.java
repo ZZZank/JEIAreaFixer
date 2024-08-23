@@ -5,7 +5,8 @@ import mezz.jei.api.IModRegistry;
 import mezz.jei.api.JEIPlugin;
 import zzzank.mod.jei_area_fixer.mods.ModState;
 import zzzank.mod.jei_area_fixer.mods.gamblingstyle.GuiVillagerArea;
-import zzzank.mod.jei_area_fixer.mods.mctsmelteryio.GuiFuelControllerArea;
+import zzzank.mod.jei_area_fixer.mods.mctsmelteryio.CastingMachineArea;
+import zzzank.mod.jei_area_fixer.mods.mctsmelteryio.FuelControllerArea;
 import zzzank.mod.jei_area_fixer.mods.openmods.OpenModsSeriesGuiArea;
 import zzzank.mod.jei_area_fixer.mods.rftools.ModularStorageArea;
 import zzzank.mod.jei_area_fixer.mods.rftools.StorageScannerArea;
@@ -37,7 +38,8 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
             registry.addAdvancedGuiHandlers(new OpenModsSeriesGuiArea());
         }
         if (ModState.SMELTERY_IO && JEIAreaFixerConfig.enableForSmelteryIO) {
-            registry.addAdvancedGuiHandlers(new GuiFuelControllerArea());
+            registry.addAdvancedGuiHandlers(new FuelControllerArea());
+            registry.addAdvancedGuiHandlers(new CastingMachineArea());
         }
     }
 }

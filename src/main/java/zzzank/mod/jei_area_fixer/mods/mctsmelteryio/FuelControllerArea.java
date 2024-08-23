@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * @author ZZZank
  */
-public class GuiFuelControllerArea implements IAdvancedGuiHandler<GuiFC> {
+public class FuelControllerArea implements IAdvancedGuiHandler<GuiFC> {
 
     @Override
     @Nonnull
