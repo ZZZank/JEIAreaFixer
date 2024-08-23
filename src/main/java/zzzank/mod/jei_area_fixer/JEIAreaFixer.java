@@ -2,6 +2,7 @@ package zzzank.mod.jei_area_fixer;
 
 import net.minecraftforge.fml.common.Mod;
 
+import javax.annotation.Nullable;
 import java.awt.*;
 import java.util.Collections;
 import java.util.List;
@@ -19,9 +20,10 @@ import java.util.List;
 public class JEIAreaFixer {
 
     /**
-     * @return singleton list if not null, otherwise an empty list
+     * @return null if provided null, otherwise a singleton list
      */
-    public static List<Rectangle> nullableWrap(Rectangle rectangle) {
-        return rectangle == null ? Collections.emptyList() : Collections.singletonList(rectangle);
+    @Nullable
+    public static List<Rectangle> nullableWrap(@Nullable Rectangle rectangle) {
+        return rectangle == null ? null : Collections.singletonList(rectangle);
     }
 }
