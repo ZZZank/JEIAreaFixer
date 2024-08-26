@@ -15,7 +15,9 @@ import net.minecraftforge.fml.relauncher.Side;
 @Config.RequiresMcRestart
 public class JEIAreaFixerConfig {
 
+    @Config.Comment("does not require mc restart")
     public static boolean debug$print = false;
+    @Config.Ignore
     public static boolean debug$drawing = false;
 
     public static boolean XNet$All = true;
@@ -28,6 +30,7 @@ public class JEIAreaFixerConfig {
 
     public static boolean GamblingStyle$All = true;
 
+    @Config.Comment("For mods made by OpenMods, e.g. OpenBlocks")
     public static boolean OpenMods$All = true;
 
     public static boolean SmelteryIO$All = true;

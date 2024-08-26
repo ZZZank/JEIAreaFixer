@@ -28,7 +28,7 @@ public class JEIAreaFixerDebugAction {
         if (!JEIAreaFixerConfig.debug$print || JEIAreaFixerDebug.boundsMap.isEmpty()) {
             return;
         }
-        StringJoiner joiner = new StringJoiner("\n");
+        var joiner = new StringJoiner("\n");
         for (var e : JEIAreaFixerDebug.boundsMap.entrySet()) {
             var key = e.getKey();
             var value = e.getValue();
@@ -62,8 +62,8 @@ public class JEIAreaFixerDebugAction {
         if (!JEIAreaFixerConfig.debug$drawing) {
             return;
         }
-        var gui = event.getGuiContainer();
-        var bounds = JEIAreaFixerDebug.boundsMap.get(gui.getClass());
+        var guiClass = event.getGuiContainer().getClass();
+        var bounds = JEIAreaFixerDebug.boundsMap.get(guiClass);
         if (bounds == null) {
             return;
         }

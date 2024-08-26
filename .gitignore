@@ -19,4 +19,6 @@ build
 
 # other
 eclipse
-run
+run/
+
+/gradle/local_libs/*.jar
