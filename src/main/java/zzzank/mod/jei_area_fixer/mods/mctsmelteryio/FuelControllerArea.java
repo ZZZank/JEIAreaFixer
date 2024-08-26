@@ -1,7 +1,7 @@
 package zzzank.mod.jei_area_fixer.mods.mctsmelteryio;
 
 import mctmods.smelteryio.tileentity.gui.GuiFC;
-import mezz.jei.api.gui.IAdvancedGuiHandler;
+import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -12,17 +12,15 @@ import java.util.List;
 /**
  * @author ZZZank
  */
-public class FuelControllerArea implements IAdvancedGuiHandler<GuiFC> {
+public class FuelControllerArea extends AbstractJEIAreaProvider<GuiFC> {
 
-    @Override
-    @Nonnull
-    public Class<GuiFC> getGuiContainerClass() {
-        return GuiFC.class;
+    public FuelControllerArea() {
+        super(GuiFC.class);
     }
 
     @Nullable
     @Override
-    public List<Rectangle> getGuiExtraAreas(GuiFC gui) {
+    public List<Rectangle> getExtraAreas(@Nonnull GuiFC gui) {
         return Collections.singletonList(
             new Rectangle(
                 gui.getGuiLeft() - 110,

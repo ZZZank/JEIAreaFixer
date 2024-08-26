@@ -2,6 +2,7 @@ package zzzank.mod.jei_area_fixer.mods.gamblingstyle;
 
 import com.fuzs.gamblingstyle.client.gui.GuiVillager;
 import mezz.jei.api.gui.IAdvancedGuiHandler;
+import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -12,17 +13,15 @@ import java.util.List;
 /**
  * @author ZZZank
  */
-public class GuiVillagerArea implements IAdvancedGuiHandler<GuiVillager> {
+public class GuiVillagerArea extends AbstractJEIAreaProvider<GuiVillager> {
 
-    @Override
-    @Nonnull
-    public Class<GuiVillager> getGuiContainerClass() {
-        return GuiVillager.class;
+    public GuiVillagerArea() {
+        super(GuiVillager.class);
     }
 
     @Nullable
     @Override
-    public List<Rectangle> getGuiExtraAreas(@Nonnull GuiVillager gui) {
+    public List<Rectangle> getExtraAreas(@Nonnull GuiVillager gui) {
         var book = ((GuiVillagerAccessor) gui).get$tradingBookGui();
         var access = ((GuiTradingBookAccessor) book);
         return Collections.singletonList(

@@ -1,7 +1,7 @@
 package zzzank.mod.jei_area_fixer.mods.openmods;
 
-import mezz.jei.api.gui.IAdvancedGuiHandler;
 import openmods.gui.ComponentGui;
+import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -12,24 +12,22 @@ import java.util.List;
 /**
  * @author ZZZank
  */
-public class OpenModsSeriesGuiArea implements IAdvancedGuiHandler<ComponentGui> {
+public class OpenModsSeriesGuiArea extends AbstractJEIAreaProvider<ComponentGui> {
 
-    @Override
-    @Nonnull
-    public Class<ComponentGui> getGuiContainerClass() {
-        return ComponentGui.class;
+    public OpenModsSeriesGuiArea() {
+        super(ComponentGui.class);
     }
 
     @Nullable
     @Override
-    public List<Rectangle> getGuiExtraAreas(@Nonnull ComponentGui guiContainer) {
-        var root = ((ComponentGuiAccessor) guiContainer).get$root();
+    public List<Rectangle> getExtraAreas(@Nonnull ComponentGui gui) {
+        var root = ((ComponentGuiAccessor) gui).get$root();
         var components = ((BaseCompositeAccessor) root).get$components();
         var areas = new ArrayList<Rectangle>(components.size());
         for (var component : components) {
             areas.add(new Rectangle(
-                component.getX() + guiContainer.getGuiLeft(),
-                component.getY() + guiContainer.getGuiTop(),
+                component.getX() + gui.getGuiLeft(),
+                component.getY() + gui.getGuiTop(),
                 component.getWidth(),
                 component.getHeight()
             ));
