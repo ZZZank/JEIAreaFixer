@@ -28,19 +28,18 @@ public final class JEIAreaFixerDebug {
      */
     public static final long INTERVAL = 500;
 
+    private static final Object2LongMap<Class<?>> timestamps = new Object2LongOpenHashMap<>();
+    private static final Map<Class<?>, List<Rectangle>> boundsMap = new IdentityHashMap<>();
     public static final ScheduledPrintThread messageSender = JEIAreaFixerConfig.debug$print
         ? new ScheduledPrintThread(INTERVAL, JEIAreaFixerDebug::print)
         : null;
-
-    private static final Object2LongMap<Class<?>> timestamps = new Object2LongOpenHashMap<>();
-    private static final Map<Class<?>, List<Rectangle>> boundsMap = new IdentityHashMap<>();
 
     public static void accept(Class<?> target, List<Rectangle> bounds) {
         if (bounds == null) {
             return;
         }
         final long current = System.currentTimeMillis();
-        final long last = timestamps.get(target);
+        final long last = timestamps.getLong(target);
         if (current - last < INTERVAL) {
             return;
         }
