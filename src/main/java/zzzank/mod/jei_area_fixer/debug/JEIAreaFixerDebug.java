@@ -12,9 +12,9 @@ import java.util.Map;
 public final class JEIAreaFixerDebug {
 
     /**
-     * 500ms = 0.5s
+     * in milliseconds
      */
-    public static final long INTERVAL = 500;
+    public static final long INTERVAL = 3000;
 
     static final Map<Class<?>, List<Rectangle>> boundsMap = new IdentityHashMap<>();
     public static final ScheduledTaskThread messageSender =

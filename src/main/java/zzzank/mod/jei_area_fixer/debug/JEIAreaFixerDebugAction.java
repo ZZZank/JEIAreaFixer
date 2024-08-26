@@ -8,6 +8,11 @@ import net.minecraftforge.fml.relauncher.Side;
 import zzzank.mod.jei_area_fixer.JEIAreaFixerConfig;
 import zzzank.mod.jei_area_fixer.Tags;
 
+import java.awt.*;
+import java.util.IdentityHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.StringJoiner;
 import java.util.stream.Collectors;
 
 /**
@@ -16,14 +21,22 @@ import java.util.stream.Collectors;
 @Mod.EventBusSubscriber(value = Side.CLIENT, modid = Tags.MOD_ID)
 public class JEIAreaFixerDebugAction {
 
+    private static final Map<Class<?>, List<Rectangle>> lastBounds = new IdentityHashMap<>();
+
     public static void print() {
         if (!JEIAreaFixerConfig.debug$print || JEIAreaFixerDebug.boundsMap.isEmpty()) {
             return;
         }
-        var lines = JEIAreaFixerDebug.boundsMap.entrySet()
-            .stream()
-            .map(e -> String.format(
-                "class '%s' with bounds: %s",
+        StringJoiner joiner = new StringJoiner("\n");
+        for (var e : JEIAreaFixerDebug.boundsMap.entrySet()) {
+            var key = e.getKey();
+            var value = e.getValue();
+            if (value.equals(lastBounds.get(key))) {
+                continue;
+            }
+            lastBounds.put(key, value);
+            joiner.add(String.format(
+                "class '%s' with new bounds: %s",
                 e.getKey(),
                 e.getValue()
                     .stream()
@@ -35,9 +48,12 @@ public class JEIAreaFixerDebugAction {
                         .append("]")
                         .toString())
                     .collect(Collectors.joining(", "))
-            ))
-            .collect(Collectors.joining("\n"));
-        System.out.println("debug output from" + Tags.MOD_NAME + "\n" + lines);
+            ));
+        }
+        if (joiner.length() == 0) {
+            return;
+        }
+        System.out.println("debug output from" + Tags.MOD_NAME + "\n" + joiner);
     }
 
     @SubscribeEvent
