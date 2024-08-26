@@ -9,6 +9,10 @@ import net.minecraftforge.common.config.Config;
 @Config.RequiresMcRestart
 public class JEIAreaFixerConfig {
 
+    @Config.RequiresMcRestart
+    public static boolean debug$print = false;
+    public static boolean debug$drawing = false;
+
     public static boolean XNet$All = true;
     public static boolean XNet$Controller = true;
     public static boolean XNet$Router = true;
