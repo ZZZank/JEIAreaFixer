@@ -44,7 +44,7 @@ public final class JEIAreaFixerDebug {
             return;
         }
         timestamps.put(target, current);
-        boundsMap.computeIfAbsent(target, k -> new ArrayList<>()).addAll(bounds);
+        boundsMap.put(target, bounds);
     }
 
     public static void print() {
@@ -83,8 +83,8 @@ public final class JEIAreaFixerDebug {
         }
         for (var bound : bounds) {
             GuiUtils.drawGradientRect(
-            Integer.MAX_VALUE,
-                    bound.x,
+                Integer.MAX_VALUE,
+                bound.x,
                 bound.y,
                 bound.x + bound.width,
                 bound.y + bound.height,
