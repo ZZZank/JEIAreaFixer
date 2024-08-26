@@ -5,14 +5,13 @@ import zzzank.mod.jei_area_fixer.Tags;
 /**
  * @author ZZZank
  */
-public class ScheduledPrintThread extends Thread {
+public class ScheduledTaskThread extends Thread {
 
     private final long interval;
     private final Runnable task;
 
-    public ScheduledPrintThread(long intervalMilliseconds, Runnable task) {
+    public ScheduledTaskThread(long intervalMilliseconds, Runnable task) {
         super(Tags.MOD_ID + " scheduled print");
-        this.setDaemon(true);
         this.interval = intervalMilliseconds;
         this.task = task;
     }
