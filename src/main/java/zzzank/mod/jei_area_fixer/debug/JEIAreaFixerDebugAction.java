@@ -1,6 +1,7 @@
 package zzzank.mod.jei_area_fixer.debug;
 
-import net.minecraftforge.client.event.GuiScreenEvent;
+import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraftforge.client.event.GuiContainerEvent;
 import net.minecraftforge.fml.client.config.GuiUtils;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -21,7 +22,7 @@ import java.util.stream.Collectors;
 @Mod.EventBusSubscriber(value = Side.CLIENT, modid = Tags.MOD_ID)
 public class JEIAreaFixerDebugAction {
 
-    private static final Map<Class<?>, List<Rectangle>> lastBounds = new IdentityHashMap<>();
+    private static final Map<Class<? extends GuiContainer>, List<Rectangle>> lastBounds = new IdentityHashMap<>();
 
     public static void print() {
         if (!JEIAreaFixerConfig.debug$print || JEIAreaFixerDebug.boundsMap.isEmpty()) {
@@ -57,11 +58,11 @@ public class JEIAreaFixerDebugAction {
     }
 
     @SubscribeEvent
-    public static void drawing(GuiScreenEvent.DrawScreenEvent event) {
+    public static void drawing(GuiContainerEvent.DrawForeground event) {
         if (!JEIAreaFixerConfig.debug$drawing) {
             return;
         }
-        var gui = event.getGui();
+        var gui = event.getGuiContainer();
         var bounds = JEIAreaFixerDebug.boundsMap.get(gui.getClass());
         if (bounds == null) {
             return;
