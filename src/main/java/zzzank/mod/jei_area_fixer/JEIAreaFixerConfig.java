@@ -1,11 +1,17 @@
 package zzzank.mod.jei_area_fixer;
 
 import net.minecraftforge.common.config.Config;
+import net.minecraftforge.common.config.ConfigManager;
+import net.minecraftforge.fml.client.event.ConfigChangedEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.relauncher.Side;
 
 /**
  * @author ZZZank
  */
 @Config(modid = Tags.MOD_ID, category = "client")
+@Mod.EventBusSubscriber(value = Side.CLIENT, modid = Tags.MOD_ID)
 @Config.RequiresMcRestart
 public class JEIAreaFixerConfig {
 
@@ -27,4 +33,12 @@ public class JEIAreaFixerConfig {
     public static boolean SmelteryIO$All = true;
     public static boolean SmelteryIO$FuelController = true;
     public static boolean SmelteryIO$CastingMachine = true;
+
+    @SubscribeEvent
+    public static void onConfigChanged(ConfigChangedEvent event) {
+        if (!Tags.MOD_ID.equals(event.getModID())) {
+            return;
+        }
+        ConfigManager.sync(Tags.MOD_ID, Config.Type.INSTANCE);
+    }
 }
