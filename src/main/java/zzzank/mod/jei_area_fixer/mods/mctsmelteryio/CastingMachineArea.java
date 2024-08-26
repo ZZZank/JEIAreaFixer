@@ -1,7 +1,7 @@
 package zzzank.mod.jei_area_fixer.mods.mctsmelteryio;
 
 import mctmods.smelteryio.tileentity.gui.GuiCM;
-import mezz.jei.api.gui.IAdvancedGuiHandler;
+import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -12,17 +12,15 @@ import java.util.List;
 /**
  * @author ZZZank
  */
-public class CastingMachineArea implements IAdvancedGuiHandler<GuiCM> {
+public class CastingMachineArea extends AbstractJEIAreaProvider<GuiCM> {
 
-    @Override
-    @Nonnull
-    public Class<GuiCM> getGuiContainerClass() {
-        return GuiCM.class;
+    public CastingMachineArea() {
+        super(GuiCM.class);
     }
 
     @Nullable
     @Override
-    public List<Rectangle> getGuiExtraAreas(GuiCM gui) {
+    public List<Rectangle> getExtraAreas(@Nonnull GuiCM gui) {
         //this.buttonEmptyTank = new GuiButton(0, this.guiLeft - 20, this.guiTop + this.ySize - 166, 20, 20, "") {
         //this.buttonLockSlots = new GuiButton(1, this.guiLeft - 20, this.guiTop + this.ySize - 146, 20, 20, "") {
         return Arrays.asList(

@@ -9,7 +9,6 @@ import net.minecraftforge.common.config.Config;
 @Config.RequiresMcRestart
 public class JEIAreaFixerConfig {
 
-    @Config.RequiresMcRestart
     public static boolean debug$print = false;
     public static boolean debug$drawing = false;
 
