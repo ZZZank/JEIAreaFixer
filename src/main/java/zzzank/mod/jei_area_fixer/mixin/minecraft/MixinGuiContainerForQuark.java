@@ -29,22 +29,22 @@ public abstract class MixinGuiContainerForQuark extends GuiScreen implements Qua
      * @see vazkii.quark.management.feature.ChestButtons
      */
     @Unique
-    private final List<GuiButtonChest> quarkButtons = new ArrayList<>(6);
+    private final List<GuiButtonChest> jeiAreaFixer$quarkButtons = new ArrayList<>(6);
 
     @Override
     public List<Rectangle> jei_area_fixer$getQuarkAreas() {
         if (!ConfigHandler.enableTabs || !ModState.QUARK) {
             return Collections.emptyList();
         }
-        if (this.quarkButtons.isEmpty()) {
+        if (this.jeiAreaFixer$quarkButtons.isEmpty()) {
             for (var b : this.buttonList) {
                 if (b instanceof GuiButtonChest button) {
-                    quarkButtons.add(button);
+                    jeiAreaFixer$quarkButtons.add(button);
                 }
             }
         }
-        var areas = new ArrayList<Rectangle>(quarkButtons.size());
-        for (var quarkButton : quarkButtons) {
+        var areas = new ArrayList<Rectangle>(jeiAreaFixer$quarkButtons.size());
+        for (var quarkButton : jeiAreaFixer$quarkButtons) {
             if (quarkButton.enabled) {
                 areas.add(JEIAreaFixer.rectFromButton(quarkButton));
             }

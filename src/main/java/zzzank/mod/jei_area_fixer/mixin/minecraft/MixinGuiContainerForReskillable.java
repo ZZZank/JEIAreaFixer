@@ -27,22 +27,22 @@ public abstract class MixinGuiContainerForReskillable extends GuiScreen implemen
      * there are currently at most 3 buttons
      */
     @Unique
-    private final List<GuiButtonInventoryTab> reskillableButtons = new ArrayList<>(3 + 1);
+    private final List<GuiButtonInventoryTab> jeiAreaFixer$reskillableButtons = new ArrayList<>(3 + 1);
 
     @Override
     public List<Rectangle> jei_area_fixer$getReskillableAreas() {
         if (!ConfigHandler.enableTabs || !ModState.RESKILLABLE) {
             return Collections.emptyList();
         }
-        if (this.reskillableButtons.isEmpty()) {
+        if (this.jeiAreaFixer$reskillableButtons.isEmpty()) {
             for (GuiButton b : this.buttonList) {
                 if (b instanceof GuiButtonInventoryTab button) {
-                    reskillableButtons.add(button);
+                    jeiAreaFixer$reskillableButtons.add(button);
                 }
             }
         }
-        var areas = new ArrayList<Rectangle>(reskillableButtons.size());
-        for (var reskillableButton : reskillableButtons) {
+        var areas = new ArrayList<Rectangle>(jeiAreaFixer$reskillableButtons.size());
+        for (var reskillableButton : jeiAreaFixer$reskillableButtons) {
             if (reskillableButton.enabled) {
                 areas.add(JEIAreaFixer.rectFromButton(reskillableButton));
             }
