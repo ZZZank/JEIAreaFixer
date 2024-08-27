@@ -12,6 +12,7 @@ public interface ModState {
     boolean GAMBLING_STYLE = loaded("gamblingstyle");
     boolean OPEN_MODS_LIB = loaded("openmods");
     boolean SMELTERY_IO = loaded("mctsmelteryio");
+    boolean RESKILLABLE = loaded("reskillable");
 
     static boolean loaded(String modid) {
         return Loader.isModLoaded(modid);

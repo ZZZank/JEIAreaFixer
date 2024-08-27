@@ -36,6 +36,8 @@ public class JEIAreaFixerConfig {
     @Config.Comment("For mods made by OpenMods, e.g. OpenBlocks")
     public static boolean OpenMods$All = true;
 
+    public static boolean Reskillable$Tabs = true;
+
     public static boolean SmelteryIO$All = true;
     public static boolean SmelteryIO$FuelController = true;
     public static boolean SmelteryIO$CastingMachine = true;
