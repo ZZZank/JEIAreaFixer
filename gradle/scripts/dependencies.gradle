@@ -69,6 +69,9 @@ dependencies {
     //MCTSmelteryIO-1.12.2-1.2.63
     compileOnly(rfg.deobf(files("./gradle/local_libs/MCTSmelteryIO-1.12.2-1.2.63.jar")))
 
+    //[Reskillable-1.12.2-1.13.0](https://www.curseforge.com/minecraft/mc-mods/reskillable/files/2815686)
+    compileOnly(rfg.deobf("curse.maven:reskillable-286382:2815686"))
+
 
     // Example - Dependency descriptor:
     // 'com.google.code.gson:gson:2.8.6' << group: com.google.code.gson, name:gson, version:2.8.6
