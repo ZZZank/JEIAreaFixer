@@ -3,6 +3,8 @@ package zzzank.mod.jei_area_fixer;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.IModRegistry;
 import mezz.jei.api.JEIPlugin;
+import net.minecraftforge.common.MinecraftForge;
+import zzzank.mod.jei_area_fixer.mods.GeneralButtonsArea;
 import zzzank.mod.jei_area_fixer.mods.ModState;
 import zzzank.mod.jei_area_fixer.mods.gamblingstyle.GuiVillagerArea;
 import zzzank.mod.jei_area_fixer.mods.mctsmelteryio.CastingMachineArea;
@@ -25,6 +27,11 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
 
     @Override
     public void register(@Nonnull IModRegistry registry) {
+        if (General$Buttons) {
+            var buttonsArea = new GeneralButtonsArea();
+            registry.addAdvancedGuiHandlers(buttonsArea);
+            MinecraftForge.EVENT_BUS.register(buttonsArea);
+        }
         if (ModState.X_NET && XNet$All) {
             if (XNet$Controller) {
                 registry.addAdvancedGuiHandlers(new XNetControllerArea());

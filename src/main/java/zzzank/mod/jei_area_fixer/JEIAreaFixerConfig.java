@@ -20,6 +20,8 @@ public class JEIAreaFixerConfig {
     @Config.Ignore
     public static boolean debug$drawing = false;
 
+    public static boolean General$Buttons = true;
+
     public static boolean XNet$All = true;
     public static boolean XNet$Controller = true;
     public static boolean XNet$Router = true;

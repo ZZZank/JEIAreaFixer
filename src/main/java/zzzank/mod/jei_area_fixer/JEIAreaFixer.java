@@ -1,7 +1,9 @@
 package zzzank.mod.jei_area_fixer;
 
+import net.minecraft.client.gui.GuiButton;
 import net.minecraftforge.fml.common.Mod;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.awt.*;
 import java.util.Collections;
@@ -25,5 +27,9 @@ public class JEIAreaFixer {
     @Nullable
     public static List<Rectangle> nullableWrap(@Nullable Rectangle rectangle) {
         return rectangle == null ? null : Collections.singletonList(rectangle);
+    }
+
+    public static Rectangle rectFromButton(@Nonnull GuiButton button) {
+        return new Rectangle(button.x, button.y, button.width, button.height);
     }
 }
