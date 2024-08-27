@@ -13,6 +13,7 @@ public interface ModState {
     boolean OPEN_MODS_LIB = loaded("openmods");
     boolean SMELTERY_IO = loaded("mctsmelteryio");
     boolean RESKILLABLE = loaded("reskillable");
+    boolean QUARK = loaded("quark");
 
     static boolean loaded(String modid) {
         return Loader.isModLoaded(modid);
