@@ -52,12 +52,13 @@ public class GeneralButtonsArea extends AbstractJEIAreaProvider<GuiContainer> {
         var currTime = System.currentTimeMillis();
         var lastTime = timestamps.put(gui.getClass(), currTime);
         if (currTime - lastTime > INTERVAL) {
-            buttons.clear();
             return Collections.emptyList();
         }
         var bounds = new ArrayList<Rectangle>(buttons.size());
         for (var button : buttons) {
-            bounds.add(JEIAreaFixer.rectFromButton(button));
+            if (button.visible || button.enabled) { // not a good idea, but SOME mod devs are not using these two options correctly
+                bounds.add(JEIAreaFixer.rectFromButton(button));
+            }
         }
         return bounds;
     }
