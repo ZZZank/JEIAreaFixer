@@ -20,7 +20,8 @@ public class JEIAreaFixerConfig {
     @Config.Ignore
     public static boolean debug$drawing = false;
 
-    public static boolean General$Buttons = true;
+    @Config.Comment("Disabled by default because many many mod devs are not drawing buttons in a standard way")
+    public static boolean General$Buttons = false;
 
     public static boolean XNet$All = true;
     public static boolean XNet$Controller = true;
