@@ -8,7 +8,6 @@
 	"mixins": [],
 	"server": [],
 	"client": [
-		"MixinGuiContainerForQuark",
-		"MixinGuiContainerForReskillable"
+		"MixinGuiContainer"
 	]
 }
