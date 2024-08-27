@@ -1,6 +1,7 @@
 package zzzank.mod.jei_area_fixer.debug;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
+import zzzank.mod.jei_area_fixer.JEIAreaFixerConfig;
 
 import java.awt.*;
 import java.util.IdentityHashMap;
@@ -31,6 +32,8 @@ public final class JEIAreaFixerDebug {
         if (bounds == null) {
             return;
         }
-        boundsMap.put(target, bounds);
+        if (JEIAreaFixerConfig.debug$print || JEIAreaFixerConfig.debug$drawing) {
+            boundsMap.put(target, bounds);
+        }
     }
 }
