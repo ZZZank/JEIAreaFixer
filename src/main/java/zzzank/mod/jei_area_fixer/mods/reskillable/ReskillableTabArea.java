@@ -1,11 +1,19 @@
 package zzzank.mod.jei_area_fixer.mods.reskillable;
 
+import codersafterdark.reskillable.base.ConfigHandler;
+import codersafterdark.reskillable.client.gui.button.GuiButtonInventoryTab;
+import com.google.common.collect.ImmutableList;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;
+import zzzank.mod.jei_area_fixer.JEIAreaFixer;
+import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsCacheIndexes;
+import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsCacheProvider;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -20,6 +28,27 @@ public class ReskillableTabArea extends AbstractJEIAreaProvider<GuiContainer> {
     @Nullable
     @Override
     public List<Rectangle> getExtraAreas(@Nonnull GuiContainer gui) {
-        return  ((ReskillableAreasProvider) gui).jei_area_fixer$getReskillableAreas();
+        if (!ConfigHandler.enableTabs) {
+            return Collections.emptyList();
+        }
+        var access = ((ButtonsCacheProvider) gui);
+
+        var cache = access
+            .jeiAreaFixer$getCache()
+            .computeIfAbsent(ButtonsCacheIndexes.RESKILLABLE, k ->
+                access.jeiAreaFixer$getButtonList()
+                    .stream()
+                    .filter(b -> b instanceof GuiButtonInventoryTab)
+                    .map(b -> (GuiButtonInventoryTab) b)
+                    .collect(ImmutableList.toImmutableList())
+            );
+
+        var areas = new ArrayList<Rectangle>(cache.size());
+        for (var reskillableButton : cache) {
+            if (reskillableButton.enabled) {
+                areas.add(JEIAreaFixer.rectFromButton(reskillableButton));
+            }
+        }
+        return areas;
     }
 }
