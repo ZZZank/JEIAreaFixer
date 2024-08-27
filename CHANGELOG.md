@@ -11,7 +11,7 @@ Config++ & Quark and SmelteryIO and Reskillable support
 - config for this mod is rewritten now, allowing you to toggle patches at both block level and mod level
     - e.g. for XNet, you can now disable patch for `Controller` block, while keeping patch for `Router` block
     - Changing values of normal config entries(that is, all config entries other than `debug$print`) requires MC restart, which is somehow not shown in config menu
-    - remember to DELETE old config file
+    - remember to DELETE old config file so that options from old and new configs will not mix together
 - fix config not saving
 - added a debug option that can print extra JEI areas into logs
 
@@ -19,7 +19,7 @@ Config++ & Quark and SmelteryIO and Reskillable support
 
 Rebranding & OpenMods support
 
-- Rebrand to JETAreaFixer
+- Rebrand to JEIAreaFixer
 - Supports mods made by OpenMods, e.g. OpenBlocks
 
 ## BookmarkAreaFixer 1.0.0 -> 1.1.0
