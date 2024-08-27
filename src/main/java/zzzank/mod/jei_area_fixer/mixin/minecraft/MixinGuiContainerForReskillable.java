@@ -41,7 +41,7 @@ public abstract class MixinGuiContainerForReskillable extends GuiScreen implemen
                 }
             }
         }
-        ArrayList<Rectangle> areas = new ArrayList<>(reskillableButtons.size());
+        var areas = new ArrayList<Rectangle>(reskillableButtons.size());
         for (var reskillableButton : reskillableButtons) {
             if (reskillableButton.enabled) {
                 areas.add(JEIAreaFixer.rectFromButton(reskillableButton));

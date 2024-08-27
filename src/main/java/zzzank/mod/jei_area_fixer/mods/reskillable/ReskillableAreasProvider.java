@@ -4,6 +4,7 @@ import java.awt.*;
 import java.util.List;
 
 /**
+ * using a different name to prevent conflicts with {@link zzzank.mod.jei_area_fixer.JEIAreaProvider}
  * @author ZZZank
  */
 public interface ReskillableAreasProvider {

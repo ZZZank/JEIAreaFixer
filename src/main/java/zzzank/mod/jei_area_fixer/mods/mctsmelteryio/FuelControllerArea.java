@@ -21,6 +21,7 @@ public class FuelControllerArea extends AbstractJEIAreaProvider<GuiFC> {
     @Nullable
     @Override
     public List<Rectangle> getExtraAreas(@Nonnull GuiFC gui) {
+        //this.drawTexturedModalRect(this.guiLeft - 110, this.guiTop, 146, 170, 110, 60);
         return Collections.singletonList(
             new Rectangle(
                 gui.getGuiLeft() - 110,

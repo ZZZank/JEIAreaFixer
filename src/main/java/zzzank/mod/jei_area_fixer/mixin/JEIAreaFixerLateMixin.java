@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
  * @author ZZZank
  */
 public class JEIAreaFixerLateMixin implements ILateMixinLoader {
+
     @Override
     public List<String> getMixinConfigs() {
         return Arrays
