@@ -8,6 +8,6 @@
 	"mixins": [],
 	"server": [],
 	"client": [
-		"AccessGuiController"
+      "MixinGuiController"
 	]
 }
