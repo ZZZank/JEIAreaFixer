@@ -14,6 +14,7 @@ public interface ModState {
     boolean SMELTERY_IO = loaded("mctsmelteryio");
     boolean RESKILLABLE = loaded("reskillable");
     boolean QUARK = loaded("quark");
+    boolean FORESTRY = loaded("forestry");
 
     static boolean loaded(String modid) {
         return Loader.isModLoaded(modid);
