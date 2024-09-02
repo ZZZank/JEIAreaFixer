@@ -6,7 +6,6 @@ import mezz.jei.api.JEIPlugin;
 import net.minecraftforge.common.MinecraftForge;
 import zzzank.mod.jei_area_fixer.mods.GeneralButtonsArea;
 import zzzank.mod.jei_area_fixer.mods.ModState;
-import zzzank.mod.jei_area_fixer.mods.forestry.ForestryLeftTabsArea;
 import zzzank.mod.jei_area_fixer.mods.gamblingstyle.GuiVillagerArea;
 import zzzank.mod.jei_area_fixer.mods.mctsmelteryio.CastingMachineArea;
 import zzzank.mod.jei_area_fixer.mods.mctsmelteryio.FuelControllerArea;
@@ -73,11 +72,6 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
         if (ModState.QUARK) {
             if (Quark$ChestButtons) {
                 registry.addAdvancedGuiHandlers(new ChestButtonsArea());
-            }
-        }
-        if (ModState.FORESTRY) {
-            if (Forestry$Tabs) {
-                registry.addAdvancedGuiHandlers(new ForestryLeftTabsArea());
             }
         }
     }

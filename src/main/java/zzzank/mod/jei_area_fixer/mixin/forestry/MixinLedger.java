@@ -18,7 +18,7 @@ import java.awt.*;
  *
  * @author ZZZank
  */
-@Mixin(Ledger.class)
+@Mixin(value = Ledger.class, remap = false)
 public abstract class MixinLedger {
 
     @Shadow
