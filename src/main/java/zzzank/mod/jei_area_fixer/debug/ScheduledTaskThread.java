@@ -11,7 +11,7 @@ public class ScheduledTaskThread extends Thread {
     private final Runnable task;
 
     public ScheduledTaskThread(long intervalMilliseconds, Runnable task) {
-        super(Tags.MOD_ID + " scheduled print");
+        super(Tags.MOD_ID + " scheduled task");
         this.interval = intervalMilliseconds;
         this.task = task;
     }

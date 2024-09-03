@@ -54,7 +54,7 @@ public class JEIAreaFixerDebugAction {
         if (joiner.length() == 0) {
             return;
         }
-        System.out.println("debug output from" + Tags.MOD_NAME + "\n" + joiner);
+        System.out.println("debug output from " + Tags.MOD_NAME + "\n" + joiner);
     }
 
     @SubscribeEvent
