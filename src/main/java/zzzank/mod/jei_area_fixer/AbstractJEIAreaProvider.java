@@ -27,6 +27,7 @@ public abstract class AbstractJEIAreaProvider<T extends GuiContainer> implements
         return target;
     }
 
+    @Deprecated
     @Nullable
     @Override
     public final List<Rectangle> getGuiExtraAreas(@Nonnull T gui) {

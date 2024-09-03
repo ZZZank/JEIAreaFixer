@@ -69,7 +69,7 @@ public class JEIAreaFixerDebugAction {
         }
         for (var bound : bounds) {
             GuiUtils.drawGradientRect(
-                Integer.MAX_VALUE,
+                0,
                 bound.x,
                 bound.y,
                 bound.x + bound.width,

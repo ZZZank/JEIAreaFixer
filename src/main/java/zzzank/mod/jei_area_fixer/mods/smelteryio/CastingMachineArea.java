@@ -1,4 +1,4 @@
-package zzzank.mod.jei_area_fixer.mods.mctsmelteryio;
+package zzzank.mod.jei_area_fixer.mods.smelteryio;
 
 import mctmods.smelteryio.tileentity.gui.GuiCM;
 import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;
