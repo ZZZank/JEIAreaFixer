@@ -17,8 +17,6 @@ import zzzank.mod.jei_area_fixer.mods.quark.ChestButtonsArea;
 import zzzank.mod.jei_area_fixer.mods.reskillable.ReskillableTabArea;
 import zzzank.mod.jei_area_fixer.mods.rftools.ModularStorageArea;
 import zzzank.mod.jei_area_fixer.mods.rftools.StorageScannerArea;
-import zzzank.mod.jei_area_fixer.mods.xnet.XNetControllerArea;
-import zzzank.mod.jei_area_fixer.mods.xnet.XNetRouterArea;
 
 import javax.annotation.Nonnull;
 
@@ -36,14 +34,6 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
             var buttonsArea = new GeneralButtonsArea();
             registry.addAdvancedGuiHandlers(buttonsArea);
             MinecraftForge.EVENT_BUS.register(buttonsArea);
-        }
-        if (ModState.X_NET && XNet$All) {
-            if (XNet$Controller) {
-                registry.addAdvancedGuiHandlers(new XNetControllerArea());
-            }
-            if (XNet$Router) {
-                registry.addAdvancedGuiHandlers(new XNetRouterArea());
-            }
         }
         if (ModState.RF_TOOLS && RFTools$All) {
             if (RFTools$ModularStorage) {
