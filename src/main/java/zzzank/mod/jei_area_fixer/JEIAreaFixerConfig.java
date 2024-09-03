@@ -32,13 +32,6 @@ public class JEIAreaFixerConfig {
     public static boolean Forestry$Tabs = true;
 
     @Config.RequiresMcRestart
-    public static boolean XNet$All = true;
-    @Config.RequiresMcRestart
-    public static boolean XNet$Controller = true;
-    @Config.RequiresMcRestart
-    public static boolean XNet$Router = true;
-
-    @Config.RequiresMcRestart
     public static boolean RFTools$All = true;
     @Config.RequiresMcRestart
     public static boolean RFTools$ModularStorage = true;
