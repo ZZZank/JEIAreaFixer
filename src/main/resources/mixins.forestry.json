@@ -8,6 +8,8 @@
 	"mixins": [],
 	"server": [],
 	"client": [
+		"AccessGuiForestry",
+		"AccessLedgerManager",
 		"MixinLedger"
 	]
 }

@@ -43,14 +43,15 @@ public abstract class MixinLedger {
 
     @Inject(method = "getArea", at = @At("HEAD"), cancellable = true)
     public void fixLeftLedgerArea(CallbackInfoReturnable<Rectangle> cir) {
-        if (!jeiAreaFixer$atRight) {
-            final var gui = this.manager.gui;
-            cir.setReturnValue(new Rectangle(
-                gui.getGuiLeft() + this.x - gui.width - (int) this.currentWidth,
-                gui.getGuiTop() + this.y,
-                (int) this.currentWidth,
-                (int) this.currentHeight
-            ));
+        if (jeiAreaFixer$atRight) {
+            return;
         }
+        final var gui = this.manager.gui;
+        cir.setReturnValue(new Rectangle(
+            gui.getGuiLeft() + this.x - (int) this.currentWidth,
+            gui.getGuiTop() + this.y,
+            (int) this.currentWidth,
+            (int) this.currentHeight
+        ));
     }
 }
