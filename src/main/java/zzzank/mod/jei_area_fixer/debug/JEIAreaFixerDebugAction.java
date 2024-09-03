@@ -1,8 +1,8 @@
 package zzzank.mod.jei_area_fixer.debug;
 
+import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraftforge.client.event.GuiContainerEvent;
-import net.minecraftforge.fml.client.config.GuiUtils;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
@@ -68,13 +68,11 @@ public class JEIAreaFixerDebugAction {
             return;
         }
         for (var bound : bounds) {
-            GuiUtils.drawGradientRect(
-                0,
+            Gui.drawRect(
                 bound.x,
                 bound.y,
                 bound.x + bound.width,
                 bound.y + bound.height,
-                0xff4169e1,
                 0xff4169e1
             );
         }

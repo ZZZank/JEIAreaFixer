@@ -16,7 +16,6 @@ public class JEIAreaFixerConfig {
 
     @Config.Comment("print changed bounds to log every few seconds")
     public static boolean debug$print = false;
-    @Config.Ignore
     public static boolean debug$drawing = false;
 
     @Config.RequiresMcRestart
