@@ -52,6 +52,7 @@ public class GeneralButtonsArea extends AbstractJEIAreaProvider<GuiContainer> {
         var currTime = System.currentTimeMillis();
         var lastTime = timestamps.put(gui.getClass(), currTime);
         if (currTime - lastTime > INTERVAL) {
+            buttonsMap.remove(gui.getClass());
             return Collections.emptyList();
         }
         var bounds = new ArrayList<Rectangle>(buttons.size());
