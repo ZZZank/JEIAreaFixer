@@ -24,19 +24,10 @@ public class ForestryLedgersArea extends AbstractJEIAreaProvider<GuiForestry<?>>
         var errorLedgers = ((LedgerManagerAccessor) ledgerManager).get$errorLedgers();
 
         var areas = new ArrayList<Rectangle>(errorLedgers.size());
-        /*
-         * dirty hacks to force areas to be placed to a correct place
-         */
-        var fixedY = -1;
 
         for (var ledger : errorLedgers) {
             if (ledger.isVisible()) {
-                var area = ledger.getArea();
-                if (fixedY >= 0) {
-                    area.y = fixedY;
-                }
-                fixedY = area.y + area.height;
-                areas.add(area);
+                areas.add(ledger.getArea());
             }
         }
         return areas;

@@ -2,7 +2,6 @@ package zzzank.mod.jei_area_fixer.mixin.forestry;
 
 import forestry.core.gui.ledgers.Ledger;
 import forestry.core.gui.ledgers.LedgerManager;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -15,6 +14,8 @@ import java.awt.*;
 
 /**
  * fix stupid Ledger area calculation ignoring left side situation
+ * <p>
+ * see {@link LedgerManager#getAtPosition(int, int)} for why using {@link Ledger#currentShiftX} and {@link Ledger#currentShiftY}
  *
  * @author ZZZank
  */
@@ -22,19 +23,21 @@ import java.awt.*;
 public abstract class MixinLedger {
 
     @Shadow
-    @Final
-    protected LedgerManager manager;
+    public int currentShiftY;
     @Shadow
-    protected float currentWidth;
-    @Shadow
-    protected float currentHeight;
+    public int currentShiftX;
     @Shadow
     private int x;
     @Shadow
     private int y;
-
     @Unique
     private boolean jeiAreaFixer$atRight;
+
+    @Shadow
+    public abstract int getWidth();
+
+    @Shadow
+    public abstract int getHeight();
 
     @Inject(method = "<init>(Lforestry/core/gui/ledgers/LedgerManager;Ljava/lang/String;Z)V", at = @At("RETURN"))
     public void captureVariable(LedgerManager manager, String name, boolean rightSide, CallbackInfo ci) {
@@ -46,12 +49,11 @@ public abstract class MixinLedger {
         if (jeiAreaFixer$atRight) {
             return;
         }
-        final var gui = this.manager.gui;
         cir.setReturnValue(new Rectangle(
-            gui.getGuiLeft() + this.x - (int) this.currentWidth,
-            gui.getGuiTop() + this.y,
-            (int) this.currentWidth,
-            (int) this.currentHeight
+            this.x + this.currentShiftX,
+            this.y + this.currentShiftY,
+            this.getWidth(),
+            this.getHeight()
         ));
     }
 }
