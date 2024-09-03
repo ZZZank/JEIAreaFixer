@@ -74,7 +74,7 @@ public class JEIAreaFixerDebugAction {
                 bound.y - guiContainer.getGuiTop(),
                 bound.x + bound.width - guiContainer.getGuiLeft(),
                 bound.y + bound.height - guiContainer.getGuiTop(),
-                0xff4169e1
+                0x7f4169e1
             );
         }
     }
