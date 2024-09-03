@@ -4,9 +4,9 @@ import net.minecraft.client.gui.inventory.GuiContainer;
 import zzzank.mod.jei_area_fixer.JEIAreaFixerConfig;
 
 import java.awt.*;
-import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @author ZZZank
@@ -19,7 +19,7 @@ public final class JEIAreaFixerDebug {
      */
     public static final long INTERVAL = 3000;
 
-    static final Map<Class<? extends GuiContainer>, List<Rectangle>> boundsMap = new IdentityHashMap<>();
+    static final Map<Class<? extends GuiContainer>, List<Rectangle>> boundsMap = new ConcurrentHashMap<>();
     public static final ScheduledTaskThread messageSender =
         new ScheduledTaskThread(INTERVAL, JEIAreaFixerDebugAction::print);
 
