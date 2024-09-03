@@ -9,6 +9,7 @@ import zzzank.mod.jei_area_fixer.mods.ModState;
 import zzzank.mod.jei_area_fixer.mods.cyclic.ExtendedArmorInventoryArea;
 import zzzank.mod.jei_area_fixer.mods.forestry.ForestryLedgersArea;
 import zzzank.mod.jei_area_fixer.mods.gamblingstyle.GuiVillagerArea;
+import zzzank.mod.jei_area_fixer.mods.mcjtylib.GenericGuiContainerArea;
 import zzzank.mod.jei_area_fixer.mods.smelteryio.CastingMachineArea;
 import zzzank.mod.jei_area_fixer.mods.smelteryio.FuelControllerArea;
 import zzzank.mod.jei_area_fixer.mods.openmods.OpenModsSeriesGuiArea;
@@ -84,6 +85,11 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
         if (ModState.CYCLIC) {
             if (Cyclic$ExtendedInventory) {
                 registry.addAdvancedGuiHandlers(new ExtendedArmorInventoryArea());
+            }
+        }
+        if (ModState.MCJTY_LIB) {
+            if (McjtyLib$General) {
+                registry.addAdvancedGuiHandlers(new GenericGuiContainerArea());
             }
         }
     }

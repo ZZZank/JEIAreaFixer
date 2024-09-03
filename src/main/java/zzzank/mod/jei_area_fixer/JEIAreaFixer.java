@@ -32,4 +32,8 @@ public class JEIAreaFixer {
     public static Rectangle rectFromButton(@Nonnull GuiButton button) {
         return new Rectangle(button.x, button.y, button.width, button.height);
     }
+
+    public static <T> Class<T> cast(Class c) {
+        return c;
+    }
 }
