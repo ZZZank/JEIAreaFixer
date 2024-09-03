@@ -9,6 +9,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import zzzank.mod.jei_area_fixer.JEIAreaFixer;
 import zzzank.mod.jei_area_fixer.JEIAreaProvider;
 
+import javax.annotation.Nullable;
 import java.awt.*;
 import java.util.List;
 
@@ -21,6 +22,7 @@ public abstract class MixinGuiController extends GenericGuiContainer<TileEntityC
     @Shadow(remap = false)
     private WidgetList connectorList;
 
+    @Nullable
     @Override
     public List<Rectangle> jei_area_fixer$getAreas() {
         return JEIAreaFixer.nullableWrap(this.connectorList.getBounds());

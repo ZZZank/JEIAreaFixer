@@ -1,5 +1,6 @@
 package zzzank.mod.jei_area_fixer;
 
+import javax.annotation.Nullable;
 import java.awt.*;
 import java.util.List;
 
@@ -9,5 +10,6 @@ import java.util.List;
  */
 public interface JEIAreaProvider {
 
+    @Nullable
     List<Rectangle> jei_area_fixer$getAreas();
 }

@@ -6,6 +6,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import zzzank.mod.jei_area_fixer.JEIAreaProvider;
 
+import javax.annotation.Nullable;
 import java.awt.*;
 import java.util.Arrays;
 import java.util.List;
@@ -23,7 +24,7 @@ public abstract class MixinGuiCM implements JEIAreaProvider {
     private GuiButton buttonLockSlots;
 
     @Override
-    public List<Rectangle> jei_area_fixer$getAreas() {
+    public @Nullable List<Rectangle> jei_area_fixer$getAreas() {
         return Arrays.asList(
             new Rectangle(buttonEmptyTank.x, buttonEmptyTank.y, buttonEmptyTank.width, buttonEmptyTank.height),
             new Rectangle(buttonLockSlots.x, buttonLockSlots.y, buttonLockSlots.width, buttonLockSlots.height)
