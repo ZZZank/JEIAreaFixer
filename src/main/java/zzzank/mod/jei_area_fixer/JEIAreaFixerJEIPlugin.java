@@ -6,6 +6,7 @@ import mezz.jei.api.JEIPlugin;
 import net.minecraftforge.common.MinecraftForge;
 import zzzank.mod.jei_area_fixer.mods.GeneralButtonsArea;
 import zzzank.mod.jei_area_fixer.mods.ModState;
+import zzzank.mod.jei_area_fixer.mods.cyclic.ExtendedArmorInventoryArea;
 import zzzank.mod.jei_area_fixer.mods.forestry.ForestryLedgersArea;
 import zzzank.mod.jei_area_fixer.mods.gamblingstyle.GuiVillagerArea;
 import zzzank.mod.jei_area_fixer.mods.mctsmelteryio.CastingMachineArea;
@@ -78,6 +79,11 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
         if (ModState.FORESTRY) {
             if (Forestry$Tabs) {
                 registry.addAdvancedGuiHandlers(new ForestryLedgersArea());
+            }
+        }
+        if (ModState.CYCLIC) {
+            if (Cyclic$ExtendedInventory) {
+                registry.addAdvancedGuiHandlers(new ExtendedArmorInventoryArea());
             }
         }
     }

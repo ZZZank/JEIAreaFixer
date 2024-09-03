@@ -15,6 +15,7 @@ public interface ModState {
     boolean RESKILLABLE = loaded("reskillable");
     boolean QUARK = loaded("quark");
     boolean FORESTRY = loaded("forestry");
+    boolean CYCLIC = loaded("cyclicmagic");
 
     static boolean loaded(String modid) {
         return Loader.isModLoaded(modid);

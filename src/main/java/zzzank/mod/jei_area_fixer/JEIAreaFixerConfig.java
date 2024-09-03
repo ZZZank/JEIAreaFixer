@@ -24,6 +24,9 @@ public class JEIAreaFixerConfig {
     public static boolean General$Buttons = false;
 
     @Config.RequiresMcRestart
+    public static boolean Cyclic$ExtendedInventory = true;
+
+    @Config.RequiresMcRestart
     public static boolean Forestry$Tabs = true;
 
     @Config.RequiresMcRestart

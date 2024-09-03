@@ -75,6 +75,9 @@ dependencies {
     //[forestry_1.12.2-5.8.2.422](https://www.curseforge.com/minecraft/mc-mods/forestry/files/2918418)
     compileOnly(rfg.deobf("curse.maven:forestry-59751:2918418"))
 
+    //[Cyclic-1.12.2-1.20.14.jar](https://www.curseforge.com/minecraft/mc-mods/cyclic/files/4075832)
+    compileOnly(rfg.deobf("curse.maven:cyclic-239286:4075832"))
+
     // Example - Dependency descriptor:
     // 'com.google.code.gson:gson:2.8.6' << group: com.google.code.gson, name:gson, version:2.8.6
     // 'group:name:version:classifier' where classifier is optional
