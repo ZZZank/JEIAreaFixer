@@ -62,17 +62,18 @@ public class JEIAreaFixerDebugAction {
         if (!JEIAreaFixerConfig.debug$drawing) {
             return;
         }
-        var guiClass = event.getGuiContainer().getClass();
+        var guiContainer = event.getGuiContainer();
+        var guiClass = guiContainer.getClass();
         var bounds = JEIAreaFixerDebug.boundsMap.get(guiClass);
         if (bounds == null) {
             return;
         }
         for (var bound : bounds) {
             Gui.drawRect(
-                bound.x,
-                bound.y,
-                bound.x + bound.width,
-                bound.y + bound.height,
+                bound.x - guiContainer.getGuiLeft() ,
+                bound.y - guiContainer.getGuiTop(),
+                bound.x + bound.width - guiContainer.getGuiLeft(),
+                bound.y + bound.height - guiContainer.getGuiTop(),
                 0xff4169e1
             );
         }
