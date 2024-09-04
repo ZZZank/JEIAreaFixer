@@ -14,6 +14,8 @@ import net.minecraftforge.fml.relauncher.Side;
 @Mod.EventBusSubscriber(value = Side.CLIENT, modid = Tags.MOD_ID)
 public class JEIAreaFixerConfig {
 
+    private static final String LANG_PREFIX = "jei_area_fixer.config.";
+
     @Config.Comment("print changed bounds to log every few seconds")
     public static boolean debug$print = false;
     @Config.Comment("Draw areas provided by JEI Area Fixer onto the screen")

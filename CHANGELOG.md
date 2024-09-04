@@ -1,5 +1,20 @@
 # Changelog
 
+## JEIAreaFixer 1.3.1 -> 1.4.0
+
+Cyclic & Forestry & MCJtyLib support
+
+- now config options that do require game restart will be marked as `RequiresMcRestart`
+- more config comments
+- support for Forestry
+- support for Cyclic
+    - more precisely, the armor slots in extended player inventory
+- support for MCJtyLib
+    - support for XNet is removed because this patch contains XNet patch
+- a new debug option, which can directly draw areas onto the screen, providing a much more intuitive view
+- make output format of debug printing a little bit better
+- fix a rare case where debug print is not working due to `ConcurrentModificationException`
+
 ## JEIAreaFixer 1.2.0 -> 1.3.0
 
 Config++ & Quark and SmelteryIO and Reskillable support
