@@ -16,6 +16,11 @@ public interface ModState {
     boolean FORESTRY = loaded("forestry");
     boolean CYCLIC = loaded("cyclicmagic");
     boolean MCJTY_LIB = loaded("mcjtylib_ng");
+    boolean OPEN_COMPUTERS = loaded("opencomputers");
+    /**
+     * aka CC: Tweaked
+     */
+    boolean COMPUTER_CRAFT = loaded("computercraft");
 
     static boolean loaded(String modid) {
         return Loader.isModLoaded(modid);
