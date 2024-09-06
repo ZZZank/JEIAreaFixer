@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * @author ZZZank
  */
-public interface ButtonsCacheProvider {
+public interface ButtonsCacheHolder {
 
     Int2ObjectMap<List<GuiButton>> jeiAreaFixer$getCache();
 

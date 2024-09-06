@@ -2,6 +2,7 @@ package zzzank.mod.jei_area_fixer.mods.forestry;
 
 import forestry.core.gui.GuiForestry;
 import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;
+import zzzank.mod.jei_area_fixer.JEIAreaFixer;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -14,7 +15,7 @@ import java.util.List;
  */
 public class ForestryLedgersArea extends AbstractJEIAreaProvider<GuiForestry<?>> {
     public ForestryLedgersArea() {
-        super((Class<GuiForestry<?>>) (Object) GuiForestry.class);
+        super(JEIAreaFixer.cast(GuiForestry.class));
     }
 
     @Nullable

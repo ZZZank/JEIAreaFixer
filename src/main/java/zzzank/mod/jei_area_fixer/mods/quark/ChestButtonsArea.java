@@ -6,7 +6,7 @@ import vazkii.quark.management.client.gui.GuiButtonChest;
 import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;
 import zzzank.mod.jei_area_fixer.JEIAreaFixer;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsCacheIndexes;
-import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsCacheProvider;
+import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsCacheHolder;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -26,7 +26,7 @@ public class ChestButtonsArea extends AbstractJEIAreaProvider<GuiContainer> {
     @Nullable
     @Override
     public List<Rectangle> getExtraAreas(@Nonnull GuiContainer gui) {
-        var access = ((ButtonsCacheProvider) gui);
+        var access = ((ButtonsCacheHolder) gui);
 
         var cache = access
             .jeiAreaFixer$getCache()

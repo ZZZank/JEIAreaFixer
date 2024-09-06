@@ -7,7 +7,7 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
-import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsCacheProvider;
+import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsCacheHolder;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ import java.util.List;
  * @author ZZZank
  */
 @Mixin(GuiContainer.class)
-public abstract class MixinGuiContainer extends GuiScreen implements ButtonsCacheProvider {
+public abstract class MixinGuiContainer extends GuiScreen implements ButtonsCacheHolder {
 
     /**
      * caching buttons to prevent button lookup at every render request

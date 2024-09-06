@@ -7,7 +7,7 @@ import net.minecraft.client.gui.inventory.GuiContainer;
 import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;
 import zzzank.mod.jei_area_fixer.JEIAreaFixer;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsCacheIndexes;
-import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsCacheProvider;
+import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsCacheHolder;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -31,7 +31,7 @@ public class ReskillableTabArea extends AbstractJEIAreaProvider<GuiContainer> {
         if (!ConfigHandler.enableTabs) {
             return Collections.emptyList();
         }
-        var access = ((ButtonsCacheProvider) gui);
+        var access = ((ButtonsCacheHolder) gui);
 
         var cache = access
             .jeiAreaFixer$getCache()
