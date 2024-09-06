@@ -29,14 +29,12 @@ public class ComputerScreenArea extends AbstractJEIAreaProvider<GuiComputer> {
         final var terminal = ((GuiComputerAccessor) gui).get$terminal();
         final int startX = (gui.width - terminal.getWidth()) / 2;
         final int startY = (gui.height - terminal.getHeight()) / 2;
-        final int endX = startX + terminal.getWidth();
-        final int endY = startY + terminal.getHeight();
         return Collections.singletonList(
             new Rectangle(
                 startX - BORDER_WIDTH,
                 startY - BORDER_WIDTH,
-                endX - startX + BORDER_WIDTH * 2,
-                endY - startY + BORDER_WIDTH * 2
+                gui.getXSize(),
+                gui.getYSize()
             )
         );
     }
