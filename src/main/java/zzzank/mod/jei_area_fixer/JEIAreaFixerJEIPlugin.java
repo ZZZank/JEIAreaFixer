@@ -6,6 +6,7 @@ import mezz.jei.api.JEIPlugin;
 import net.minecraftforge.common.MinecraftForge;
 import zzzank.mod.jei_area_fixer.mods.GeneralButtonsArea;
 import zzzank.mod.jei_area_fixer.mods.ModState;
+import zzzank.mod.jei_area_fixer.mods.computercraft.ComputerScreenArea;
 import zzzank.mod.jei_area_fixer.mods.cyclic.ExtendedArmorInventoryArea;
 import zzzank.mod.jei_area_fixer.mods.forestry.ForestryLedgersArea;
 import zzzank.mod.jei_area_fixer.mods.gamblingstyle.GuiVillagerArea;
@@ -80,6 +81,11 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
         if (ModState.MCJTY_LIB) {
             if (McjtyLib$General) {
                 registry.addAdvancedGuiHandlers(new GenericGuiContainerArea());
+            }
+        }
+        if (ModState.COMPUTER_CRAFT) {
+            if (ComputerCraft$Computer) {
+                registry.addAdvancedGuiHandlers(new ComputerScreenArea());
             }
         }
     }

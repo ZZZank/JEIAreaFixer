@@ -22,6 +22,10 @@ public class JEIAreaFixerConfig {
     public static boolean debug$drawing = false;
 
     @Config.RequiresMcRestart
+    @Config.Comment("Support for Computer screen")
+    public static boolean ComputerCraft$Computer = true;
+
+    @Config.RequiresMcRestart
     @Config.Comment("Disabled by default because many, many mod devs are not drawing buttons in a standard way")
     public static boolean General$Buttons = false;
 
