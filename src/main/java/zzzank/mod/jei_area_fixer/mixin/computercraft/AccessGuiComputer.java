@@ -9,7 +9,7 @@ import zzzank.mod.jei_area_fixer.mods.computercraft.GuiComputerAccessor;
 /**
  * @author ZZZank
  */
-@Mixin(GuiComputer.class)
+@Mixin(value = GuiComputer.class, remap = false)
 public interface AccessGuiComputer extends GuiComputerAccessor {
 
     @Override
