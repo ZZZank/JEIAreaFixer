@@ -2,7 +2,7 @@ package zzzank.mod.jei_area_fixer.debug;
 
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraftforge.client.event.GuiContainerEvent;
+import net.minecraftforge.client.event.GuiScreenEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
@@ -58,11 +58,10 @@ public class JEIAreaFixerDebugAction {
     }
 
     @SubscribeEvent
-    public static void drawing(GuiContainerEvent.DrawForeground event) {
-        if (!JEIAreaFixerConfig.debug$drawing) {
+    public static void drawing(GuiScreenEvent.DrawScreenEvent.Post event) {
+        if (!JEIAreaFixerConfig.debug$drawing || !(event.getGui() instanceof GuiContainer guiContainer)) {
             return;
         }
-        var guiContainer = event.getGuiContainer();
         var guiClass = guiContainer.getClass();
         for (var e : JEIAreaFixerDebug.boundsMap.entrySet()) {
             if (!e.getKey().isAssignableFrom(guiClass)) {
@@ -71,10 +70,10 @@ public class JEIAreaFixerDebugAction {
             var bounds = e.getValue();
             for (var bound : bounds) {
                 Gui.drawRect(
-                    bound.x - guiContainer.getGuiLeft(),
-                    bound.y - guiContainer.getGuiTop(),
-                    bound.x + bound.width - guiContainer.getGuiLeft(),
-                    bound.y + bound.height - guiContainer.getGuiTop(),
+                    bound.x,
+                    bound.y,
+                    bound.x + bound.width,
+                    bound.y + bound.height,
                     0x7f4169e1
                 );
             }
