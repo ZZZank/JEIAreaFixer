@@ -164,7 +164,8 @@ if (propertyBool('use_access_transformer')) {
 processResources {
 
     def filterList = ['mcmod.info', 'pack.mcmeta']
-    filterList.addAll(propertyStringList('mixin_configs').collect(config -> "mixins.${config}.json" as String))
+    def mixinCfgFormat = propertyString('mixin_config_format')
+    filterList.addAll(propertyStringList('mixin_configs').collect(config -> String.format(mixinCfgFormat, config)))
 
     filesMatching(filterList) { fcd ->
         fcd.expand(
