@@ -4,6 +4,7 @@ import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraftforge.client.event.GuiScreenEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import zzzank.mod.jei_area_fixer.JEIAreaFixerConfig;
@@ -43,13 +44,11 @@ public class JEIAreaFixerDebugAction {
                 e.getKey(),
                 e.getValue()
                     .stream()
-                    .map(bound -> new StringBuilder(40)
-                        .append("[x: ").append(bound.x)
-                        .append(", y: ").append(bound.y)
-                        .append(", width: ").append(bound.width)
-                        .append(", height: ").append(bound.height)
-                        .append("]")
-                        .toString())
+                    .map(bound -> "[x: " + bound.x
+                        + ", y: " + bound.y
+                        + ", width: " + bound.width
+                        + ", height: " + bound.height
+                        + "]")
                     .collect(Collectors.joining(", "))
             ));
         }
@@ -70,15 +69,19 @@ public class JEIAreaFixerDebugAction {
         return bounds;
     }
 
-    @SubscribeEvent
+    /**
+     * lowest priority to make it at the front
+     */
+    @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void drawing(GuiScreenEvent.DrawScreenEvent.Post event) {
         if (!JEIAreaFixerConfig.debug$drawing || !(event.getGui() instanceof GuiContainer guiContainer)) {
             return;
         }
         if (!JEIAreaFixerConfig.debug$drawAll) {
+            //if the config is enabled, we won't need to collect it by ourselves
             capturedAreas = collectActiveBounds(guiContainer.getClass());
         }
-        for (Rectangle area : capturedAreas) {
+        for (var area : capturedAreas) {
             Gui.drawRect(
                 area.x,
                 area.y,
