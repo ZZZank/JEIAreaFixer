@@ -10,10 +10,8 @@ import zzzank.mod.jei_area_fixer.JEIAreaFixerConfig;
 import zzzank.mod.jei_area_fixer.Tags;
 
 import java.awt.*;
-import java.util.IdentityHashMap;
+import java.util.*;
 import java.util.List;
-import java.util.Map;
-import java.util.StringJoiner;
 import java.util.stream.Collectors;
 
 /**
@@ -23,6 +21,10 @@ import java.util.stream.Collectors;
 public class JEIAreaFixerDebugAction {
 
     private static final Map<Class<? extends GuiContainer>, List<Rectangle>> lastBounds = new IdentityHashMap<>();
+    /**
+     * a collection of jei areas that will then be used for `debug$drawing`
+     */
+    public static Collection<Rectangle> capturedAreas = null;
 
     public static void print() {
         if (!JEIAreaFixerConfig.debug$print || JEIAreaFixerDebug.boundsMap.isEmpty()) {
@@ -57,26 +59,33 @@ public class JEIAreaFixerDebugAction {
         System.out.println("debug output from " + Tags.MOD_NAME + "\n" + joiner);
     }
 
+    public static ArrayList<Rectangle> collectActiveBounds(Class<? extends GuiContainer> target) {
+        var bounds = new ArrayList<Rectangle>();
+        for (var e : JEIAreaFixerDebug.boundsMap.entrySet()) {
+            if (!e.getKey().isAssignableFrom(target)) {
+                continue;
+            }
+            bounds.addAll(e.getValue());
+        }
+        return bounds;
+    }
+
     @SubscribeEvent
     public static void drawing(GuiScreenEvent.DrawScreenEvent.Post event) {
         if (!JEIAreaFixerConfig.debug$drawing || !(event.getGui() instanceof GuiContainer guiContainer)) {
             return;
         }
-        var guiClass = guiContainer.getClass();
-        for (var e : JEIAreaFixerDebug.boundsMap.entrySet()) {
-            if (!e.getKey().isAssignableFrom(guiClass)) {
-                continue;
-            }
-            var bounds = e.getValue();
-            for (var bound : bounds) {
-                Gui.drawRect(
-                    bound.x,
-                    bound.y,
-                    bound.x + bound.width,
-                    bound.y + bound.height,
-                    0x7f4169e1
-                );
-            }
+        if (!JEIAreaFixerConfig.debug$drawAll) {
+            capturedAreas = collectActiveBounds(guiContainer.getClass());
+        }
+        for (Rectangle area : capturedAreas) {
+            Gui.drawRect(
+                area.x,
+                area.y,
+                area.x + area.width,
+                area.y + area.height,
+                0x7f4169e1
+            );
         }
     }
 }

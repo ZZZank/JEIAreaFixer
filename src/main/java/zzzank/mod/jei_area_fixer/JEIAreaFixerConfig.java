@@ -20,6 +20,8 @@ public class JEIAreaFixerConfig {
     public static boolean debug$print = false;
     @Config.Comment("Draw areas provided by JEI Area Fixer onto the screen")
     public static boolean debug$drawing = false;
+    @Config.Comment("Draw all exclusion areas posted to JEI onto the screen, requires `debug$drawing` to be `true`")
+    public static boolean debug$drawAll = false;
 
     @Config.RequiresMcRestart
     @Config.Comment("Support for Computer screen")
