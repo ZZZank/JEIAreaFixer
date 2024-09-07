@@ -15,10 +15,10 @@ import java.util.Set;
  * @author ZZZank
  */
 @Mixin(value = GuiScreenHelper.class, remap = false)
-public interface MixinGuiScreenHelper {
+public abstract class MixinGuiScreenHelper {
 
     @Inject(method = "getPluginsExclusionAreas", at = @At("RETURN"))
-    default void jeiAreaFixer$captureExclusionArea(CallbackInfoReturnable<Set<Rectangle>> cir) {
+    public void jeiAreaFixer$captureExclusionArea(CallbackInfoReturnable<Set<Rectangle>> cir) {
         if (JEIAreaFixerConfig.debug$drawAll) {
             JEIAreaFixerDebugAction.capturedAreas = cir.getReturnValue();
         }
