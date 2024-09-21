@@ -28,15 +28,10 @@ public class ChestButtonsArea extends AbstractJEIAreaProvider<GuiContainer> {
     public List<Rectangle> getExtraAreas(@Nonnull GuiContainer gui) {
         var access = ((ButtonsCacheHolder) gui);
 
-        var cache = access
-            .jeiAreaFixer$getCache()
-            .computeIfAbsent(ButtonsCacheIndexes.QUARK, k ->
-                access.jeiAreaFixer$getButtonList()
-                    .stream()
-                    .filter(b -> b instanceof GuiButtonChest)
-                    .map(b -> (GuiButtonChest) b)
-                    .collect(ImmutableList.toImmutableList())
-            );
+        var cache = access.jeiAreaFixer$computeCacheIfAbsent(
+            ButtonsCacheIndexes.QUARK,
+            GuiButtonChest.class
+        );
 
         var areas = new ArrayList<Rectangle>(cache.size());
         for (var reskillableButton : cache) {

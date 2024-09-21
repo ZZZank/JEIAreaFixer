@@ -33,15 +33,10 @@ public class ReskillableTabArea extends AbstractJEIAreaProvider<GuiContainer> {
         }
         var access = ((ButtonsCacheHolder) gui);
 
-        var cache = access
-            .jeiAreaFixer$getCache()
-            .computeIfAbsent(ButtonsCacheIndexes.RESKILLABLE, k ->
-                access.jeiAreaFixer$getButtonList()
-                    .stream()
-                    .filter(b -> b instanceof GuiButtonInventoryTab)
-                    .map(b -> (GuiButtonInventoryTab) b)
-                    .collect(ImmutableList.toImmutableList())
-            );
+        var cache = access.jeiAreaFixer$computeCacheIfAbsent(
+            ButtonsCacheIndexes.RESKILLABLE,
+            GuiButtonInventoryTab.class
+        );
 
         var areas = new ArrayList<Rectangle>(cache.size());
         for (var reskillableButton : cache) {
