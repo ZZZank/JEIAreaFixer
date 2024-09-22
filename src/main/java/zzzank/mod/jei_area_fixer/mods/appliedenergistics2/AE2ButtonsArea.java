@@ -7,6 +7,7 @@ import appeng.client.gui.widgets.GuiToggleButton;
 import net.minecraft.client.gui.GuiButton;
 import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;
 import zzzank.mod.jei_area_fixer.JEIAreaFixer;
+import zzzank.mod.jei_area_fixer.JEIAreaFixerConfig;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsCacheHolder;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsCacheIndexes;
 
@@ -15,6 +16,7 @@ import javax.annotation.Nullable;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * buttons in storage bus / input bus / output bus / terminal / ...
@@ -37,7 +39,7 @@ public class AE2ButtonsArea extends AbstractJEIAreaProvider<AEBaseGui> {
                 k -> {
                     List<GuiButton> list = new ArrayList<>();
                     for (var b : access.jeiAreaFixer$getButtonList()) {
-                        if (b instanceof GuiImgButton || b instanceof GuiTabButton || b instanceof GuiToggleButton) {
+                        if (filterButton(b)) {
                             list.add(b);
                         }
                     }
@@ -50,5 +52,14 @@ public class AE2ButtonsArea extends AbstractJEIAreaProvider<AEBaseGui> {
             areas.add(JEIAreaFixer.rectFromButton(button));
         }
         return areas;
+    }
+
+    /**
+     * @see mezz.jei.gui.overlay.IngredientGridWithNavigation#updateBounds(Rectangle, Set, int) IngredientGridWithNavigation for the reason of `20`
+     */
+    private static boolean filterButton(GuiButton b) {
+        return (b instanceof GuiImgButton || b instanceof GuiTabButton || b instanceof GuiToggleButton)
+            && b.visible
+            && (!JEIAreaFixerConfig.AE2$IgnoreAreasTooHigh || b.y > 20);
     }
 }

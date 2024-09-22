@@ -23,7 +23,6 @@ public class JEIAreaFixerConfig {
     @Config.Comment("Draw all exclusion areas posted to JEI onto the screen, requires `debug$drawing` to be `true`")
     public static boolean debug$drawAll = false;
 
-
     @Config.RequiresMcRestart
     @Config.Comment("Global switch for AE2 support, disabling this will disable all AE2 specific patches")
     public static boolean AE2$All = true;
@@ -34,7 +33,10 @@ public class JEIAreaFixerConfig {
 
     @Config.RequiresMcRestart
     @Config.Comment("Support for AE2 cell view, located at the upper right side of AE2 terminal")
-    public static boolean AE2$CellView = true;
+    public static boolean AE2$CellView = false;
+
+    @Config.Comment("Try to ignore areas that will make the whole JEI overlay shift")
+    public static boolean AE2$IgnoreAreasTooHigh = true;
 
     @Config.RequiresMcRestart
     @Config.Comment("Support for Computer screen")
