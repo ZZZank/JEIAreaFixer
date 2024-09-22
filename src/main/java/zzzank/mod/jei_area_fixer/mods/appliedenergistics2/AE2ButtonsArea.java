@@ -33,19 +33,9 @@ public class AE2ButtonsArea extends AbstractJEIAreaProvider<AEBaseGui> {
     public List<Rectangle> getExtraAreas(@Nonnull AEBaseGui gui) {
         var access = ((ButtonsCacheHolder) gui);
 
-        var cache = access.jeiAreaFixer$getCache()
-            .computeIfAbsent(
-                ButtonsCacheIndexes.AE2,
-                k -> {
-                    List<GuiButton> list = new ArrayList<>();
-                    for (var b : access.jeiAreaFixer$getButtonList()) {
-                        if (filterButton(b)) {
-                            list.add(b);
-                        }
-                    }
-                    return list;
-                }
-            );
+        var cache = access
+            .jeiAreaFixer$getCache()
+            .computeIfAbsent(ButtonsCacheIndexes.AE2, k -> createButtonsCache(access));
 
         var areas = new ArrayList<Rectangle>(cache.size());
         for (var button : cache) {
@@ -57,9 +47,16 @@ public class AE2ButtonsArea extends AbstractJEIAreaProvider<AEBaseGui> {
     /**
      * @see mezz.jei.gui.overlay.IngredientGridWithNavigation#updateBounds(Rectangle, Set, int) IngredientGridWithNavigation for the reason of `20`
      */
-    private static boolean filterButton(GuiButton b) {
-        return (b instanceof GuiImgButton || b instanceof GuiTabButton || b instanceof GuiToggleButton)
-            && b.visible
-            && (!JEIAreaFixerConfig.AE2$IgnoreAreasTooHigh || b.y > 20);
+    private static List<GuiButton> createButtonsCache(ButtonsCacheHolder access) {
+        List<GuiButton> list = new ArrayList<>();
+        for (var b : access.jeiAreaFixer$getButtonList()) {
+            if ((b instanceof GuiImgButton || b instanceof GuiTabButton || b instanceof GuiToggleButton)
+                && b.visible
+                && (!JEIAreaFixerConfig.AE2$IgnoreAreasTooHigh || b.y > 20)
+            ) {
+                list.add(b);
+            }
+        }
+        return list;
     }
 }

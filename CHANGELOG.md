@@ -1,5 +1,17 @@
 # Changelog
 
+## JEIAreaFixer 1.4.0 -> 1.5.0
+
+AE2 & ComputerCraft & debug++
+
+- ComputerCraft support
+    - aka CC: Tweaked
+- AE2 support
+    - note that this support will be force-disable when AE2-UEl is installed, more info in config
+    - you can disable AE2-UEL detection in the config
+- a new config for AE2 that can avoid providing areas that will shift the whole JEI overlay
+- a new debug config that enables capturing all JEI exclusion area and draw them onto screen
+
 ## JEIAreaFixer 1.3.1 -> 1.4.0
 
 Cyclic & Forestry & MCJtyLib support
