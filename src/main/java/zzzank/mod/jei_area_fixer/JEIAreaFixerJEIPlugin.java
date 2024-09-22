@@ -4,6 +4,7 @@ import mezz.jei.api.IModPlugin;
 import mezz.jei.api.IModRegistry;
 import mezz.jei.api.JEIPlugin;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.Loader;
 import zzzank.mod.jei_area_fixer.mods.GeneralButtonsArea;
 import zzzank.mod.jei_area_fixer.mods.ModState;
 import zzzank.mod.jei_area_fixer.mods.appliedenergistics2.AE2ButtonsArea;
@@ -90,7 +91,7 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
                 registry.addAdvancedGuiHandlers(new ComputerScreenArea());
             }
         }
-        if (ModState.AE2 && AE2$All) {
+        if (shouldEnableForAE2()) {
             if (AE2$Buttons) {
                 registry.addAdvancedGuiHandlers(new AE2ButtonsArea());
             }
@@ -98,5 +99,20 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
                 registry.addAdvancedGuiHandlers(new AE2CellViewArea());
             }
         }
+    }
+
+    private static boolean shouldEnableForAE2() {
+        if (!ModState.AE2) {
+            return false;
+        }
+        var ae2 = Loader.instance().getIndexedModList().get("appliedenergistics2");
+        if (ae2 == null) {
+            return false;
+        }
+        if (AE2$DetectAE2UEL && ae2.getVersion().startsWith("v")) {
+            //AE2-UEL installed
+            return false;
+        }
+        return AE2$All;
     }
 }
