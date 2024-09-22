@@ -6,6 +6,8 @@ import mezz.jei.api.JEIPlugin;
 import net.minecraftforge.common.MinecraftForge;
 import zzzank.mod.jei_area_fixer.mods.GeneralButtonsArea;
 import zzzank.mod.jei_area_fixer.mods.ModState;
+import zzzank.mod.jei_area_fixer.mods.appliedenergistics2.AE2ButtonsArea;
+import zzzank.mod.jei_area_fixer.mods.appliedenergistics2.AE2CellViewArea;
 import zzzank.mod.jei_area_fixer.mods.computercraft.ComputerScreenArea;
 import zzzank.mod.jei_area_fixer.mods.cyclic.ExtendedArmorInventoryArea;
 import zzzank.mod.jei_area_fixer.mods.forestry.ForestryLedgersArea;
@@ -86,6 +88,14 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
         if (ModState.COMPUTER_CRAFT) {
             if (ComputerCraft$Computer) {
                 registry.addAdvancedGuiHandlers(new ComputerScreenArea());
+            }
+        }
+        if (ModState.AE2 && AE2$All) {
+            if (AE2$Buttons) {
+                registry.addAdvancedGuiHandlers(new AE2ButtonsArea());
+            }
+            if (AE2$CellView) {
+                registry.addAdvancedGuiHandlers(new AE2CellViewArea());
             }
         }
     }

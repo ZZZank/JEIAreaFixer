@@ -23,6 +23,19 @@ public class JEIAreaFixerConfig {
     @Config.Comment("Draw all exclusion areas posted to JEI onto the screen, requires `debug$drawing` to be `true`")
     public static boolean debug$drawAll = false;
 
+
+    @Config.RequiresMcRestart
+    @Config.Comment("Global switch for AE2 support, disabling this will disable all AE2 specific patches")
+    public static boolean AE2$All = true;
+
+    @Config.RequiresMcRestart
+    @Config.Comment("Support for AE2 buttons, usually located at the left side of AE2 GUI")
+    public static boolean AE2$Buttons = true;
+
+    @Config.RequiresMcRestart
+    @Config.Comment("Support for AE2 cell view, located at the upper right side of AE2 terminal")
+    public static boolean AE2$CellView = true;
+
     @Config.RequiresMcRestart
     @Config.Comment("Support for Computer screen")
     public static boolean ComputerCraft$Computer = true;

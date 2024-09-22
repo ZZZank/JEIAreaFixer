@@ -21,6 +21,7 @@ public interface ModState {
      * aka CC: Tweaked
      */
     boolean COMPUTER_CRAFT = loaded("computercraft");
+    boolean AE2 = loaded("appliedenergistics2");
 
     static boolean loaded(String modid) {
         return Loader.isModLoaded(modid);
