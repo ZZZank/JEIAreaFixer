@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * @author ZZZank
  */
-@Mixin(value = GuiFuelInputMachine.class, remap = false)
+@Mixin(value = GuiFuelInputMachine.class)
 public abstract class MixinGuiFuelInput implements JEIAreaProvider {
 
     @Unique

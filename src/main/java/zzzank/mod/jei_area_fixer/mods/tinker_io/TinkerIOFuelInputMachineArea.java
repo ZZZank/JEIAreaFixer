@@ -12,8 +12,8 @@ import java.util.List;
 /**
  * @author ZZZank
  */
-public class TinkerIOFuelImputMachineArea extends AbstractJEIAreaProvider<GuiFuelInputMachine> {
-    public TinkerIOFuelImputMachineArea() {
+public class TinkerIOFuelInputMachineArea extends AbstractJEIAreaProvider<GuiFuelInputMachine> {
+    public TinkerIOFuelInputMachineArea() {
         super(GuiFuelInputMachine.class);
     }
 
