@@ -21,6 +21,8 @@ import zzzank.mod.jei_area_fixer.mods.quark.ChestButtonsArea;
 import zzzank.mod.jei_area_fixer.mods.reskillable.ReskillableTabArea;
 import zzzank.mod.jei_area_fixer.mods.rftools.ModularStorageArea;
 import zzzank.mod.jei_area_fixer.mods.rftools.StorageScannerArea;
+import zzzank.mod.jei_area_fixer.mods.tinker_io.TinkerIOFuelImputMachineArea;
+import zzzank.mod.jei_area_fixer.mods.tinker_io.TinkerIOSmartOutputArea;
 
 import javax.annotation.Nonnull;
 
@@ -97,6 +99,14 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
             }
             if (AE2$CellView) {
                 registry.addAdvancedGuiHandlers(new AE2CellViewArea());
+            }
+        }
+        if (ModState.TINKER_IO && TinkerIO$All) {
+            if (TinkerIO$FuelInput) {
+                registry.addAdvancedGuiHandlers(new TinkerIOFuelImputMachineArea());
+            }
+            if (TinkerIO$SmartOutput) {
+                registry.addAdvancedGuiHandlers(new TinkerIOSmartOutputArea());
             }
         }
     }

@@ -22,6 +22,7 @@ public interface ModState {
      */
     boolean COMPUTER_CRAFT = loaded("computercraft");
     boolean AE2 = loaded("appliedenergistics2");
+    boolean TINKER_IO = loaded("tinker_io");
 
     static boolean loaded(String modid) {
         return Loader.isModLoaded(modid);

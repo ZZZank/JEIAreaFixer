@@ -104,6 +104,16 @@ public class JEIAreaFixerConfig {
     @Config.Comment("Support for Casting Machine")
     public static boolean SmelteryIO$CastingMachine = true;
 
+    @Config.RequiresMcRestart
+    @Config.Comment("Global switch for TinkerIO support, disabling this will disable all TinkerIO specific patches")
+    public static boolean TinkerIO$All = true;
+    @Config.RequiresMcRestart
+    @Config.Comment("Support for Smart Output")
+    public static boolean TinkerIO$SmartOutput = true;
+    @Config.RequiresMcRestart
+    @Config.Comment("Support for Fuel Input Machine")
+    public static boolean TinkerIO$FuelInput = true;
+
     @SubscribeEvent
     public static void onConfigChanged(ConfigChangedEvent event) {
         if (!Tags.MOD_ID.equals(event.getModID())) {
