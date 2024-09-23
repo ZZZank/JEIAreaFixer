@@ -1,0 +1,14 @@
+{
+	"package": "zzzank.mod.jei_area_fixer.mixin.tinker_io",
+	"required": true,
+	"refmap": "mixins.jei_area_fixer.refmap.json",
+	"target": "@env(DEFAULT)",
+	"minVersion": "0.8.5",
+	"compatibilityLevel": "JAVA_8",
+	"mixins": [],
+	"server": [],
+	"client": [
+		"MixinGuiFuelInput",
+		"MixinGuiSmartOutput"
+	]
+}
