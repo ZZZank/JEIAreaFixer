@@ -58,7 +58,7 @@ public class JEIAreaFixerDebugAction {
         System.out.println("debug output from " + Tags.MOD_NAME + "\n" + joiner);
     }
 
-    public static ArrayList<Rectangle> collectActiveBounds(Class<? extends GuiContainer> target) {
+    private static ArrayList<Rectangle> collectActiveBounds(Class<? extends GuiContainer> target) {
         var bounds = new ArrayList<Rectangle>();
         for (var e : JEIAreaFixerDebug.boundsMap.entrySet()) {
             if (!e.getKey().isAssignableFrom(target)) {

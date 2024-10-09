@@ -26,13 +26,11 @@ public class JEIAreaFixerConfig {
     @Config.RequiresMcRestart
     @Config.Comment("Global switch for AE2 support, disabling this will disable all AE2 specific patches")
     public static boolean AE2$All = true;
-
     @Config.Comment({
         "AE2-UEL has builtin JEI support, so you might want to disable AE2 support when using AE2-UEL, but it's supporting fewer AE GUIs than JEI Area Fixer does",
         "Disable this if you don't want to force-disable AE2 patch when using AE2-UEL"
     })
     public static boolean AE2$DetectAE2UEL = true;
-
     @Config.RequiresMcRestart
     @Config.Comment({
         "Support for AE2 buttons, usually located at the left side of AE2 GUI",
@@ -40,11 +38,9 @@ public class JEIAreaFixerConfig {
         "Disable this if you find it annoying"
     })
     public static boolean AE2$Buttons = true;
-
     @Config.RequiresMcRestart
     @Config.Comment("Support for AE2 cell view, located at the upper right side of AE2 terminal")
     public static boolean AE2$CellView = false;
-
     @Config.Comment("Try to ignore areas that will make the whole JEI overlay shift")
     public static boolean AE2$IgnoreAreasTooHigh = true;
 
