@@ -47,7 +47,7 @@ public class BlueSkiesTabArea extends AbstractJEIAreaProvider<GuiContainer> {
         return new Rectangle(
             tab.x,
             tab.y,
-            185 - ((SkyTabAccessor) tab).get$slidePos(),
+            tab.enabled ? 185 - ((SkyTabAccessor) tab).get$slidePos() : tab.width,
             tab.height
         );
     }
