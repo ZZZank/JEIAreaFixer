@@ -1,9 +1,9 @@
 package zzzank.mod.jei_area_fixer.mods.blue_skies;
 
 import com.legacy.blue_skies.client.gui.tabs.SkyTab;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;
-import zzzank.mod.jei_area_fixer.JEIAreaFixer;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsCacheHolder;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsCacheIndexes;
 
@@ -34,9 +34,21 @@ public class BlueSkiesTabArea extends AbstractJEIAreaProvider<GuiContainer> {
         var areas = new ArrayList<Rectangle>(cache.size());
         for (var button : cache) {
             if (button.visible) {
-                areas.add(JEIAreaFixer.rectFromButton(button));
+                areas.add(rectFromTab(button));
             }
         }
         return areas;
+    }
+
+    /**
+     * @see SkyTab#drawButton(Minecraft, int, int, float)
+     */
+    private static Rectangle rectFromTab(SkyTab tab) {
+        return new Rectangle(
+            tab.x,
+            tab.y,
+            185 - ((SkyTabAccessor) tab).get$slidePos(),
+            tab.height
+        );
     }
 }
