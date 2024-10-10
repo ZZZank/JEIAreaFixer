@@ -9,6 +9,7 @@ import zzzank.mod.jei_area_fixer.mods.GeneralButtonsArea;
 import zzzank.mod.jei_area_fixer.mods.ModState;
 import zzzank.mod.jei_area_fixer.mods.appliedenergistics2.AE2ButtonsArea;
 import zzzank.mod.jei_area_fixer.mods.appliedenergistics2.AE2CellViewArea;
+import zzzank.mod.jei_area_fixer.mods.blue_skies.BlueSkiesTabArea;
 import zzzank.mod.jei_area_fixer.mods.computercraft.ComputerScreenArea;
 import zzzank.mod.jei_area_fixer.mods.cyclic.ExtendedArmorInventoryArea;
 import zzzank.mod.jei_area_fixer.mods.forestry.ForestryLedgersArea;
@@ -107,6 +108,11 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
             }
             if (TinkerIO$SmartOutput) {
                 registry.addAdvancedGuiHandlers(new TinkerIOSmartOutputArea());
+            }
+        }
+        if (ModState.BLUE_SKIES) {
+            if (BlueSkies$Tabs) {
+                registry.addAdvancedGuiHandlers(new BlueSkiesTabArea());
             }
         }
     }

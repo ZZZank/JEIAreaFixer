@@ -110,6 +110,9 @@ public class JEIAreaFixerConfig {
     @Config.Comment("Support for Fuel Input Machine")
     public static boolean TinkerIO$FuelInput = true;
 
+    @Config.RequiresMcRestart
+    public static boolean BlueSkies$Tabs = true;
+
     @SubscribeEvent
     public static void onConfigChanged(ConfigChangedEvent event) {
         if (!Tags.MOD_ID.equals(event.getModID())) {
