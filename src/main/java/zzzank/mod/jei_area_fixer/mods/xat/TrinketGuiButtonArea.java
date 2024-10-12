@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import xzeroair.trinkets.client.gui.TrinketGuiButton;
+import zzzank.mod.jei_area_fixer.mods.ModState;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonIndex;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsAreaProvider;
 
@@ -32,7 +33,9 @@ public class TrinketGuiButtonArea extends ButtonsAreaProvider<TrinketGuiButton> 
     ) {
         var areas = new ArrayList<Rectangle>(buttons.size());
         for (var b : buttons) {
-            var area = new Rectangle(b.x + gui.getGuiLeft(), b.y, b.width, b.height);
+            var area = ModState.BAUBLES && b.id == 55
+                ? new Rectangle(b.x + gui.getGuiLeft(), b.y, 10, 10)
+                : new Rectangle(b.x + gui.getGuiLeft(), b.y, b.width, b.height);
             areas.add(area);
         }
         return areas;
