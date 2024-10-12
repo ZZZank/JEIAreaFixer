@@ -3,6 +3,7 @@ package zzzank.mod.jei_area_fixer.mods.blue_skies;
 import com.google.common.collect.ImmutableList;
 import com.legacy.blue_skies.client.gui.tabs.SkyTab;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.inventory.GuiContainer;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsAreaProvider;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonIndex;
 
@@ -23,7 +24,7 @@ public class BlueSkiesTabArea extends ButtonsAreaProvider<SkyTab> {
 
     @Nullable
     @Override
-    protected List<Rectangle> buttonsToAreas(@Nonnull ImmutableList<SkyTab> buttons) {
+    protected List<Rectangle> buttonsToAreas(@Nonnull ImmutableList<SkyTab> buttons, @Nonnull GuiContainer gui) {
         var areas = new ArrayList<Rectangle>(buttons.size());
         for (var button : buttons) {
             if (button.visible) {

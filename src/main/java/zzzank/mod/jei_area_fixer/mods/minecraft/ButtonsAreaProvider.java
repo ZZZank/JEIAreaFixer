@@ -17,7 +17,7 @@ import java.util.Objects;
 public abstract class ButtonsAreaProvider<T extends GuiButton> extends AbstractJEIAreaProvider<GuiContainer> {
     private final ButtonIndex<T> index;
 
-    protected ButtonsAreaProvider(ButtonIndex<T> index) {
+    public ButtonsAreaProvider(ButtonIndex<T> index) {
         super(GuiContainer.class);
         this.index = Objects.requireNonNull(index);
     }
@@ -27,9 +27,9 @@ public abstract class ButtonsAreaProvider<T extends GuiButton> extends AbstractJ
     public final List<Rectangle> getExtraAreas(@Nonnull GuiContainer gui) {
         var cacheHolder = ((ButtonsCacheHolder) gui);
         var cache = cacheHolder.jaf$cacheIfAbsent(index.index, index.typeProvider.get());
-        return cache.isEmpty() ? null : buttonsToAreas(cache);
+        return cache.isEmpty() ? null : buttonsToAreas(cache, gui);
     }
 
     @Nullable
-    protected abstract List<Rectangle> buttonsToAreas(@Nonnull ImmutableList<T> buttons);
+    protected abstract List<Rectangle> buttonsToAreas(@Nonnull ImmutableList<T> buttons, @Nonnull GuiContainer gui);
 }

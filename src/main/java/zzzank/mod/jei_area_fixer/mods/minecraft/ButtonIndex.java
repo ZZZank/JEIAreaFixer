@@ -5,6 +5,7 @@ import com.legacy.blue_skies.client.gui.tabs.SkyTab;
 import net.blay09.mods.craftingtweaks.client.GuiTweakButton;
 import net.minecraft.client.gui.GuiButton;
 import vazkii.quark.management.client.gui.GuiButtonChest;
+import xzeroair.trinkets.client.gui.TrinketGuiButton;
 
 import java.util.function.Supplier;
 
@@ -20,6 +21,7 @@ public class ButtonIndex<T extends GuiButton> {
     public static final ButtonIndex<GuiButton> AE2 = register(null);
     public static final ButtonIndex<SkyTab> BLUE_SKIES = register(()-> SkyTab.class);
     public static final ButtonIndex<GuiTweakButton> CRAFTING_TWEAKS = register(() -> GuiTweakButton.class);
+    public static final ButtonIndex<TrinketGuiButton> TRINKET = register(() -> TrinketGuiButton.class);
 
     public static <T extends GuiButton> ButtonIndex<T> register(Supplier<Class<T>> type) {
         return new ButtonIndex<>(type, currentOrdinal++);

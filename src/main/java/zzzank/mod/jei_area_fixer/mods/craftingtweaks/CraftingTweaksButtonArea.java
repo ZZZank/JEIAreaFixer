@@ -2,6 +2,7 @@ package zzzank.mod.jei_area_fixer.mods.craftingtweaks;
 
 import com.google.common.collect.ImmutableList;
 import net.blay09.mods.craftingtweaks.client.GuiTweakButton;
+import net.minecraft.client.gui.inventory.GuiContainer;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsAreaProvider;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonIndex;
 
@@ -21,7 +22,7 @@ public class CraftingTweaksButtonArea extends ButtonsAreaProvider<GuiTweakButton
 
     @Nullable
     @Override
-    protected List<Rectangle> buttonsToAreas(@Nonnull ImmutableList<GuiTweakButton> buttons) {
+    protected List<Rectangle> buttonsToAreas(@Nonnull ImmutableList<GuiTweakButton> buttons, @Nonnull GuiContainer gui) {
         var areas = new ArrayList<Rectangle>();
         for (var button : buttons) {
             var access = ((GuiTweakButtonAccessor) button);

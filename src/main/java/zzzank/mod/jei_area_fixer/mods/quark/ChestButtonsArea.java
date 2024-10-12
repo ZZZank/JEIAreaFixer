@@ -1,6 +1,7 @@
 package zzzank.mod.jei_area_fixer.mods.quark;
 
 import com.google.common.collect.ImmutableList;
+import net.minecraft.client.gui.inventory.GuiContainer;
 import vazkii.quark.management.client.gui.GuiButtonChest;
 import zzzank.mod.jei_area_fixer.JEIAreaFixer;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonIndex;
@@ -23,7 +24,7 @@ public class ChestButtonsArea extends ButtonsAreaProvider<GuiButtonChest> {
 
     @Nullable
     @Override
-    protected List<Rectangle> buttonsToAreas(@Nonnull ImmutableList<GuiButtonChest> buttons) {
+    protected List<Rectangle> buttonsToAreas(@Nonnull ImmutableList<GuiButtonChest> buttons, @Nonnull GuiContainer gui) {
         var areas = new ArrayList<Rectangle>(buttons.size());
         for (var reskillableButton : buttons) {
             if (reskillableButton.enabled) {
