@@ -1,10 +1,9 @@
 package zzzank.mod.jei_area_fixer.mods.craftingtweaks;
 
-import net.blay09.mods.craftingtweaks.client.GuiTweakButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsCacheHolder;
-import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsCacheIndex;
+import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonIndex;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -24,10 +23,7 @@ public class CraftingTweaksButtonArea extends AbstractJEIAreaProvider<GuiContain
     @Override
     public List<Rectangle> getExtraAreas(@Nonnull GuiContainer gui) {
         var cacheHolder = ((ButtonsCacheHolder) gui);
-        var buttons = cacheHolder.jeiAreaFixer$computeCacheIfAbsent(
-            ButtonsCacheIndex.CRAFTING_TWEAKS,
-            GuiTweakButton.class
-        );
+        var buttons = cacheHolder.jaf$cacheIfAbsent(ButtonIndex.CRAFTING_TWEAKS);
         if (buttons.isEmpty()) {
             return null;
         }

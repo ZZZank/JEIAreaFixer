@@ -26,4 +26,8 @@ public interface ButtonsCacheHolder {
                     .collect(ImmutableList.toImmutableList())
             );
     }
+
+    default <T extends GuiButton> List<T> jaf$cacheIfAbsent(ButtonIndex<T> index) {
+        return jeiAreaFixer$computeCacheIfAbsent(index.index, index.typeProvider.get());
+    }
 }

@@ -1,11 +1,10 @@
 package zzzank.mod.jei_area_fixer.mods.reskillable;
 
 import codersafterdark.reskillable.base.ConfigHandler;
-import codersafterdark.reskillable.client.gui.button.GuiButtonInventoryTab;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;
 import zzzank.mod.jei_area_fixer.JEIAreaFixer;
-import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsCacheIndex;
+import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonIndex;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsCacheHolder;
 
 import javax.annotation.Nonnull;
@@ -32,10 +31,7 @@ public class ReskillableTabArea extends AbstractJEIAreaProvider<GuiContainer> {
         }
         var access = ((ButtonsCacheHolder) gui);
 
-        var cache = access.jeiAreaFixer$computeCacheIfAbsent(
-            ButtonsCacheIndex.RESKILLABLE,
-            GuiButtonInventoryTab.class
-        );
+        var cache = access.jaf$cacheIfAbsent(ButtonIndex.RESKILLABLE);
 
         var areas = new ArrayList<Rectangle>(cache.size());
         for (var reskillableButton : cache) {

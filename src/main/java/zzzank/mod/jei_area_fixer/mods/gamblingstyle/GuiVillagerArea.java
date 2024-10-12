@@ -1,7 +1,6 @@
 package zzzank.mod.jei_area_fixer.mods.gamblingstyle;
 
 import com.fuzs.gamblingstyle.client.gui.GuiVillager;
-import mezz.jei.api.gui.IAdvancedGuiHandler;
 import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;
 
 import javax.annotation.Nonnull;
