@@ -25,6 +25,8 @@ import zzzank.mod.jei_area_fixer.mods.rftools.ModularStorageArea;
 import zzzank.mod.jei_area_fixer.mods.rftools.StorageScannerArea;
 import zzzank.mod.jei_area_fixer.mods.tinker_io.TinkerIOFuelInputMachineArea;
 import zzzank.mod.jei_area_fixer.mods.tinker_io.TinkerIOSmartOutputArea;
+import zzzank.mod.jei_area_fixer.mods.xat.TrinketGuiArea;
+import zzzank.mod.jei_area_fixer.mods.xat.TrinketGuiButtonArea;
 
 import javax.annotation.Nonnull;
 
@@ -119,6 +121,14 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
         if (ModState.CRAFTING_TWEAKS) {
             if (CraftingTweaks$Buttons) {
                 registry.addAdvancedGuiHandlers(new CraftingTweaksButtonArea());
+            }
+        }
+        if (ModState.TRINKETS_AND_BAUBLES) {
+            if (TrinketsAndBaubles$Buttons) {
+                registry.addAdvancedGuiHandlers(new TrinketGuiButtonArea());
+            }
+            if (TrinketsAndBaubles$Slots) {
+                registry.addAdvancedGuiHandlers(new TrinketGuiArea());
             }
         }
     }

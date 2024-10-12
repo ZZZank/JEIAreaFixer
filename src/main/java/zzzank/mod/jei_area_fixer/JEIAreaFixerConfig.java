@@ -116,6 +116,11 @@ public class JEIAreaFixerConfig {
     @Config.RequiresMcRestart
     public static boolean CraftingTweaks$Buttons = true;
 
+    @Config.RequiresMcRestart
+    public static boolean TrinketsAndBaubles$Buttons = true;
+    @Config.RequiresMcRestart
+    public static boolean TrinketsAndBaubles$Slots = true;
+
     @SubscribeEvent
     public static void onConfigChanged(ConfigChangedEvent event) {
         if (!Tags.MOD_ID.equals(event.getModID())) {
