@@ -7,5 +7,5 @@ import dan200.computercraft.client.gui.widgets.WidgetTerminal;
  */
 public interface GuiComputerAccessor {
 
-    WidgetTerminal get$terminal();
+    WidgetTerminal jaf$terminal();
 }

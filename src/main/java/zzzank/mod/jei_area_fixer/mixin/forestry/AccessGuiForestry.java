@@ -14,5 +14,5 @@ public interface AccessGuiForestry extends GuiForestryAccessor {
 
     @Accessor("ledgerManager")
     @Override
-    LedgerManager get$ledgerManager();
+    LedgerManager jaf$ledgerManager();
 }

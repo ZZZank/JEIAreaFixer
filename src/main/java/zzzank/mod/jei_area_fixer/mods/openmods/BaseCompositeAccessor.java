@@ -9,5 +9,5 @@ import java.util.List;
  */
 public interface BaseCompositeAccessor {
 
-    List<BaseComponent> get$components();
+    List<BaseComponent> jaf$components();
 }

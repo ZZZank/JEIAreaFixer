@@ -14,5 +14,5 @@ public interface AccessGuiVillager extends GuiVillagerAccessor {
 
     @Override
     @Accessor(value = "tradingBookGui", remap = false)
-    GuiTradingBook get$tradingBookGui();
+    GuiTradingBook jaf$tradingBookGui();
 }

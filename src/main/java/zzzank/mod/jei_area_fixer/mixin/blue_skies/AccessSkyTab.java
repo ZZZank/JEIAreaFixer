@@ -13,5 +13,5 @@ public interface AccessSkyTab extends SkyTabAccessor {
 
     @Accessor("slidePos")
     @Override
-    int get$slidePos();
+    int jaf$slidePos();
 }

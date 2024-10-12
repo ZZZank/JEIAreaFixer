@@ -7,5 +7,5 @@ import openmods.gui.component.BaseComposite;
  */
 public interface ComponentGuiAccessor {
 
-    BaseComposite get$root();
+    BaseComposite jaf$root();
 }

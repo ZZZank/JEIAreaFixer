@@ -21,8 +21,8 @@ public class StorageScannerArea extends AbstractJEIAreaProvider<GuiStorageScanne
     @Nullable
     @Override
     public List<Rectangle> getExtraAreas(@Nonnull GuiStorageScanner gui) {
-        var craftingGrid = ((StorageWithCraftGuiAccessor) gui).get$craftingGrid();
-        var window = ((GuiCraftingGridAccessor) craftingGrid).get$craftWindow();
+        var craftingGrid = ((StorageWithCraftGuiAccessor) gui).jaf$craftingGrid();
+        var window = ((GuiCraftingGridAccessor) craftingGrid).jaf$craftWindow();
         return JEIAreaFixer.nullableWrap(window.getToplevel().getBounds());
     }
 }

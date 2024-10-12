@@ -5,5 +5,5 @@ package zzzank.mod.jei_area_fixer.mods.appliedenergistics2;
  */
 public interface GuiMEMonitorableAccessor {
 
-    boolean get$viewCell();
+    boolean jaf$viewCell();
 }

@@ -26,7 +26,7 @@ public class ComputerScreenArea extends AbstractJEIAreaProvider<GuiComputer> {
     @Nullable
     @Override
     public List<Rectangle> getExtraAreas(@Nonnull GuiComputer gui) {
-        final var terminal = ((GuiComputerAccessor) gui).get$terminal();
+        final var terminal = ((GuiComputerAccessor) gui).jaf$terminal();
         final int startX = (gui.width - terminal.getWidth()) / 2;
         final int startY = (gui.height - terminal.getHeight()) / 2;
         return Collections.singletonList(

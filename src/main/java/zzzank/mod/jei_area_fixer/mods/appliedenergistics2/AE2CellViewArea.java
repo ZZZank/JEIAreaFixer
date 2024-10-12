@@ -27,7 +27,7 @@ public class AE2CellViewArea extends AbstractJEIAreaProvider<GuiMEMonitorable> {
     public List<Rectangle> getExtraAreas(@Nonnull GuiMEMonitorable gui) {
         var access = ((AccessGuiMEMonitorable) gui);
 
-        return access.get$viewCell() || gui instanceof GuiSecurityStation
+        return access.jaf$viewCell() || gui instanceof GuiSecurityStation
 //        this.drawTexturedModalRect(offsetX + 197, offsetY, 197, 0, 46, 128); but actual area different
             ? Collections.singletonList(new Rectangle(gui.getGuiLeft() + 197, gui.getGuiTop(), 36, 112))
             : null;

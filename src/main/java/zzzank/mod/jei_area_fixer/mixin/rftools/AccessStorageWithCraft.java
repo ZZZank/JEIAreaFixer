@@ -14,5 +14,5 @@ import zzzank.mod.jei_area_fixer.mods.rftools.StorageWithCraftGuiAccessor;
 public interface AccessStorageWithCraft extends StorageWithCraftGuiAccessor {
 
     @Accessor(value = "craftingGrid",remap = false)
-    GuiCraftingGrid get$craftingGrid();
+    GuiCraftingGrid jaf$craftingGrid();
 }

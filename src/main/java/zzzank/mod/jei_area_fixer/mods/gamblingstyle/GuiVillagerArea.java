@@ -22,10 +22,10 @@ public class GuiVillagerArea extends AbstractJEIAreaProvider<GuiVillager> {
     @Nullable
     @Override
     public List<Rectangle> getExtraAreas(@Nonnull GuiVillager gui) {
-        var book = ((GuiVillagerAccessor) gui).get$tradingBookGui();
+        var book = ((GuiVillagerAccessor) gui).jaf$tradingBookGui();
         var access = ((GuiTradingBookAccessor) book);
         return Collections.singletonList(
-            new Rectangle(access.get$guiLeft(), access.get$guiTop(), access.get$xSize(), access.get$ySize())
+            new Rectangle(access.jaf$guiLeft(), access.jaf$guiTop(), access.jaf$xSize(), access.jaf$ySize())
         );
     }
 }

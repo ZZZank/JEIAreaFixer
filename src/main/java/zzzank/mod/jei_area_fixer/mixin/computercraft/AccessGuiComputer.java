@@ -14,5 +14,5 @@ public interface AccessGuiComputer extends GuiComputerAccessor {
 
     @Override
     @Accessor("m_terminal")
-    WidgetTerminal get$terminal();
+    WidgetTerminal jaf$terminal();
 }

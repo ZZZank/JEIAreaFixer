@@ -13,5 +13,5 @@ import zzzank.mod.jei_area_fixer.mods.openmods.ComponentGuiAccessor;
 public interface AccessComponentGui extends ComponentGuiAccessor {
 
     @Accessor(value = "root", remap = false)
-    BaseComposite get$root();
+    BaseComposite jaf$root();
 }

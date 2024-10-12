@@ -12,14 +12,14 @@ import zzzank.mod.jei_area_fixer.mods.gamblingstyle.GuiTradingBookAccessor;
 public interface AccessGuiTradingBook extends GuiTradingBookAccessor {
 
     @Accessor(value = "xSize", remap = false)
-    int get$xSize();
+    int jaf$xSize();
 
     @Accessor(value = "ySize", remap = false)
-    int get$ySize();
+    int jaf$ySize();
 
     @Accessor(value = "guiLeft", remap = false)
-    int get$guiLeft();
+    int jaf$guiLeft();
 
     @Accessor(value = "guiTop", remap = false)
-    int get$guiTop();
+    int jaf$guiTop();
 }

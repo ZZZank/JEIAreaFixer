@@ -15,5 +15,5 @@ import java.util.List;
 public interface AccessBaseComposite extends BaseCompositeAccessor {
 
     @Accessor(value = "components", remap = false)
-    List<BaseComponent> get$components();
+    List<BaseComponent> jaf$components();
 }

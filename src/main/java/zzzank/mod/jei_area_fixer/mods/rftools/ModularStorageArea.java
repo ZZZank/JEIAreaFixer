@@ -21,8 +21,8 @@ public class ModularStorageArea extends AbstractJEIAreaProvider<GuiModularStorag
     @Nullable
     @Override
     public List<Rectangle> getExtraAreas(@Nonnull GuiModularStorage gui) {
-        var craftingGrid = ((StorageWithCraftGuiAccessor) gui).get$craftingGrid();
-        var window = ((GuiCraftingGridAccessor) craftingGrid).get$craftWindow();
+        var craftingGrid = ((StorageWithCraftGuiAccessor) gui).jaf$craftingGrid();
+        var window = ((GuiCraftingGridAccessor) craftingGrid).jaf$craftWindow();
         return JEIAreaFixer.nullableWrap(window.getToplevel().getBounds());
     }
 }

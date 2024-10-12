@@ -7,5 +7,5 @@ import forestry.core.gui.ledgers.LedgerManager;
  */
 public interface GuiForestryAccessor {
 
-    LedgerManager get$ledgerManager();
+    LedgerManager jaf$ledgerManager();
 }

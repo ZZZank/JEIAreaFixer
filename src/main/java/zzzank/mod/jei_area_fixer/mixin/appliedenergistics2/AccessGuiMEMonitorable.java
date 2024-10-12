@@ -13,5 +13,5 @@ public interface AccessGuiMEMonitorable extends GuiMEMonitorableAccessor {
 
     @Accessor("viewCell")
     @Override
-    boolean get$viewCell();
+    boolean jaf$viewCell();
 }

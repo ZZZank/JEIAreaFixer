@@ -16,5 +16,5 @@ public interface AccessLedgerManager extends LedgerManagerAccessor {
 
     @Accessor("errorLedgers")
     @Override
-    List<ErrorLedger> get$errorLedgers();
+    List<ErrorLedger> jaf$errorLedgers();
 }

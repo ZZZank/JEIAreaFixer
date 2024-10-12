@@ -5,11 +5,11 @@ package zzzank.mod.jei_area_fixer.mods.gamblingstyle;
  */
 public interface GuiTradingBookAccessor {
 
-    int get$xSize();
+    int jaf$xSize();
 
-    int get$ySize();
+    int jaf$ySize();
 
-    int get$guiLeft();
+    int jaf$guiLeft();
 
-    int get$guiTop();
+    int jaf$guiTop();
 }

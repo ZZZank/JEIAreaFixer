@@ -21,8 +21,8 @@ public class ForestryLedgersArea extends AbstractJEIAreaProvider<GuiForestry<?>>
     @Nullable
     @Override
     public List<Rectangle> getExtraAreas(@Nonnull GuiForestry<?> gui) {
-        var ledgerManager = ((GuiForestryAccessor) gui).get$ledgerManager();
-        var errorLedgers = ((LedgerManagerAccessor) ledgerManager).get$errorLedgers();
+        var ledgerManager = ((GuiForestryAccessor) gui).jaf$ledgerManager();
+        var errorLedgers = ((LedgerManagerAccessor) ledgerManager).jaf$errorLedgers();
 
         var areas = new ArrayList<Rectangle>(errorLedgers.size());
 

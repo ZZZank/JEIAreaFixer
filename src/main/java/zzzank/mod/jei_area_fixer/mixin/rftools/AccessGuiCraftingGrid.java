@@ -13,5 +13,5 @@ import zzzank.mod.jei_area_fixer.mods.rftools.GuiCraftingGridAccessor;
 public interface AccessGuiCraftingGrid extends GuiCraftingGridAccessor {
 
     @Accessor(value = "craftWindow", remap = false)
-    Window get$craftWindow();
+    Window jaf$craftWindow();
 }

@@ -21,8 +21,8 @@ public class OpenModsSeriesGuiArea extends AbstractJEIAreaProvider<ComponentGui>
     @Nullable
     @Override
     public List<Rectangle> getExtraAreas(@Nonnull ComponentGui gui) {
-        var root = ((ComponentGuiAccessor) gui).get$root();
-        var components = ((BaseCompositeAccessor) root).get$components();
+        var root = ((ComponentGuiAccessor) gui).jaf$root();
+        var components = ((BaseCompositeAccessor) root).jaf$components();
         var areas = new ArrayList<Rectangle>(components.size());
         for (var component : components) {
             areas.add(new Rectangle(

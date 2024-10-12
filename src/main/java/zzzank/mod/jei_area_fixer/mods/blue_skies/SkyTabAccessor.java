@@ -5,5 +5,5 @@ package zzzank.mod.jei_area_fixer.mods.blue_skies;
  */
 public interface SkyTabAccessor {
 
-    int get$slidePos();
+    int jaf$slidePos();
 }

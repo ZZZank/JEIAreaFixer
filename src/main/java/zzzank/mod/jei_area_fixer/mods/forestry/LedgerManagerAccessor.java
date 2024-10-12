@@ -9,5 +9,5 @@ import java.util.List;
  */
 public interface LedgerManagerAccessor {
 
-    List<ErrorLedger> get$errorLedgers();
+    List<ErrorLedger> jaf$errorLedgers();
 }

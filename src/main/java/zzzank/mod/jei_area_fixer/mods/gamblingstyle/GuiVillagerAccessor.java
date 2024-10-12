@@ -7,5 +7,5 @@ import com.fuzs.gamblingstyle.client.gui.GuiTradingBook;
  */
 public interface GuiVillagerAccessor {
 
-    GuiTradingBook get$tradingBookGui();
+    GuiTradingBook jaf$tradingBookGui();
 }
