@@ -11,6 +11,7 @@ import zzzank.mod.jei_area_fixer.mods.appliedenergistics2.AE2ButtonsArea;
 import zzzank.mod.jei_area_fixer.mods.appliedenergistics2.AE2CellViewArea;
 import zzzank.mod.jei_area_fixer.mods.blue_skies.BlueSkiesTabArea;
 import zzzank.mod.jei_area_fixer.mods.computercraft.ComputerScreenArea;
+import zzzank.mod.jei_area_fixer.mods.craftingtweaks.CraftingTweaksButtonArea;
 import zzzank.mod.jei_area_fixer.mods.cyclic.ExtendedArmorInventoryArea;
 import zzzank.mod.jei_area_fixer.mods.forestry.ForestryLedgersArea;
 import zzzank.mod.jei_area_fixer.mods.gamblingstyle.GuiVillagerArea;
@@ -113,6 +114,11 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
         if (ModState.BLUE_SKIES) {
             if (BlueSkies$Tabs) {
                 registry.addAdvancedGuiHandlers(new BlueSkiesTabArea());
+            }
+        }
+        if (ModState.CRAFTING_TWEAKS) {
+            if (CraftingTweaks$Buttons) {
+                registry.addAdvancedGuiHandlers(new CraftingTweaksButtonArea());
             }
         }
     }

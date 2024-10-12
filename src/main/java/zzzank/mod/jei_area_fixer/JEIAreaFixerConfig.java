@@ -113,6 +113,9 @@ public class JEIAreaFixerConfig {
     @Config.RequiresMcRestart
     public static boolean BlueSkies$Tabs = true;
 
+    @Config.RequiresMcRestart
+    public static boolean CraftingTweaks$Buttons = true;
+
     @SubscribeEvent
     public static void onConfigChanged(ConfigChangedEvent event) {
         if (!Tags.MOD_ID.equals(event.getModID())) {

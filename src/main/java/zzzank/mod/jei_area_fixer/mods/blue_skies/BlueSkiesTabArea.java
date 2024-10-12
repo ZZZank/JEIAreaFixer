@@ -5,7 +5,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsCacheHolder;
-import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsCacheIndexes;
+import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsCacheIndex;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -27,7 +27,7 @@ public class BlueSkiesTabArea extends AbstractJEIAreaProvider<GuiContainer> {
     public List<Rectangle> getExtraAreas(@Nonnull GuiContainer gui) {
         var access = ((ButtonsCacheHolder) gui);
         var cache = access.jeiAreaFixer$computeCacheIfAbsent(
-            ButtonsCacheIndexes.BLUE_SKIES,
+            ButtonsCacheIndex.BLUE_SKIES,
             SkyTab.class
         );
 

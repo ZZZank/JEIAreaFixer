@@ -9,7 +9,7 @@ import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;
 import zzzank.mod.jei_area_fixer.JEIAreaFixer;
 import zzzank.mod.jei_area_fixer.JEIAreaFixerConfig;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsCacheHolder;
-import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsCacheIndexes;
+import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsCacheIndex;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -35,7 +35,7 @@ public class AE2ButtonsArea extends AbstractJEIAreaProvider<AEBaseGui> {
 
         var cache = access
             .jeiAreaFixer$getCache()
-            .computeIfAbsent(ButtonsCacheIndexes.AE2, k -> createButtonsCache(access));
+            .computeIfAbsent(ButtonsCacheIndex.AE2, k -> createButtonsCache(access));
 
         var areas = new ArrayList<Rectangle>(cache.size());
         for (var button : cache) {

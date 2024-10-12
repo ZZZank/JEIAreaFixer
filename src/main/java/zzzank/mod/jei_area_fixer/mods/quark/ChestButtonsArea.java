@@ -1,11 +1,10 @@
 package zzzank.mod.jei_area_fixer.mods.quark;
 
-import com.google.common.collect.ImmutableList;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import vazkii.quark.management.client.gui.GuiButtonChest;
 import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;
 import zzzank.mod.jei_area_fixer.JEIAreaFixer;
-import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsCacheIndexes;
+import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsCacheIndex;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsCacheHolder;
 
 import javax.annotation.Nonnull;
@@ -29,7 +28,7 @@ public class ChestButtonsArea extends AbstractJEIAreaProvider<GuiContainer> {
         var access = ((ButtonsCacheHolder) gui);
 
         var cache = access.jeiAreaFixer$computeCacheIfAbsent(
-            ButtonsCacheIndexes.QUARK,
+            ButtonsCacheIndex.QUARK,
             GuiButtonChest.class
         );
 

@@ -24,6 +24,7 @@ public interface ModState {
     boolean AE2 = loaded("appliedenergistics2");
     boolean TINKER_IO = loaded("tinker_io");
     boolean BLUE_SKIES = loaded("blue_skies");
+    boolean CRAFTING_TWEAKS = loaded("craftingtweaks");
 
     static boolean loaded(String modid) {
         return Loader.isModLoaded(modid);
