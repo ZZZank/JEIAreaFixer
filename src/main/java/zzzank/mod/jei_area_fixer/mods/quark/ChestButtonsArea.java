@@ -1,10 +1,10 @@
 package zzzank.mod.jei_area_fixer.mods.quark;
 
-import net.minecraft.client.gui.inventory.GuiContainer;
-import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;
+import com.google.common.collect.ImmutableList;
+import vazkii.quark.management.client.gui.GuiButtonChest;
 import zzzank.mod.jei_area_fixer.JEIAreaFixer;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonIndex;
-import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsCacheHolder;
+import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsAreaProvider;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -15,21 +15,17 @@ import java.util.List;
 /**
  * @author ZZZank
  */
-public class ChestButtonsArea extends AbstractJEIAreaProvider<GuiContainer> {
+public class ChestButtonsArea extends ButtonsAreaProvider<GuiButtonChest> {
 
     public ChestButtonsArea() {
-        super(GuiContainer.class);
+        super(ButtonIndex.QUARK);
     }
 
     @Nullable
     @Override
-    public List<Rectangle> getExtraAreas(@Nonnull GuiContainer gui) {
-        var access = ((ButtonsCacheHolder) gui);
-
-        var cache = access.jaf$cacheIfAbsent(ButtonIndex.QUARK);
-
-        var areas = new ArrayList<Rectangle>(cache.size());
-        for (var reskillableButton : cache) {
+    protected List<Rectangle> buttonsToAreas(@Nonnull ImmutableList<GuiButtonChest> buttons) {
+        var areas = new ArrayList<Rectangle>(buttons.size());
+        for (var reskillableButton : buttons) {
             if (reskillableButton.enabled) {
                 areas.add(JEIAreaFixer.rectFromButton(reskillableButton));
             }

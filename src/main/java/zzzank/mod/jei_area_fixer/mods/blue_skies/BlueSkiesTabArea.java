@@ -1,10 +1,9 @@
 package zzzank.mod.jei_area_fixer.mods.blue_skies;
 
+import com.google.common.collect.ImmutableList;
 import com.legacy.blue_skies.client.gui.tabs.SkyTab;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.inventory.GuiContainer;
-import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;
-import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsCacheHolder;
+import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsAreaProvider;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonIndex;
 
 import javax.annotation.Nonnull;
@@ -17,21 +16,16 @@ import java.util.List;
  * @see SkyTab
  * @author ZZZank
  */
-public class BlueSkiesTabArea extends AbstractJEIAreaProvider<GuiContainer> {
+public class BlueSkiesTabArea extends ButtonsAreaProvider<SkyTab> {
     public BlueSkiesTabArea() {
-        super(GuiContainer.class);
+        super(ButtonIndex.BLUE_SKIES);
     }
 
     @Nullable
     @Override
-    public List<Rectangle> getExtraAreas(@Nonnull GuiContainer gui) {
-        var access = ((ButtonsCacheHolder) gui);
-        var cache = access.jaf$cacheIfAbsent(
-            ButtonIndex.BLUE_SKIES
-        );
-
-        var areas = new ArrayList<Rectangle>(cache.size());
-        for (var button : cache) {
+    protected List<Rectangle> buttonsToAreas(@Nonnull ImmutableList<SkyTab> buttons) {
+        var areas = new ArrayList<Rectangle>(buttons.size());
+        for (var button : buttons) {
             if (button.visible) {
                 areas.add(rectFromTab(button));
             }

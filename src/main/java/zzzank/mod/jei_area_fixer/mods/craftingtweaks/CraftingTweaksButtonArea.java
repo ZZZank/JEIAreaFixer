@@ -1,8 +1,8 @@
 package zzzank.mod.jei_area_fixer.mods.craftingtweaks;
 
-import net.minecraft.client.gui.inventory.GuiContainer;
-import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;
-import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsCacheHolder;
+import com.google.common.collect.ImmutableList;
+import net.blay09.mods.craftingtweaks.client.GuiTweakButton;
+import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsAreaProvider;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonIndex;
 
 import javax.annotation.Nonnull;
@@ -14,19 +14,14 @@ import java.util.List;
 /**
  * @author ZZZank
  */
-public class CraftingTweaksButtonArea extends AbstractJEIAreaProvider<GuiContainer> {
+public class CraftingTweaksButtonArea extends ButtonsAreaProvider<GuiTweakButton> {
     public CraftingTweaksButtonArea() {
-        super(GuiContainer.class);
+        super(ButtonIndex.CRAFTING_TWEAKS);
     }
 
     @Nullable
     @Override
-    public List<Rectangle> getExtraAreas(@Nonnull GuiContainer gui) {
-        var cacheHolder = ((ButtonsCacheHolder) gui);
-        var buttons = cacheHolder.jaf$cacheIfAbsent(ButtonIndex.CRAFTING_TWEAKS);
-        if (buttons.isEmpty()) {
-            return null;
-        }
+    protected List<Rectangle> buttonsToAreas(@Nonnull ImmutableList<GuiTweakButton> buttons) {
         var areas = new ArrayList<Rectangle>();
         for (var button : buttons) {
             var access = ((GuiTweakButtonAccessor) button);

@@ -16,8 +16,8 @@ public interface ButtonsCacheHolder {
     List<GuiButton> jeiAreaFixer$getButtonList();
 
     @SuppressWarnings("unchecked")
-    default <T extends GuiButton> List<T> jeiAreaFixer$computeCacheIfAbsent(int key, Class<T> filter) {
-        return (List<T>) this.jeiAreaFixer$getCache()
+    default <T extends GuiButton> ImmutableList<T> jaf$cacheIfAbsent(int key, Class<T> filter) {
+        return (ImmutableList<T>) this.jeiAreaFixer$getCache()
             .computeIfAbsent(
                 key,
                 k -> this.jeiAreaFixer$getButtonList()
@@ -25,9 +25,5 @@ public interface ButtonsCacheHolder {
                     .filter(filter::isInstance)
                     .collect(ImmutableList.toImmutableList())
             );
-    }
-
-    default <T extends GuiButton> List<T> jaf$cacheIfAbsent(ButtonIndex<T> index) {
-        return jeiAreaFixer$computeCacheIfAbsent(index.index, index.typeProvider.get());
     }
 }
