@@ -25,6 +25,7 @@ public interface ModState {
     boolean TINKER_IO = loaded("tinker_io");
     boolean BLUE_SKIES = loaded("blue_skies");
     boolean CRAFTING_TWEAKS = loaded("craftingtweaks");
+    boolean TRINKETS_AND_BAUBLES = loaded("xat");
 
     static boolean loaded(String modid) {
         return Loader.isModLoaded(modid);
