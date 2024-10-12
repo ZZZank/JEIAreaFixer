@@ -1,5 +1,6 @@
 package zzzank.mod.jei_area_fixer.debug;
 
+import lombok.val;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraftforge.client.event.GuiScreenEvent;
@@ -31,10 +32,10 @@ public class JEIAreaFixerDebugAction {
         if (!JEIAreaFixerConfig.debug$print || JEIAreaFixerDebug.boundsMap.isEmpty()) {
             return;
         }
-        var joiner = new StringJoiner("\n");
-        for (var e : JEIAreaFixerDebug.boundsMap.entrySet()) {
-            var key = e.getKey();
-            var value = e.getValue();
+        val joiner = new StringJoiner("\n");
+        for (val e : JEIAreaFixerDebug.boundsMap.entrySet()) {
+            val key = e.getKey();
+            val value = e.getValue();
             if (value.equals(lastBounds.get(key))) {
                 continue;
             }
@@ -59,8 +60,8 @@ public class JEIAreaFixerDebugAction {
     }
 
     private static ArrayList<Rectangle> collectActiveBounds(Class<? extends GuiContainer> target) {
-        var bounds = new ArrayList<Rectangle>();
-        for (var e : JEIAreaFixerDebug.boundsMap.entrySet()) {
+        val bounds = new ArrayList<Rectangle>();
+        for (val e : JEIAreaFixerDebug.boundsMap.entrySet()) {
             if (!e.getKey().isAssignableFrom(target)) {
                 continue;
             }
@@ -74,14 +75,15 @@ public class JEIAreaFixerDebugAction {
      */
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void drawing(GuiScreenEvent.DrawScreenEvent.Post event) {
-        if (!JEIAreaFixerConfig.debug$drawing || !(event.getGui() instanceof GuiContainer guiContainer)) {
+        if (!JEIAreaFixerConfig.debug$drawing || !(event.getGui() instanceof GuiContainer)) {
             return;
         }
+        val guiContainer = (GuiContainer) event.getGui();
         if (!JEIAreaFixerConfig.debug$drawAll) {
             //if the config is enabled, we won't need to collect it by ourselves
             capturedAreas = collectActiveBounds(guiContainer.getClass());
         }
-        for (var area : capturedAreas) {
+        for (val area : capturedAreas) {
             Gui.drawRect(
                 area.x,
                 area.y,

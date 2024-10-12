@@ -1,5 +1,6 @@
 package zzzank.mod.jei_area_fixer.mods.xat;
 
+import lombok.val;
 import xzeroair.trinkets.client.gui.TrinketGui;
 import xzeroair.trinkets.util.TrinketsConfig;
 import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;
@@ -17,10 +18,13 @@ public class TrinketGuiArea extends AbstractJEIAreaProvider<TrinketGui> {
         super(TrinketGui.class);
     }
 
+    /**
+     * @see TrinketGui#renderTrinketInventory(int, int)
+     */
     @Nullable
     @Override
     public List<Rectangle> getExtraAreas(@Nonnull TrinketGui gui) {
-        var cfg = TrinketsConfig.CLIENT.GUI;
+        val cfg = TrinketsConfig.CLIENT.GUI;
         return null;
     }
 }

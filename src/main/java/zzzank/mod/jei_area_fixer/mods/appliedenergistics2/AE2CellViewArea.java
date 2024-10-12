@@ -2,6 +2,7 @@ package zzzank.mod.jei_area_fixer.mods.appliedenergistics2;
 
 import appeng.client.gui.implementations.GuiMEMonitorable;
 import appeng.client.gui.implementations.GuiSecurityStation;
+import lombok.val;
 import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;
 import zzzank.mod.jei_area_fixer.mixin.appliedenergistics2.AccessGuiMEMonitorable;
 
@@ -25,7 +26,7 @@ public class AE2CellViewArea extends AbstractJEIAreaProvider<GuiMEMonitorable> {
     @Nullable
     @Override
     public List<Rectangle> getExtraAreas(@Nonnull GuiMEMonitorable gui) {
-        var access = ((AccessGuiMEMonitorable) gui);
+        val access = ((AccessGuiMEMonitorable) gui);
 
         return access.jaf$viewCell() || gui instanceof GuiSecurityStation
 //        this.drawTexturedModalRect(offsetX + 197, offsetY, 197, 0, 46, 128); but actual area different

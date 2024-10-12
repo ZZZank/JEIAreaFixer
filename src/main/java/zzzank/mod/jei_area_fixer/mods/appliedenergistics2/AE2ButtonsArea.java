@@ -4,6 +4,7 @@ import appeng.client.gui.AEBaseGui;
 import appeng.client.gui.widgets.GuiImgButton;
 import appeng.client.gui.widgets.GuiTabButton;
 import appeng.client.gui.widgets.GuiToggleButton;
+import lombok.val;
 import net.minecraft.client.gui.GuiButton;
 import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;
 import zzzank.mod.jei_area_fixer.JEIAreaFixer;
@@ -31,14 +32,13 @@ public class AE2ButtonsArea extends AbstractJEIAreaProvider<AEBaseGui> {
     @Nullable
     @Override
     public List<Rectangle> getExtraAreas(@Nonnull AEBaseGui gui) {
-        var access = ((ButtonsCacheHolder) gui);
-
-        var cache = access
+        val access = ((ButtonsCacheHolder) gui);
+        val cache = access
             .jeiAreaFixer$getCache()
             .computeIfAbsent(ButtonIndex.AE2.index, k -> createButtonsCache(access));
 
-        var areas = new ArrayList<Rectangle>(cache.size());
-        for (var button : cache) {
+        val areas = new ArrayList<Rectangle>(cache.size());
+        for (val button : cache) {
             areas.add(JEIAreaFixer.rectFromButton(button));
         }
         return areas;
@@ -49,7 +49,7 @@ public class AE2ButtonsArea extends AbstractJEIAreaProvider<AEBaseGui> {
      */
     private static List<GuiButton> createButtonsCache(ButtonsCacheHolder access) {
         List<GuiButton> list = new ArrayList<>();
-        for (var b : access.jeiAreaFixer$getButtonList()) {
+        for (val b : access.jeiAreaFixer$getButtonList()) {
             if ((b instanceof GuiImgButton || b instanceof GuiTabButton || b instanceof GuiToggleButton)
                 && b.visible
                 && (!JEIAreaFixerConfig.AE2$IgnoreAreasTooHigh || b.y > 20)

@@ -1,5 +1,6 @@
 package zzzank.mod.jei_area_fixer;
 
+import lombok.val;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.IModRegistry;
 import mezz.jei.api.JEIPlugin;
@@ -41,7 +42,7 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
     @Override
     public void register(@Nonnull IModRegistry registry) {
         if (General$Buttons) {
-            var buttonsArea = new GeneralButtonsArea();
+            val buttonsArea = new GeneralButtonsArea();
             registry.addAdvancedGuiHandlers(buttonsArea);
             MinecraftForge.EVENT_BUS.register(buttonsArea);
         }
@@ -137,7 +138,7 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
         if (!ModState.AE2) {
             return false;
         }
-        var ae2 = Loader.instance().getIndexedModList().get("appliedenergistics2");
+        val ae2 = Loader.instance().getIndexedModList().get("appliedenergistics2");
         if (ae2 == null) {
             return false;
         }

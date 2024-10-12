@@ -2,6 +2,7 @@ package zzzank.mod.jei_area_fixer.mods;
 
 import it.unimi.dsi.fastutil.objects.Object2LongMap;
 import it.unimi.dsi.fastutil.objects.Object2LongOpenHashMap;
+import lombok.val;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraftforge.client.event.GuiScreenEvent;
@@ -37,7 +38,8 @@ public class GeneralButtonsArea extends AbstractJEIAreaProvider<GuiContainer> {
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public void readButtonInfos(GuiScreenEvent.InitGuiEvent.Post event) {
-        if (event.getGui() instanceof GuiContainer guiContainer) {
+        if (event.getGui() instanceof GuiContainer) {
+            val guiContainer = (GuiContainer) event.getGui();
             buttonsMap.put(guiContainer.getClass(), event.getButtonList());
         }
     }
@@ -45,18 +47,18 @@ public class GeneralButtonsArea extends AbstractJEIAreaProvider<GuiContainer> {
     @Nullable
     @Override
     public List<Rectangle> getExtraAreas(@Nonnull GuiContainer gui) {
-        var buttons = buttonsMap.get(gui.getClass());
+        val buttons = buttonsMap.get(gui.getClass());
         if (buttons == null || buttons.isEmpty()) {
             return Collections.emptyList();
         }
-        var currTime = System.currentTimeMillis();
-        var lastTime = timestamps.put(gui.getClass(), currTime);
+        val currTime = System.currentTimeMillis();
+        val lastTime = timestamps.put(gui.getClass(), currTime);
         if (currTime - lastTime > INTERVAL) {
             buttonsMap.remove(gui.getClass());
             return Collections.emptyList();
         }
-        var bounds = new ArrayList<Rectangle>(buttons.size());
-        for (var button : buttons) {
+        val bounds = new ArrayList<Rectangle>(buttons.size());
+        for (val button : buttons) {
             if (button.visible || button.enabled) { // not a good idea, but SOME mod devs are not using these two options correctly
                 bounds.add(JEIAreaFixer.rectFromButton(button));
             }

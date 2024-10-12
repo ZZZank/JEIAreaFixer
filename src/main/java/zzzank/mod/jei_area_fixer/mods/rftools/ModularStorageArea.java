@@ -1,5 +1,6 @@
 package zzzank.mod.jei_area_fixer.mods.rftools;
 
+import lombok.val;
 import mcjty.rftools.blocks.storage.GuiModularStorage;
 import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;
 import zzzank.mod.jei_area_fixer.JEIAreaFixer;
@@ -21,8 +22,8 @@ public class ModularStorageArea extends AbstractJEIAreaProvider<GuiModularStorag
     @Nullable
     @Override
     public List<Rectangle> getExtraAreas(@Nonnull GuiModularStorage gui) {
-        var craftingGrid = ((StorageWithCraftGuiAccessor) gui).jaf$craftingGrid();
-        var window = ((GuiCraftingGridAccessor) craftingGrid).jaf$craftWindow();
+        val craftingGrid = ((StorageWithCraftGuiAccessor) gui).jaf$craftingGrid();
+        val window = ((GuiCraftingGridAccessor) craftingGrid).jaf$craftWindow();
         return JEIAreaFixer.nullableWrap(window.getToplevel().getBounds());
     }
 }

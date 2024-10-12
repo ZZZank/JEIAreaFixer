@@ -1,5 +1,6 @@
 package zzzank.mod.jei_area_fixer.mods.openmods;
 
+import lombok.val;
 import openmods.gui.ComponentGui;
 import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;
 
@@ -21,10 +22,10 @@ public class OpenModsSeriesGuiArea extends AbstractJEIAreaProvider<ComponentGui>
     @Nullable
     @Override
     public List<Rectangle> getExtraAreas(@Nonnull ComponentGui gui) {
-        var root = ((ComponentGuiAccessor) gui).jaf$root();
-        var components = ((BaseCompositeAccessor) root).jaf$components();
-        var areas = new ArrayList<Rectangle>(components.size());
-        for (var component : components) {
+        val root = ((ComponentGuiAccessor) gui).jaf$root();
+        val components = ((BaseCompositeAccessor) root).jaf$components();
+        val areas = new ArrayList<Rectangle>(components.size());
+        for (val component : components) {
             areas.add(new Rectangle(
                 component.getX() + gui.getGuiLeft(),
                 component.getY() + gui.getGuiTop(),

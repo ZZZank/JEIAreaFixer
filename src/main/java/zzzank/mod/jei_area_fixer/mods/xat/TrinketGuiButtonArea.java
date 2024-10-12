@@ -1,6 +1,7 @@
 package zzzank.mod.jei_area_fixer.mods.xat;
 
 import com.google.common.collect.ImmutableList;
+import lombok.val;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import xzeroair.trinkets.client.gui.TrinketGuiButton;
@@ -31,9 +32,9 @@ public class TrinketGuiButtonArea extends ButtonsAreaProvider<TrinketGuiButton> 
         @Nonnull ImmutableList<TrinketGuiButton> buttons,
         @Nonnull GuiContainer gui
     ) {
-        var areas = new ArrayList<Rectangle>(buttons.size());
-        for (var b : buttons) {
-            var area = ModState.BAUBLES && b.id == 55
+        val areas = new ArrayList<Rectangle>(buttons.size());
+        for (val b : buttons) {
+            val area = ModState.BAUBLES && b.id == 55
                 ? new Rectangle(b.x + gui.getGuiLeft(), b.y, 10, 10)
                 : new Rectangle(b.x + gui.getGuiLeft(), b.y, b.width, b.height);
             areas.add(area);

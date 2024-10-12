@@ -1,6 +1,7 @@
 package zzzank.mod.jei_area_fixer.mods.forestry;
 
 import forestry.core.gui.GuiForestry;
+import lombok.val;
 import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;
 import zzzank.mod.jei_area_fixer.JEIAreaFixer;
 
@@ -21,12 +22,11 @@ public class ForestryLedgersArea extends AbstractJEIAreaProvider<GuiForestry<?>>
     @Nullable
     @Override
     public List<Rectangle> getExtraAreas(@Nonnull GuiForestry<?> gui) {
-        var ledgerManager = ((GuiForestryAccessor) gui).jaf$ledgerManager();
-        var errorLedgers = ((LedgerManagerAccessor) ledgerManager).jaf$errorLedgers();
+        val ledgerManager = ((GuiForestryAccessor) gui).jaf$ledgerManager();
+        val errorLedgers = ((LedgerManagerAccessor) ledgerManager).jaf$errorLedgers();
 
-        var areas = new ArrayList<Rectangle>(errorLedgers.size());
-
-        for (var ledger : errorLedgers) {
+        val areas = new ArrayList<Rectangle>(errorLedgers.size());
+        for (val ledger : errorLedgers) {
             if (ledger.isVisible()) {
                 areas.add(ledger.getArea());
             }
