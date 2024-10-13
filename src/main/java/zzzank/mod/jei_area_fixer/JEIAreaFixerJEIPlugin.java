@@ -4,10 +4,12 @@ import lombok.val;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.IModRegistry;
 import mezz.jei.api.JEIPlugin;
+import mezz.jei.api.gui.IAdvancedGuiHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Loader;
 import zzzank.mod.jei_area_fixer.mods.GeneralButtonsArea;
 import zzzank.mod.jei_area_fixer.mods.ModState;
+import zzzank.mod.jei_area_fixer.mods.ae2wtlib.AE2WTLibButtonsArea;
 import zzzank.mod.jei_area_fixer.mods.appliedenergistics2.AE2ButtonsArea;
 import zzzank.mod.jei_area_fixer.mods.appliedenergistics2.AE2CellViewArea;
 import zzzank.mod.jei_area_fixer.mods.blue_skies.BlueSkiesTabArea;
@@ -31,6 +33,8 @@ import zzzank.mod.jei_area_fixer.mods.xat.TrinketGuiButtonArea;
 
 import javax.annotation.Nonnull;
 
+import java.util.function.Supplier;
+
 import static zzzank.mod.jei_area_fixer.JEIAreaFixerConfig.*;
 
 /**
@@ -46,6 +50,7 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
             registry.addAdvancedGuiHandlers(buttonsArea);
             MinecraftForge.EVENT_BUS.register(buttonsArea);
         }
+        val help = new GuiHandlersRegistryHelper(registry);
         if (ModState.RF_TOOLS && RFTools$All) {
             if (RFTools$ModularStorage) {
                 registry.addAdvancedGuiHandlers(new ModularStorageArea());
@@ -130,6 +135,11 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
             }
             if (TrinketsAndBaubles$Slots) {
                 registry.addAdvancedGuiHandlers(new TrinketGuiArea());
+            }
+        }
+        if (ModState.AE2WT_LIB) {
+            if (AE2WTLib$Buttons) {
+                registry.addAdvancedGuiHandlers(new AE2WTLibButtonsArea());
             }
         }
     }

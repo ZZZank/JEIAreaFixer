@@ -27,6 +27,7 @@ public interface ModState {
     boolean CRAFTING_TWEAKS = loaded("craftingtweaks");
     boolean TRINKETS_AND_BAUBLES = loaded("xat");
     boolean BAUBLES = loaded("baubles");
+    boolean AE2WT_LIB = loaded("ae2wtlib");
 
     static boolean loaded(String modid) {
         return Loader.isModLoaded(modid);

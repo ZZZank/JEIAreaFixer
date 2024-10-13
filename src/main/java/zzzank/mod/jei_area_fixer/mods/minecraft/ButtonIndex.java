@@ -34,9 +34,14 @@ public class ButtonIndex<T extends GuiButton> {
     public static final ButtonIndex<GuiTweakButton> CRAFTING_TWEAKS = register(() -> GuiTweakButton.class);
     public static final ButtonIndex<TrinketGuiButton> TRINKET = register(() -> TrinketGuiButton.class);
     public static final ButtonIndex<GuiButton> AE2WT_LIB = registerMulti(() -> arr(
+        //from AE2WTLib
         p455w0rd.ae2wtlib.api.client.gui.widgets.GuiTabButton.class,
         GuiTrashButton.class,
-        GuiItemIconButton.class
+        GuiItemIconButton.class,
+        //from AE2
+        GuiImgButton.class,
+//        GuiTabButton.class,
+        GuiToggleButton.class
     ));
 
     public final Predicate<GuiButton> filter;

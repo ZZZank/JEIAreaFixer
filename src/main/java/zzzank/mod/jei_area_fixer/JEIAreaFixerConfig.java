@@ -111,15 +111,23 @@ public class JEIAreaFixerConfig {
     public static boolean TinkerIO$FuelInput = true;
 
     @Config.RequiresMcRestart
+    @Config.Comment("Support for Blue Skies tabs, usually located at the right side of your inventory")
     public static boolean BlueSkies$Tabs = true;
 
     @Config.RequiresMcRestart
+    @Config.Comment("Support for Crafting Tweaks")
     public static boolean CraftingTweaks$Buttons = true;
 
     @Config.RequiresMcRestart
+    @Config.Comment("Support for Trinkets And Baubles switch button")
     public static boolean TrinketsAndBaubles$Buttons = true;
     @Config.RequiresMcRestart
+    @Config.Comment("Support for Trinkets And Baubles trinket gui")
     public static boolean TrinketsAndBaubles$Slots = true;
+
+    @Config.RequiresMcRestart
+    @Config.Comment("Support for AE2WTLib, and its dependents: Wireless Crafting/Pattern/Fluid/Interface Terminal")
+    public static boolean AE2WTLib$Buttons = true;
 
     @SubscribeEvent
     public static void onConfigChanged(ConfigChangedEvent event) {
