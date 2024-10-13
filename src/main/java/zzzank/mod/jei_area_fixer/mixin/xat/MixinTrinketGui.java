@@ -27,22 +27,13 @@ public abstract class MixinTrinketGui implements TrinketGuiAreaProvider {
         method = "renderTrinketInventory",
         at = @At(
             value = "CONSTANT",
-            args = "intValue=0",
-            ordinal = 0
+            ordinal = 0,
+            args = "intValue=64"
         ),
         remap = false,
         locals = LocalCapture.CAPTURE_FAILSOFT
     )
-    public void jaf$clearCachedArea(
-        int x, int y, CallbackInfo ci,
-        int slots,
-        final int columnLength,
-        final int maxColumns,
-        int ignoredX,
-        int ignoredY,
-        int texX,
-        int texY
-    ) {
+    public void jaf$clearCachedArea(int x, int y, CallbackInfo ci, int slots, int columnLength, int maxColumns) {
         jaf$areas.clear();
         for (int col = 0; col < maxColumns; col++) {
             val rows = Math.min(slots, columnLength);
