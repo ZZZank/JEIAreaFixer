@@ -34,9 +34,7 @@ public abstract class MixinTrinketGui implements TrinketGuiAreaProvider {
         locals = LocalCapture.CAPTURE_FAILSOFT
     )
     public void jaf$clearCachedArea(
-        int x,
-        int y,
-        CallbackInfo ci,
+        int x, int y, CallbackInfo ci,
         int slots,
         final int columnLength,
         final int maxColumns,
@@ -46,10 +44,23 @@ public abstract class MixinTrinketGui implements TrinketGuiAreaProvider {
         int texY
     ) {
         jaf$areas.clear();
-        for (int col = 0; col < columnLength; col++) {
+        for (int col = 0; col < maxColumns; col++) {
             val rows = Math.min(slots, columnLength);
             slots -= columnLength;
-            jaf$areas.add(new Rectangle(x - 14 - col * 18, y, 32, 32 + rows * 18));
+            int height = rows * 18;
+            /*why add additional height when there's more than 4 and 7 columns:
+            if (l == 4 || l == 7) {
+                this.drawTexturedModalRect(X - 5 - c * 18, Y - 0 + l * 18, texX + 96, 8, 23, 8);
+                Y += 4;
+            }
+            */
+            if (rows > 4) {
+                height += 4;
+            }
+            if (rows > 7) {
+                height += 4;
+            }
+            jaf$areas.add(new Rectangle(x - col * 18, y, 18, height));
         }
     }
 
