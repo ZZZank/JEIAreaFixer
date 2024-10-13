@@ -11,6 +11,7 @@ import net.minecraftforge.fml.common.Loader;
 import zzzank.mod.jei_area_fixer.mods.GeneralButtonsArea;
 import zzzank.mod.jei_area_fixer.mods.ModState;
 import zzzank.mod.jei_area_fixer.mods.ae2wtlib.AE2WTLibButtonsArea;
+import zzzank.mod.jei_area_fixer.mods.ae2wtlib.WirelessCraftingAdditionalArea;
 import zzzank.mod.jei_area_fixer.mods.appliedenergistics2.AE2ButtonsArea;
 import zzzank.mod.jei_area_fixer.mods.appliedenergistics2.AE2CellViewArea;
 import zzzank.mod.jei_area_fixer.mods.blue_skies.BlueSkiesTabArea;
@@ -104,6 +105,7 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
         }
         if (ModState.AE2WT_LIB) {
             handlers.addIf(AE2WTLib$Buttons, AE2WTLibButtonsArea::new);
+            handlers.addIf(AE2WTLib$WirelessCraftingTerminal, WirelessCraftingAdditionalArea::new);
         }
     }
 

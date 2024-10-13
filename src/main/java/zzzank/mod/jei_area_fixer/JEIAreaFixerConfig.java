@@ -129,6 +129,10 @@ public class JEIAreaFixerConfig {
     @Config.Comment("Support for AE2WTLib, and its dependents: Wireless Crafting/Pattern/Fluid/Interface Terminal")
     public static boolean AE2WTLib$Buttons = true;
 
+    @Config.RequiresMcRestart
+    @Config.Comment("Additional support for Wireless Crafting Terminal")
+    public static boolean AE2WTLib$WirelessCraftingTerminal = true;
+
     @SubscribeEvent
     public static void onConfigChanged(ConfigChangedEvent event) {
         if (!Tags.MOD_ID.equals(event.getModID())) {

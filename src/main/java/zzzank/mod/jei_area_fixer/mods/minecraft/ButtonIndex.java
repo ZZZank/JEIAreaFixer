@@ -10,8 +10,11 @@ import com.legacy.blue_skies.client.gui.tabs.SkyTab;
 import lombok.val;
 import net.blay09.mods.craftingtweaks.client.GuiTweakButton;
 import net.minecraft.client.gui.GuiButton;
+import p455w0rd.ae2wtlib.api.client.gui.widgets.GuiImgButtonBooster;
 import p455w0rd.ae2wtlib.api.client.gui.widgets.GuiItemIconButton;
 import p455w0rd.ae2wtlib.api.client.gui.widgets.GuiTrashButton;
+import p455w0rd.wct.client.gui.widgets.GuiImgButtonMagnetMode;
+import p455w0rd.wct.client.gui.widgets.GuiImgButtonShiftCraft;
 import vazkii.quark.management.client.gui.GuiButtonChest;
 import xzeroair.trinkets.client.gui.TrinketGuiButton;
 
@@ -42,6 +45,11 @@ public class ButtonIndex<T extends GuiButton> {
         GuiImgButton.class,
 //        GuiTabButton.class,
         GuiToggleButton.class
+    ));
+    public static final ButtonIndex<GuiButton> WIRELESS_CRAFTING_TERMINAL = registerMulti(() -> arr(
+        GuiImgButtonBooster.class,
+        GuiImgButtonMagnetMode.class,
+        GuiImgButtonShiftCraft.class
     ));
 
     public final Predicate<GuiButton> filter;
