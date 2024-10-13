@@ -1,5 +1,6 @@
 package zzzank.mod.jei_area_fixer;
 
+import lombok.AllArgsConstructor;
 import lombok.val;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.IModRegistry;
@@ -45,102 +46,64 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
 
     @Override
     public void register(@Nonnull IModRegistry registry) {
+        val handlers = new GuiHandlersRegistryHelper(registry);
         if (General$Buttons) {
             val buttonsArea = new GeneralButtonsArea();
-            registry.addAdvancedGuiHandlers(buttonsArea);
+            handlers.add(buttonsArea);
             MinecraftForge.EVENT_BUS.register(buttonsArea);
         }
-        val help = new GuiHandlersRegistryHelper(registry);
         if (ModState.RF_TOOLS && RFTools$All) {
-            if (RFTools$ModularStorage) {
-                registry.addAdvancedGuiHandlers(new ModularStorageArea());
-            }
-            if (RFTools$StorageScanner) {
-                registry.addAdvancedGuiHandlers(new StorageScannerArea());
-            }
+            handlers.addIf(RFTools$ModularStorage, ModularStorageArea::new);
+            handlers.addIf(RFTools$StorageScanner, StorageScannerArea::new);
         }
         if (ModState.GAMBLING_STYLE && GamblingStyle$All) {
-            registry.addAdvancedGuiHandlers(new GuiVillagerArea());
+            handlers.add(new GuiVillagerArea());
         }
         if (ModState.OPEN_MODS_LIB && OpenMods$All) {
-            registry.addAdvancedGuiHandlers(new OpenModsSeriesGuiArea());
+            handlers.add(new OpenModsSeriesGuiArea());
         }
         if (ModState.SMELTERY_IO && SmelteryIO$All) {
-            if (SmelteryIO$CastingMachine) {
-                registry.addAdvancedGuiHandlers(new FuelControllerArea());
-            }
-            if (SmelteryIO$FuelController) {
-                registry.addAdvancedGuiHandlers(new CastingMachineArea());
-            }
+            handlers.addIf(SmelteryIO$CastingMachine, FuelControllerArea::new);
+            handlers.addIf(SmelteryIO$FuelController, CastingMachineArea::new);
         }
         if (ModState.RESKILLABLE) {
-            if (Reskillable$Tabs) {
-                registry.addAdvancedGuiHandlers(new ReskillableTabArea());
-            }
+            handlers.addIf(Reskillable$Tabs, ReskillableTabArea::new);
         }
         if (ModState.QUARK) {
-            if (Quark$ChestButtons) {
-                registry.addAdvancedGuiHandlers(new ChestButtonsArea());
-            }
+            handlers.addIf(Quark$ChestButtons, ChestButtonsArea::new);
         }
         if (ModState.FORESTRY) {
-            if (Forestry$Tabs) {
-                registry.addAdvancedGuiHandlers(new ForestryLedgersArea());
-            }
+            handlers.addIf(Forestry$Tabs, ForestryLedgersArea::new);
         }
         if (ModState.CYCLIC) {
-            if (Cyclic$ExtendedInventory) {
-                registry.addAdvancedGuiHandlers(new ExtendedArmorInventoryArea());
-            }
+            handlers.addIf(Cyclic$ExtendedInventory, ExtendedArmorInventoryArea::new);
         }
         if (ModState.MCJTY_LIB) {
-            if (McjtyLib$General) {
-                registry.addAdvancedGuiHandlers(new GenericGuiContainerArea());
-            }
+            handlers.addIf(McjtyLib$General, GenericGuiContainerArea::new);
         }
         if (ModState.COMPUTER_CRAFT) {
-            if (ComputerCraft$Computer) {
-                registry.addAdvancedGuiHandlers(new ComputerScreenArea());
-            }
+            handlers.addIf(ComputerCraft$Computer, ComputerScreenArea::new);
         }
         if (shouldEnableForAE2()) {
-            if (AE2$Buttons) {
-                registry.addAdvancedGuiHandlers(new AE2ButtonsArea());
-            }
-            if (AE2$CellView) {
-                registry.addAdvancedGuiHandlers(new AE2CellViewArea());
-            }
+            handlers.addIf(AE2$Buttons, AE2ButtonsArea::new);
+            handlers.addIf(AE2$CellView, AE2CellViewArea::new);
         }
         if (ModState.TINKER_IO && TinkerIO$All) {
-            if (TinkerIO$FuelInput) {
-                registry.addAdvancedGuiHandlers(new TinkerIOFuelInputMachineArea());
-            }
-            if (TinkerIO$SmartOutput) {
-                registry.addAdvancedGuiHandlers(new TinkerIOSmartOutputArea());
-            }
+            handlers.addIf(TinkerIO$FuelInput, TinkerIOFuelInputMachineArea::new);
+            handlers.addIf(TinkerIO$SmartOutput, TinkerIOSmartOutputArea::new);
         }
         if (ModState.BLUE_SKIES) {
-            if (BlueSkies$Tabs) {
-                registry.addAdvancedGuiHandlers(new BlueSkiesTabArea());
-            }
+            handlers.addIf(BlueSkies$Tabs, BlueSkiesTabArea::new);
         }
         if (ModState.CRAFTING_TWEAKS) {
-            if (CraftingTweaks$Buttons) {
-                registry.addAdvancedGuiHandlers(new CraftingTweaksButtonArea());
-            }
+            handlers.addIf(CraftingTweaks$Buttons, CraftingTweaksButtonArea::new);
         }
         if (ModState.TRINKETS_AND_BAUBLES) {
-            if (TrinketsAndBaubles$Buttons) {
-                registry.addAdvancedGuiHandlers(new TrinketGuiButtonArea());
-            }
-            if (TrinketsAndBaubles$Slots) {
-                registry.addAdvancedGuiHandlers(new TrinketGuiArea());
-            }
+            handlers.addIf(TrinketsAndBaubles$Buttons,TrinketGuiButtonArea::new);
+            handlers.addIf(TrinketsAndBaubles$Slots, TrinketGuiArea::new);
         }
         if (ModState.AE2WT_LIB) {
-            if (AE2WTLib$Buttons) {
-                registry.addAdvancedGuiHandlers(new AE2WTLibButtonsArea());
-            }
+            handlers.addIf(AE2WTLib$Buttons, AE2WTLibButtonsArea::new);
         }
     }
 
@@ -157,5 +120,20 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
             return false;
         }
         return AE2$All;
+    }
+
+    @AllArgsConstructor
+    public static class GuiHandlersRegistryHelper {
+        private final IModRegistry registry;
+
+        public void add(@Nonnull IAdvancedGuiHandler<?>... handlers) {
+            registry.addAdvancedGuiHandlers(handlers);
+        }
+
+        public void addIf(boolean condition, @Nonnull Supplier<IAdvancedGuiHandler<?>> handler) {
+            if (condition) {
+                add(handler.get());
+            }
+        }
     }
 }
