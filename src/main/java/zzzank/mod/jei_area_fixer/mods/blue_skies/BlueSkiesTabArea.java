@@ -4,7 +4,7 @@ import com.legacy.blue_skies.client.gui.tabs.SkyTab;
 import lombok.val;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
-import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsAreaProvider;
+import zzzank.mod.jei_area_fixer.mods.minecraft.GeneralButtonsAreaProvider;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonIndex;
 
 import javax.annotation.Nonnull;
@@ -17,7 +17,7 @@ import java.util.List;
  * @see SkyTab
  * @author ZZZank
  */
-public class BlueSkiesTabArea extends ButtonsAreaProvider<SkyTab> {
+public class BlueSkiesTabArea extends GeneralButtonsAreaProvider<SkyTab> {
     public BlueSkiesTabArea() {
         super(ButtonIndex.BLUE_SKIES);
     }

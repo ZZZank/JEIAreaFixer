@@ -14,22 +14,23 @@ import java.util.Objects;
 /**
  * @author ZZZank
  */
-public abstract class ButtonsAreaProvider<T extends GuiButton> extends AbstractJEIAreaProvider<GuiContainer> {
+public abstract class ButtonsAreaProvider<T extends GuiButton, G extends GuiContainer>
+    extends AbstractJEIAreaProvider<G> {
+
     private final ButtonIndex<T> index;
 
-    public ButtonsAreaProvider(ButtonIndex<T> index) {
-        super(GuiContainer.class);
+    public ButtonsAreaProvider(@Nonnull Class<G> type, @Nonnull ButtonIndex<T> index) {
+        super(Objects.requireNonNull(type));
         this.index = Objects.requireNonNull(index);
     }
 
     @Nullable
     @Override
-    public final List<Rectangle> getExtraAreas(@Nonnull GuiContainer gui) {
-        val cacheHolder = ((ButtonsCacheHolder) gui);
-        val cache = cacheHolder.jaf$cacheIfAbsent(index);
+    public final List<Rectangle> getExtraAreas(@Nonnull G gui) {
+        val cache = ((ButtonsCacheHolder) gui).jaf$cacheIfAbsent(index);
         return cache.isEmpty() ? null : buttonsToAreas(cache, gui);
     }
 
     @Nullable
-    protected abstract List<Rectangle> buttonsToAreas(@Nonnull List<T> buttons, @Nonnull GuiContainer gui);
+    protected abstract List<Rectangle> buttonsToAreas(@Nonnull List<T> buttons, @Nonnull G gui);
 }

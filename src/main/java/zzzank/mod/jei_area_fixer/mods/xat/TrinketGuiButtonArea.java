@@ -6,7 +6,7 @@ import net.minecraft.client.gui.inventory.GuiContainer;
 import xzeroair.trinkets.client.gui.TrinketGuiButton;
 import zzzank.mod.jei_area_fixer.mods.ModState;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonIndex;
-import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsAreaProvider;
+import zzzank.mod.jei_area_fixer.mods.minecraft.GeneralButtonsAreaProvider;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * @author ZZZank
  */
-public class TrinketGuiButtonArea extends ButtonsAreaProvider<TrinketGuiButton> {
+public class TrinketGuiButtonArea extends GeneralButtonsAreaProvider<TrinketGuiButton> {
     public TrinketGuiButtonArea() {
         super(ButtonIndex.TRINKET);
     }

@@ -5,7 +5,7 @@ import lombok.val;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import zzzank.mod.jei_area_fixer.JEIAreaFixer;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonIndex;
-import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsAreaProvider;
+import zzzank.mod.jei_area_fixer.mods.minecraft.GeneralButtonsAreaProvider;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * @author ZZZank
  */
-public class ReskillableTabArea extends ButtonsAreaProvider<GuiButtonInventoryTab> {
+public class ReskillableTabArea extends GeneralButtonsAreaProvider<GuiButtonInventoryTab> {
 
     public ReskillableTabArea() {
         super(ButtonIndex.RESKILLABLE);

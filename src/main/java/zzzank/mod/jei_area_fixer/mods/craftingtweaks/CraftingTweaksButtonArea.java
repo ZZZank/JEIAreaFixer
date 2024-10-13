@@ -3,7 +3,7 @@ package zzzank.mod.jei_area_fixer.mods.craftingtweaks;
 import lombok.val;
 import net.blay09.mods.craftingtweaks.client.GuiTweakButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
-import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsAreaProvider;
+import zzzank.mod.jei_area_fixer.mods.minecraft.GeneralButtonsAreaProvider;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonIndex;
 
 import javax.annotation.Nonnull;
@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * @author ZZZank
  */
-public class CraftingTweaksButtonArea extends ButtonsAreaProvider<GuiTweakButton> {
+public class CraftingTweaksButtonArea extends GeneralButtonsAreaProvider<GuiTweakButton> {
     public CraftingTweaksButtonArea() {
         super(ButtonIndex.CRAFTING_TWEAKS);
     }

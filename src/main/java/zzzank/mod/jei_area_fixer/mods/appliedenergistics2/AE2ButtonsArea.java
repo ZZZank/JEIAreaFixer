@@ -5,7 +5,7 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import zzzank.mod.jei_area_fixer.JEIAreaFixer;
 import zzzank.mod.jei_area_fixer.JEIAreaFixerConfig;
-import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsAreaProvider;
+import zzzank.mod.jei_area_fixer.mods.minecraft.GeneralButtonsAreaProvider;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonIndex;
 
 import javax.annotation.Nonnull;
@@ -20,7 +20,7 @@ import java.util.Set;
  *
  * @author ZZZank
  */
-public class AE2ButtonsArea extends ButtonsAreaProvider<GuiButton> {
+public class AE2ButtonsArea extends GeneralButtonsAreaProvider<GuiButton> {
     public AE2ButtonsArea() {
         super(ButtonIndex.AE2);
     }
