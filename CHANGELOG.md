@@ -1,5 +1,24 @@
 # Changelog
 
+## JEIAreaFixer 1.5.0 -> 1.6.0
+
+perf++ & support 10 more mods
+
+- TinkerIO support
+- BlueSkies support
+- Crafting Tweaks support
+    - the same applies to Crafting Tweaks Unofficial
+- TrinketAndBaubles support
+- AE2WTLib support
+    - and its dependents: Wireless Crafting/Pattern/Fluid/Interface Terminal, 5 mods in total
+    - and additional support for Wireless Crafting Terminal
+- more precise GUI target setting for some button area provider
+    - this can prevent calculating areas on GUIs that are guaranteed to not have any buttons of this kind, improving performance
+- buttons pre-filtering
+    - by filtering out buttons inside gui before converting to area, we can decrease the amount of areas passes to JEI, so performance will be better
+
+---
+
 ## JEIAreaFixer 1.4.0 -> 1.5.0
 
 AE2 & ComputerCraft & debug++
