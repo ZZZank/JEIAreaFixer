@@ -1,9 +1,10 @@
 package zzzank.mod.jei_area_fixer.mods.minecraft;
 
-import com.google.common.collect.ImmutableList;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
+import lombok.val;
 import net.minecraft.client.gui.GuiButton;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,14 +17,19 @@ public interface ButtonsCacheHolder {
     List<GuiButton> jeiAreaFixer$getButtonList();
 
     @SuppressWarnings("unchecked")
-    default <T extends GuiButton> ImmutableList<T> jaf$cacheIfAbsent(int key, Class<T> filter) {
-        return (ImmutableList<T>) this.jeiAreaFixer$getCache()
+    default <T extends GuiButton> List<T> jaf$cacheIfAbsent(ButtonIndex<T> index) {
+        return (List<T>) this.jeiAreaFixer$getCache()
             .computeIfAbsent(
-                key,
-                k -> this.jeiAreaFixer$getButtonList()
-                    .stream()
-                    .filter(filter::isInstance)
-                    .collect(ImmutableList.toImmutableList())
+                index.index,
+                k -> {
+                    val list = new ArrayList<GuiButton>();
+                    for (val guiButton : this.jeiAreaFixer$getButtonList()) {
+                        if (index.filter.test(guiButton)) {
+                            list.add(guiButton);
+                        }
+                    }
+                    return list;
+                }
             );
     }
 }

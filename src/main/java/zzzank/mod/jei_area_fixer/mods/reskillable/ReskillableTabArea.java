@@ -1,7 +1,6 @@
 package zzzank.mod.jei_area_fixer.mods.reskillable;
 
 import codersafterdark.reskillable.client.gui.button.GuiButtonInventoryTab;
-import com.google.common.collect.ImmutableList;
 import lombok.val;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import zzzank.mod.jei_area_fixer.JEIAreaFixer;
@@ -25,7 +24,7 @@ public class ReskillableTabArea extends ButtonsAreaProvider<GuiButtonInventoryTa
 
     @Nullable
     @Override
-    protected List<Rectangle> buttonsToAreas(@Nonnull ImmutableList<GuiButtonInventoryTab> buttons, @Nonnull GuiContainer gui) {
+    protected List<Rectangle> buttonsToAreas(@Nonnull List<GuiButtonInventoryTab> buttons, @Nonnull GuiContainer gui) {
         val areas = new ArrayList<Rectangle>(buttons.size());
         for (val reskillableButton : buttons) {
             if (reskillableButton.enabled) {

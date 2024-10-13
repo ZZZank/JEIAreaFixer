@@ -1,6 +1,5 @@
 package zzzank.mod.jei_area_fixer.mods.xat;
 
-import com.google.common.collect.ImmutableList;
 import lombok.val;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -29,7 +28,7 @@ public class TrinketGuiButtonArea extends ButtonsAreaProvider<TrinketGuiButton> 
     @Nullable
     @Override
     protected List<Rectangle> buttonsToAreas(
-        @Nonnull ImmutableList<TrinketGuiButton> buttons,
+        @Nonnull List<TrinketGuiButton> buttons,
         @Nonnull GuiContainer gui
     ) {
         val areas = new ArrayList<Rectangle>(buttons.size());

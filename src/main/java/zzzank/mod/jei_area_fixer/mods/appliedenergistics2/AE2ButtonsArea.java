@@ -1,15 +1,11 @@
 package zzzank.mod.jei_area_fixer.mods.appliedenergistics2;
 
-import appeng.client.gui.AEBaseGui;
-import appeng.client.gui.widgets.GuiImgButton;
-import appeng.client.gui.widgets.GuiTabButton;
-import appeng.client.gui.widgets.GuiToggleButton;
 import lombok.val;
 import net.minecraft.client.gui.GuiButton;
-import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;
+import net.minecraft.client.gui.inventory.GuiContainer;
 import zzzank.mod.jei_area_fixer.JEIAreaFixer;
 import zzzank.mod.jei_area_fixer.JEIAreaFixerConfig;
-import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsCacheHolder;
+import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsAreaProvider;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonIndex;
 
 import javax.annotation.Nonnull;
@@ -24,39 +20,23 @@ import java.util.Set;
  *
  * @author ZZZank
  */
-public class AE2ButtonsArea extends AbstractJEIAreaProvider<AEBaseGui> {
+public class AE2ButtonsArea extends ButtonsAreaProvider<GuiButton> {
     public AE2ButtonsArea() {
-        super(AEBaseGui.class);
-    }
-
-    @Nullable
-    @Override
-    public List<Rectangle> getExtraAreas(@Nonnull AEBaseGui gui) {
-        val access = ((ButtonsCacheHolder) gui);
-        val cache = access
-            .jeiAreaFixer$getCache()
-            .computeIfAbsent(ButtonIndex.AE2.index, k -> createButtonsCache(access));
-
-        val areas = new ArrayList<Rectangle>(cache.size());
-        for (val button : cache) {
-            areas.add(JEIAreaFixer.rectFromButton(button));
-        }
-        return areas;
+        super(ButtonIndex.AE2);
     }
 
     /**
      * @see mezz.jei.gui.overlay.IngredientGridWithNavigation#updateBounds(Rectangle, Set, int) IngredientGridWithNavigation for the reason of `20`
      */
-    private static List<GuiButton> createButtonsCache(ButtonsCacheHolder access) {
-        List<GuiButton> list = new ArrayList<>();
-        for (val b : access.jeiAreaFixer$getButtonList()) {
-            if ((b instanceof GuiImgButton || b instanceof GuiTabButton || b instanceof GuiToggleButton)
-                && b.visible
-                && (!JEIAreaFixerConfig.AE2$IgnoreAreasTooHigh || b.y > 20)
-            ) {
-                list.add(b);
+    @Nullable
+    @Override
+    protected List<Rectangle> buttonsToAreas(@Nonnull List<GuiButton> buttons, @Nonnull GuiContainer gui) {
+        val areas = new ArrayList<Rectangle>(buttons.size());
+        for (val button : buttons) {
+            if (button.visible && !(!JEIAreaFixerConfig.AE2$IgnoreAreasTooHigh || button.y > 20)) {
+                areas.add(JEIAreaFixer.rectFromButton(button));
             }
         }
-        return list;
+        return areas;
     }
 }

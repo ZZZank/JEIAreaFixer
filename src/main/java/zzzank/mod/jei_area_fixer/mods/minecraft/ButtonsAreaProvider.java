@@ -1,6 +1,5 @@
 package zzzank.mod.jei_area_fixer.mods.minecraft;
 
-import com.google.common.collect.ImmutableList;
 import lombok.val;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -27,10 +26,10 @@ public abstract class ButtonsAreaProvider<T extends GuiButton> extends AbstractJ
     @Override
     public final List<Rectangle> getExtraAreas(@Nonnull GuiContainer gui) {
         val cacheHolder = ((ButtonsCacheHolder) gui);
-        val cache = cacheHolder.jaf$cacheIfAbsent(index.index, index.typeProvider.get());
+        val cache = cacheHolder.jaf$cacheIfAbsent(index);
         return cache.isEmpty() ? null : buttonsToAreas(cache, gui);
     }
 
     @Nullable
-    protected abstract List<Rectangle> buttonsToAreas(@Nonnull ImmutableList<T> buttons, @Nonnull GuiContainer gui);
+    protected abstract List<Rectangle> buttonsToAreas(@Nonnull List<T> buttons, @Nonnull GuiContainer gui);
 }

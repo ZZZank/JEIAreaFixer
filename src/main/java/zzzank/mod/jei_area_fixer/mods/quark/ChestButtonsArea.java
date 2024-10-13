@@ -1,6 +1,5 @@
 package zzzank.mod.jei_area_fixer.mods.quark;
 
-import com.google.common.collect.ImmutableList;
 import lombok.val;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import vazkii.quark.management.client.gui.GuiButtonChest;
@@ -25,7 +24,7 @@ public class ChestButtonsArea extends ButtonsAreaProvider<GuiButtonChest> {
 
     @Nullable
     @Override
-    protected List<Rectangle> buttonsToAreas(@Nonnull ImmutableList<GuiButtonChest> buttons, @Nonnull GuiContainer gui) {
+    protected List<Rectangle> buttonsToAreas(@Nonnull List<GuiButtonChest> buttons, @Nonnull GuiContainer gui) {
         val areas = new ArrayList<Rectangle>(buttons.size());
         for (val reskillableButton : buttons) {
             if (reskillableButton.enabled) {
