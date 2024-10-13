@@ -1,11 +1,11 @@
 package zzzank.mod.jei_area_fixer.mods.appliedenergistics2;
 
+import appeng.client.gui.AEBaseGui;
 import lombok.val;
 import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.gui.inventory.GuiContainer;
 import zzzank.mod.jei_area_fixer.JEIAreaFixer;
 import zzzank.mod.jei_area_fixer.JEIAreaFixerConfig;
-import zzzank.mod.jei_area_fixer.mods.minecraft.GeneralButtonsAreaProvider;
+import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsAreaProvider;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonIndex;
 
 import javax.annotation.Nonnull;
@@ -20,9 +20,9 @@ import java.util.Set;
  *
  * @author ZZZank
  */
-public class AE2ButtonsArea extends GeneralButtonsAreaProvider<GuiButton> {
+public class AE2ButtonsArea extends ButtonsAreaProvider<GuiButton, AEBaseGui> {
     public AE2ButtonsArea() {
-        super(ButtonIndex.AE2);
+        super(ButtonIndex.AE2, AEBaseGui.class);
     }
 
     /**
@@ -30,7 +30,7 @@ public class AE2ButtonsArea extends GeneralButtonsAreaProvider<GuiButton> {
      */
     @Nullable
     @Override
-    protected List<Rectangle> buttonsToAreas(@Nonnull List<GuiButton> buttons, @Nonnull GuiContainer gui) {
+    protected List<Rectangle> buttonsToAreas(@Nonnull List<GuiButton> buttons, @Nonnull AEBaseGui gui) {
         val areas = new ArrayList<Rectangle>(buttons.size());
         for (val button : buttons) {
             if (button.visible && !(!JEIAreaFixerConfig.AE2$IgnoreAreasTooHigh || button.y > 20)) {

@@ -19,8 +19,8 @@ public abstract class ButtonsAreaProvider<T extends GuiButton, G extends GuiCont
 
     private final ButtonIndex<T> index;
 
-    public ButtonsAreaProvider(@Nonnull Class<G> type, @Nonnull ButtonIndex<T> index) {
-        super(Objects.requireNonNull(type));
+    public ButtonsAreaProvider(@Nonnull ButtonIndex<T> index, @Nonnull Class<G> type) {
+        super(type);
         this.index = Objects.requireNonNull(index);
     }
 

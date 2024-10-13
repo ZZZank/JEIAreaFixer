@@ -17,7 +17,7 @@ public abstract class AbstractJEIAreaProvider<T extends GuiContainer> implements
 
     private final Class<T> target;
 
-    public AbstractJEIAreaProvider(Class<T> target) {
+    public AbstractJEIAreaProvider(@Nonnull Class<T> target) {
         this.target = Objects.requireNonNull(target);
     }
 
