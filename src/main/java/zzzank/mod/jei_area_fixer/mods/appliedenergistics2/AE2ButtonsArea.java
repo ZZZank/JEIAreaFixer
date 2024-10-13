@@ -33,7 +33,7 @@ public class AE2ButtonsArea extends ButtonsAreaProvider<GuiButton, AEBaseGui> {
     protected List<Rectangle> buttonsToAreas(@Nonnull List<GuiButton> buttons, @Nonnull AEBaseGui gui) {
         val areas = new ArrayList<Rectangle>(buttons.size());
         for (val button : buttons) {
-            if (button.visible && !(!JEIAreaFixerConfig.AE2$IgnoreAreasTooHigh || button.y > 20)) {
+            if (button.visible && (!JEIAreaFixerConfig.AE2$IgnoreAreasTooHigh || button.y > 20)) {
                 areas.add(JEIAreaFixer.rectFromButton(button));
             }
         }
