@@ -4,9 +4,9 @@ import appeng.client.gui.AEBaseGui;
 import lombok.val;
 import net.minecraft.client.gui.GuiButton;
 import zzzank.mod.jei_area_fixer.JEIAreaFixer;
-import zzzank.mod.jei_area_fixer.JEIAreaFixerConfig;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsAreaProvider;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonIndex;
+import zzzank.mod.jei_area_fixer.utils.AreaFilter;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -33,7 +33,7 @@ public class AE2ButtonsArea extends ButtonsAreaProvider<GuiButton, AEBaseGui> {
     protected List<Rectangle> buttonsToAreas(@Nonnull List<GuiButton> buttons, @Nonnull AEBaseGui gui) {
         val areas = new ArrayList<Rectangle>(buttons.size());
         for (val button : buttons) {
-            if (button.visible && (!JEIAreaFixerConfig.AE2$IgnoreAreasTooHigh || button.y > 20)) {
+            if (button.visible && AreaFilter.notShiftingBookmark(button)) {
                 areas.add(JEIAreaFixer.rectFromButton(button));
             }
         }
