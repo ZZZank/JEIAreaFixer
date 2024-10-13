@@ -23,7 +23,7 @@ import java.util.function.Predicate;
 /**
  * @author ZZZank
  */
-public class ButtonIndex<T extends GuiButton> {
+public final class ButtonIndex<T extends GuiButton> {
 
     private static int currentOrdinal = 0;
     public static final ButtonIndex<GuiButtonChest> QUARK = register(() -> GuiButtonChest.class);
@@ -73,7 +73,7 @@ public class ButtonIndex<T extends GuiButton> {
                 }
             }
             return false;
-        }, currentOrdinal);
+        }, currentOrdinal++);
     }
 
     @SuppressWarnings("unchecked")
