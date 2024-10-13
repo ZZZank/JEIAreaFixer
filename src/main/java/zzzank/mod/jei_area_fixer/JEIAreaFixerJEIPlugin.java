@@ -84,7 +84,7 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
         if (ModState.COMPUTER_CRAFT) {
             handlers.addIf(ComputerCraft$Computer, ComputerScreenArea::new);
         }
-        if (shouldEnableForAE2()) {
+        if (ModState.AE2 && shouldEnableForAE2()) {
             handlers.addIf(AE2$Buttons, AE2ButtonsArea::new);
             handlers.addIf(AE2$CellView, AE2CellViewArea::new);
         }
@@ -108,9 +108,6 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
     }
 
     private static boolean shouldEnableForAE2() {
-        if (!ModState.AE2) {
-            return false;
-        }
         val ae2 = Loader.instance().getIndexedModList().get("appliedenergistics2");
         if (ae2 == null) {
             return false;
