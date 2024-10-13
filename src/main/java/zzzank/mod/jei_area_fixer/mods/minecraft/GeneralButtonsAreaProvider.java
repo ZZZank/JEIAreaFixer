@@ -6,7 +6,8 @@ import net.minecraft.client.gui.inventory.GuiContainer;
 /**
  * @author ZZZank
  */
-public abstract class GeneralButtonsAreaProvider<T extends GuiButton> extends ButtonsAreaProvider<T, GuiContainer> {
+public abstract class GeneralButtonsAreaProvider<T extends GuiButton>
+    extends ButtonsAreaProvider<T, GuiContainer> {
 
     public GeneralButtonsAreaProvider(ButtonIndex<T> index) {
         super(index, GuiContainer.class);

@@ -3,6 +3,7 @@ package zzzank.mod.jei_area_fixer.mods.xat;
 import lombok.val;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraftforge.client.event.GuiScreenEvent;
 import xzeroair.trinkets.client.gui.TrinketGuiButton;
 import zzzank.mod.jei_area_fixer.mods.ModState;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonIndex;
@@ -15,6 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * we have to use {@link GeneralButtonsAreaProvider} here because it's targeting more than one GUI type
+ * @see xzeroair.trinkets.client.events.GuiScreenEvents#guiPostInit(GuiScreenEvent.InitGuiEvent.Post)
  * @author ZZZank
  */
 public class TrinketGuiButtonArea extends GeneralButtonsAreaProvider<TrinketGuiButton> {

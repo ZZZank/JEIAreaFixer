@@ -2,6 +2,7 @@ package zzzank.mod.jei_area_fixer.mods.quark;
 
 import lombok.val;
 import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraftforge.client.event.GuiScreenEvent;
 import vazkii.quark.management.client.gui.GuiButtonChest;
 import zzzank.mod.jei_area_fixer.JEIAreaFixer;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonIndex;
@@ -14,6 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * we have to use {@link GeneralButtonsAreaProvider} here because it's targeting more than one GUI type
+ * @see vazkii.quark.management.feature.ChestButtons#initGui(GuiScreenEvent.InitGuiEvent.Post)
  * @author ZZZank
  */
 public class ChestButtonsArea extends GeneralButtonsAreaProvider<GuiButtonChest> {

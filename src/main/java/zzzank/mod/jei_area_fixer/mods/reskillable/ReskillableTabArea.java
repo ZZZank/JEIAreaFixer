@@ -3,6 +3,7 @@ package zzzank.mod.jei_area_fixer.mods.reskillable;
 import codersafterdark.reskillable.client.gui.button.GuiButtonInventoryTab;
 import lombok.val;
 import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraftforge.client.event.GuiScreenEvent;
 import zzzank.mod.jei_area_fixer.JEIAreaFixer;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonIndex;
 import zzzank.mod.jei_area_fixer.mods.minecraft.GeneralButtonsAreaProvider;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * @see codersafterdark.reskillable.client.gui.handler.InventoryTabHandler#initGui(GuiScreenEvent.InitGuiEvent.Post)
  * @author ZZZank
  */
 public class ReskillableTabArea extends GeneralButtonsAreaProvider<GuiButtonInventoryTab> {
