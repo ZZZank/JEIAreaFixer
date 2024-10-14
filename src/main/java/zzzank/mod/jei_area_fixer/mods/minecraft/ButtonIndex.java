@@ -8,6 +8,7 @@ import com.google.common.base.Supplier;
 import com.google.common.base.Suppliers;
 import com.legacy.blue_skies.client.gui.tabs.SkyTab;
 import lombok.val;
+import mustapelto.deepmoblearning.client.gui.buttons.ButtonRedstoneMode;
 import net.blay09.mods.craftingtweaks.client.GuiTweakButton;
 import net.minecraft.client.gui.GuiButton;
 import p455w0rd.ae2wtlib.api.client.gui.widgets.GuiImgButtonBooster;
@@ -51,6 +52,7 @@ public final class ButtonIndex<T extends GuiButton> {
         GuiImgButtonMagnetMode.class,
         GuiImgButtonShiftCraft.class
     ));
+    public static final ButtonIndex<ButtonRedstoneMode> DME_REDSTONE = register(() -> ButtonRedstoneMode.class);
 
     public final Predicate<GuiButton> filter;
     public final int index;
