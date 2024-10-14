@@ -1,4 +1,4 @@
-package zzzank.mod.jei_area_fixer.mods.mcjtylib;
+package zzzank.mod.jei_area_fixer.mods.mcjty_lib;
 
 import mcjty.lib.gui.GenericGuiContainer;
 import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;

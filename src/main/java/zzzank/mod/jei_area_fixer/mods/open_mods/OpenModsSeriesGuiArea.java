@@ -1,4 +1,4 @@
-package zzzank.mod.jei_area_fixer.mods.openmods;
+package zzzank.mod.jei_area_fixer.mods.open_mods;
 
 import lombok.val;
 import openmods.gui.ComponentGui;

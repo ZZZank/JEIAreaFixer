@@ -3,7 +3,7 @@ package zzzank.mod.jei_area_fixer.mixin.craftingtweaks;
 import net.blay09.mods.craftingtweaks.client.GuiTweakButton;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
-import zzzank.mod.jei_area_fixer.mods.craftingtweaks.GuiTweakButtonAccessor;
+import zzzank.mod.jei_area_fixer.mods.crafting_tweaks.GuiTweakButtonAccessor;
 
 /**
  * @author ZZZank

@@ -1,4 +1,4 @@
-package zzzank.mod.jei_area_fixer.mods.craftingtweaks;
+package zzzank.mod.jei_area_fixer.mods.crafting_tweaks;
 
 /**
  * @author ZZZank

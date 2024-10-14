@@ -1,4 +1,4 @@
-package zzzank.mod.jei_area_fixer.mods.xat;
+package zzzank.mod.jei_area_fixer.mods.trinkets_and_baubles;
 
 import lombok.val;
 import net.minecraft.client.Minecraft;

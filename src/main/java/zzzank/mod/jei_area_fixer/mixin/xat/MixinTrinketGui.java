@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 import xzeroair.trinkets.client.gui.TrinketGui;
-import zzzank.mod.jei_area_fixer.mods.xat.TrinketGuiAreaProvider;
+import zzzank.mod.jei_area_fixer.mods.trinkets_and_baubles.TrinketGuiAreaProvider;
 
 import java.awt.*;
 import java.util.ArrayList;

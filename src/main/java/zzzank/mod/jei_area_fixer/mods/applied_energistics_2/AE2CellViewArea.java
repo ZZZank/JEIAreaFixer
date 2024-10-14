@@ -1,4 +1,4 @@
-package zzzank.mod.jei_area_fixer.mods.appliedenergistics2;
+package zzzank.mod.jei_area_fixer.mods.applied_energistics_2;
 
 import appeng.client.gui.implementations.GuiMEMonitorable;
 import appeng.client.gui.implementations.GuiSecurityStation;

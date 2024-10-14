@@ -1,4 +1,4 @@
-package zzzank.mod.jei_area_fixer.mods.gamblingstyle;
+package zzzank.mod.jei_area_fixer.mods.gambling_style;
 
 /**
  * @author ZZZank
