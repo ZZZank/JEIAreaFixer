@@ -18,6 +18,8 @@ import zzzank.mod.jei_area_fixer.mods.blue_skies.BlueSkiesTabArea;
 import zzzank.mod.jei_area_fixer.mods.computer_craft.ComputerScreenArea;
 import zzzank.mod.jei_area_fixer.mods.crafting_tweaks.CraftingTweaksButtonArea;
 import zzzank.mod.jei_area_fixer.mods.cyclic.ExtendedArmorInventoryArea;
+import zzzank.mod.jei_area_fixer.mods.deep_mob_learning.DMLRedstoneModeButtonArea;
+import zzzank.mod.jei_area_fixer.mods.deep_mob_learning.SimulationChamberArea;
 import zzzank.mod.jei_area_fixer.mods.forestry.ForestryLedgersArea;
 import zzzank.mod.jei_area_fixer.mods.gambling_style.GuiVillagerArea;
 import zzzank.mod.jei_area_fixer.mods.mcjty_lib.GenericGuiContainerArea;
@@ -106,6 +108,10 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
         if (ModState.AE2WT_LIB) {
             handlers.addIf(AE2WTLib$Buttons, AE2WTLibButtonsArea::new);
             handlers.addIf(AE2WTLib$WirelessCraftingTerminal, WirelessCraftingAdditionalArea::new);
+        }
+        if (ModState.DEEP_MOD_LEARNING) {
+            handlers.addIf(DeepModLearning$Buttons, DMLRedstoneModeButtonArea::new);
+            handlers.addIf(DeepModLearning$SimulationChamber, SimulationChamberArea::new);
         }
     }
 

@@ -17,8 +17,8 @@ import java.util.List;
 /**
  * @author ZZZank
  */
-public class DMERedstoneModeButtonArea extends ButtonsAreaProvider<ButtonRedstoneMode, GuiMachine> {
-    public DMERedstoneModeButtonArea() {
+public class DMLRedstoneModeButtonArea extends ButtonsAreaProvider<ButtonRedstoneMode, GuiMachine> {
+    public DMLRedstoneModeButtonArea() {
         super(ButtonIndex.DME_REDSTONE, GuiMachine.class);
     }
 

@@ -128,10 +128,16 @@ public class JEIAreaFixerConfig {
     @Config.RequiresMcRestart
     @Config.Comment("Support for AE2WTLib, and its dependents: Wireless Crafting/Pattern/Fluid/Interface Terminal")
     public static boolean AE2WTLib$Buttons = true;
-
     @Config.RequiresMcRestart
     @Config.Comment("Additional support for Wireless Crafting Terminal")
     public static boolean AE2WTLib$WirelessCraftingTerminal = true;
+
+    @Config.RequiresMcRestart
+    @Config.Comment("Support for redstone mode button in Deep Mob Learning and its forks like Deep Mod Evolution")
+    public static boolean DeepModLearning$Buttons = true;
+    @Config.RequiresMcRestart
+    @Config.Comment("Additional support for Simulation Chamber in Deep Mob Learning")
+    public static boolean DeepModLearning$SimulationChamber = true;
 
     @SubscribeEvent
     public static void onConfigChanged(ConfigChangedEvent event) {
