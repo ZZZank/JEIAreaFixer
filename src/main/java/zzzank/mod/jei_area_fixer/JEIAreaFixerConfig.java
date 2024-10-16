@@ -17,10 +17,26 @@ import net.minecraftforge.fml.relauncher.Side;
 public class JEIAreaFixerConfig {
 
     private static final String LANG_PREFIX = "jei_area_fixer.config.";
-
     public static final _Debug DEBUG = new _Debug();
+    public static final _General GENERAL = new _General();
+
     public static final _AE2 AE2 = new _AE2();
     public static final _ComputerCraft COMPUTER_CRAFT = new _ComputerCraft();
+    public static final _McjtyLib MCJTY_LIB = new _McjtyLib();
+    public static final _Cyclic CYCLIC = new _Cyclic();
+    public static final _Forestry FORESTRY = new _Forestry();
+    public static final _RFTools RF_TOOLS = new _RFTools();
+    public static final _GamblingStyle GAMBLING_STYLE = new _GamblingStyle();
+    public static final _OpenMods OPEN_MODS = new _OpenMods();
+    public static final _Quark QUARK = new _Quark();
+    public static final _Reskillable RESKILLABLE = new _Reskillable();
+    public static final _SmelteryIO SMELTERY_IO = new _SmelteryIO();
+    public static final _TinkerIO TINKER_IO = new _TinkerIO();
+    public static final _BlueSkies BLUE_SKIES = new _BlueSkies();
+    public static final _CraftingTweaks CRAFTING_TWEAKS = new _CraftingTweaks();
+    public static final _TrinketsAndBaubles TRINKETS_AND_BAUBLES = new _TrinketsAndBaubles();
+    public static final _AE2WTLib AE2WTLIB = new _AE2WTLib();
+    public static final _DeepMobLearning DEEP_MOB_LEARNING = new _DeepMobLearning();
 
     @SubscribeEvent
     public static void onConfigChanged(ConfigChangedEvent event) {
@@ -75,138 +91,138 @@ public class JEIAreaFixerConfig {
     public static class _General {
         @Config.RequiresMcRestart
         @Config.Comment("Disabled by default because many, many mod devs are not drawing buttons in a standard way")
-        public static boolean General$Buttons = false;
+        public boolean General$Buttons = false;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _McjtyLib {
         @Config.RequiresMcRestart
         @Config.Comment("General support for mods made by mcjty, mostly affecting XNet")
-        public static boolean McjtyLib$General = true;
+        public boolean McjtyLib$General = true;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _Cyclic {
         @Config.RequiresMcRestart
         @Config.Comment("Support for armor slots in extended player inventory")
-        public static boolean Cyclic$ExtendedInventory = true;
+        public boolean Cyclic$ExtendedInventory = true;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _Forestry {
         @Config.RequiresMcRestart
         @Config.Comment("Support for tabs in Forestry machines")
-        public static boolean Forestry$Tabs = true;
+        public boolean Forestry$Tabs = true;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _RFTools {
         @Config.RequiresMcRestart
         @Config.Comment("Global switch for RFTools support, disabling this will disable all RFTools specific patches")
-        public static boolean RFTools$All = true;
+        public boolean RFTools$All = true;
         @Config.RequiresMcRestart
         @Config.Comment("Support crafting girds in Modular Storage")
-        public static boolean RFTools$ModularStorage = true;
+        public boolean RFTools$ModularStorage = true;
         @Config.RequiresMcRestart
         @Config.Comment("Support crafting girds in Storage Scanner")
-        public static boolean RFTools$StorageScanner = true;
+        public boolean RFTools$StorageScanner = true;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _GamblingStyle {
         @Config.RequiresMcRestart
         @Config.Comment("Support for Gambling Style")
-        public static boolean GamblingStyle$All = true;
+        public boolean GamblingStyle$All = true;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _OpenMods {
         @Config.RequiresMcRestart
         @Config.Comment("For mods made by OpenMods, e.g. OpenBlocks")
-        public static boolean OpenMods$All = true;
+        public boolean OpenMods$All = true;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _Quark {
         @Config.RequiresMcRestart
         @Config.Comment("Support for Quark Chest Buttons")
-        public static boolean Quark$ChestButtons = true;
+        public boolean Quark$ChestButtons = true;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _Reskillable {
         @Config.RequiresMcRestart
         @Config.Comment("Support for Reskillable player inventory tabs")
-        public static boolean Reskillable$Tabs = true;
+        public boolean Reskillable$Tabs = true;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _SmelteryIO {
         @Config.RequiresMcRestart
         @Config.Comment("Global switch for Smeltery IO support, disabling this will disable all Smeltery IO specific patches")
-        public static boolean SmelteryIO$All = true;
+        public boolean SmelteryIO$All = true;
         @Config.RequiresMcRestart
         @Config.Comment("Support for Fuel Controller")
-        public static boolean SmelteryIO$FuelController = true;
+        public boolean SmelteryIO$FuelController = true;
         @Config.RequiresMcRestart
         @Config.Comment("Support for Casting Machine")
-        public static boolean SmelteryIO$CastingMachine = true;
+        public boolean SmelteryIO$CastingMachine = true;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _TinkerIO {
         @Config.RequiresMcRestart
         @Config.Comment("Global switch for TinkerIO support, disabling this will disable all TinkerIO specific patches")
-        public static boolean TinkerIO$All = true;
+        public boolean TinkerIO$All = true;
         @Config.RequiresMcRestart
         @Config.Comment("Support for Smart Output")
-        public static boolean TinkerIO$SmartOutput = true;
+        public boolean TinkerIO$SmartOutput = true;
         @Config.RequiresMcRestart
         @Config.Comment("Support for Fuel Input Machine")
-        public static boolean TinkerIO$FuelInput = true;
+        public boolean TinkerIO$FuelInput = true;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _BlueSkies {
         @Config.RequiresMcRestart
         @Config.Comment("Support for Blue Skies tabs, usually located at the right side of your inventory")
-        public static boolean BlueSkies$Tabs = true;
+        public boolean BlueSkies$Tabs = true;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _CraftingTweaks {
         @Config.RequiresMcRestart
         @Config.Comment("Support for Crafting Tweaks")
-        public static boolean CraftingTweaks$Buttons = true;
+        public boolean CraftingTweaks$Buttons = true;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _TrinketsAndBaubles {
         @Config.RequiresMcRestart
         @Config.Comment("Support for Trinkets And Baubles switch button")
-        public static boolean TrinketsAndBaubles$Buttons = true;
+        public boolean TrinketsAndBaubles$Buttons = true;
         @Config.RequiresMcRestart
         @Config.Comment("Support for Trinkets And Baubles trinket gui")
-        public static boolean TrinketsAndBaubles$Slots = true;
+        public boolean TrinketsAndBaubles$Slots = true;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _AE2WTLib {
         @Config.RequiresMcRestart
         @Config.Comment("Support for AE2WTLib, and its dependents: Wireless Crafting/Pattern/Fluid/Interface Terminal")
-        public static boolean AE2WTLib$Buttons = true;
+        public boolean AE2WTLib$Buttons = true;
         @Config.RequiresMcRestart
         @Config.Comment("Additional support for Wireless Crafting Terminal")
-        public static boolean AE2WTLib$WirelessCraftingTerminal = true;
+        public boolean AE2WTLib$WirelessCraftingTerminal = true;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _DeepMobLearning {
         @Config.RequiresMcRestart
         @Config.Comment("Support for redstone mode button in Deep Mob Learning and its forks like Deep Mod Evolution")
-        public static boolean DeepModLearning$Buttons = true;
+        public boolean DeepModLearning$Buttons = true;
         @Config.RequiresMcRestart
         @Config.Comment("Additional support for Simulation Chamber in Deep Mob Learning")
-        public static boolean DeepModLearning$SimulationChamber = true;
+        public boolean DeepModLearning$SimulationChamber = true;
     }
 }
