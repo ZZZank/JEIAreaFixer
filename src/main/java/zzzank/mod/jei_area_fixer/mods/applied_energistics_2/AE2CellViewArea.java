@@ -30,7 +30,12 @@ public class AE2CellViewArea extends AbstractJEIAreaProvider<GuiMEMonitorable> {
 
         return access.jaf$viewCell() || gui instanceof GuiSecurityStation
 //        this.drawTexturedModalRect(offsetX + 197, offsetY, 197, 0, 46, 128); but actual area different
-            ? Collections.singletonList(new Rectangle(gui.getGuiLeft() + 197, gui.getGuiTop(), 36, 112))
+            ? Collections.singletonList(new Rectangle(
+                gui.getGuiLeft() + 197,
+                gui.getGuiTop(),
+                24, //originally fixed 36
+                access.jaf$monitorableContainer().getViewCells().length * 19 //originally fixed 112
+            ))
             : null;
     }
 }
