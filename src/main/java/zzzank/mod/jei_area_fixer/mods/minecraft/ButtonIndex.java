@@ -62,20 +62,23 @@ public final class ButtonIndex<T extends GuiButton> {
         this.index = index;
     }
 
-    public static <T extends GuiButton> ButtonIndex<T> register(Supplier<Class<T>> type) {
+    private static <T extends GuiButton> ButtonIndex<T> register(Supplier<Class<T>> type) {
         return new ButtonIndex<>((b) -> type.get().isInstance(b), currentOrdinal++);
     }
 
-    public static <T extends GuiButton> ButtonIndex<T> registerMulti(Supplier<Class<? extends T>[]> types) {
+    private static <T extends GuiButton> ButtonIndex<T> registerMulti(Supplier<Class<? extends T>[]> types) {
         val cachedTypes = Suppliers.memoize(types);
-        return new ButtonIndex<>(b -> {
-            for (val type : cachedTypes.get()) {
-                if (type.isInstance(b)) {
-                    return true;
+        return new ButtonIndex<>(
+            b -> {
+                for (val type : cachedTypes.get()) {
+                    if (type.isInstance(b)) {
+                        return true;
+                    }
                 }
-            }
-            return false;
-        }, currentOrdinal++);
+                return false;
+            },
+            currentOrdinal++
+        );
     }
 
     @SuppressWarnings("unchecked")
