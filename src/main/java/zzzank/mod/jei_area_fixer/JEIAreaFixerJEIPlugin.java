@@ -50,39 +50,39 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
     @Override
     public void register(@Nonnull IModRegistry registry) {
         val handlers = new GuiHandlersRegistryHelper(registry);
-        if (GENERAL.General$Buttons) {
+        if (GENERAL.buttons) {
             val buttonsArea = new GeneralButtonsArea();
             handlers.add(buttonsArea);
             MinecraftForge.EVENT_BUS.register(buttonsArea);
         }
-        if (ModState.RF_TOOLS && RF_TOOLS.RFTools$All) {
-            handlers.addIf(RF_TOOLS.RFTools$ModularStorage, ModularStorageArea::new);
-            handlers.addIf(RF_TOOLS.RFTools$StorageScanner, StorageScannerArea::new);
+        if (ModState.RF_TOOLS && RF_TOOLS.all) {
+            handlers.addIf(RF_TOOLS.modularStorage, ModularStorageArea::new);
+            handlers.addIf(RF_TOOLS.storageScanner, StorageScannerArea::new);
         }
-        if (ModState.GAMBLING_STYLE && GAMBLING_STYLE.GamblingStyle$All) {
+        if (ModState.GAMBLING_STYLE && GAMBLING_STYLE.all) {
             handlers.add(new GuiVillagerArea());
         }
-        if (ModState.OPEN_MODS_LIB && OPEN_MODS.OpenMods$All) {
+        if (ModState.OPEN_MODS_LIB && OPEN_MODS.all) {
             handlers.add(new OpenModsSeriesGuiArea());
         }
-        if (ModState.SMELTERY_IO && SMELTERY_IO.SmelteryIO$All) {
-            handlers.addIf(SMELTERY_IO.SmelteryIO$CastingMachine, FuelControllerArea::new);
-            handlers.addIf(SMELTERY_IO.SmelteryIO$FuelController, CastingMachineArea::new);
+        if (ModState.SMELTERY_IO && SMELTERY_IO.all) {
+            handlers.addIf(SMELTERY_IO.castingMachine, FuelControllerArea::new);
+            handlers.addIf(SMELTERY_IO.fuelController, CastingMachineArea::new);
         }
         if (ModState.RESKILLABLE) {
-            handlers.addIf(RESKILLABLE.Reskillable$Tabs, ReskillableTabArea::new);
+            handlers.addIf(RESKILLABLE.tabs, ReskillableTabArea::new);
         }
         if (ModState.QUARK) {
-            handlers.addIf(QUARK.Quark$ChestButtons, ChestButtonsArea::new);
+            handlers.addIf(QUARK.chestButtons, ChestButtonsArea::new);
         }
         if (ModState.FORESTRY) {
-            handlers.addIf(FORESTRY.Forestry$Tabs, ForestryLedgersArea::new);
+            handlers.addIf(FORESTRY.tabs, ForestryLedgersArea::new);
         }
         if (ModState.CYCLIC) {
-            handlers.addIf(CYCLIC.Cyclic$ExtendedInventory, ExtendedArmorInventoryArea::new);
+            handlers.addIf(CYCLIC.extendedInventory, ExtendedArmorInventoryArea::new);
         }
         if (ModState.MCJTY_LIB) {
-            handlers.addIf(MCJTY_LIB.McjtyLib$General, GenericGuiContainerArea::new);
+            handlers.addIf(MCJTY_LIB.all, GenericGuiContainerArea::new);
         }
         if (ModState.COMPUTER_CRAFT) {
             handlers.addIf(COMPUTER_CRAFT.ComputerCraft$Computer, ComputerScreenArea::new);
@@ -91,27 +91,27 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
             handlers.addIf(AE2.buttons, AE2ButtonsArea::new);
             handlers.addIf(AE2.cellView, AE2CellViewArea::new);
         }
-        if (ModState.TINKER_IO && TINKER_IO.TinkerIO$All) {
-            handlers.addIf(TINKER_IO.TinkerIO$FuelInput, TinkerIOFuelInputMachineArea::new);
-            handlers.addIf(TINKER_IO.TinkerIO$SmartOutput, TinkerIOSmartOutputArea::new);
+        if (ModState.TINKER_IO && TINKER_IO.all) {
+            handlers.addIf(TINKER_IO.fuelInput, TinkerIOFuelInputMachineArea::new);
+            handlers.addIf(TINKER_IO.smartOutput, TinkerIOSmartOutputArea::new);
         }
         if (ModState.BLUE_SKIES) {
-            handlers.addIf(BLUE_SKIES.BlueSkies$Tabs, BlueSkiesTabArea::new);
+            handlers.addIf(BLUE_SKIES.tabs, BlueSkiesTabArea::new);
         }
         if (ModState.CRAFTING_TWEAKS) {
-            handlers.addIf(CRAFTING_TWEAKS.CraftingTweaks$Buttons, CraftingTweaksButtonArea::new);
+            handlers.addIf(CRAFTING_TWEAKS.buttons, CraftingTweaksButtonArea::new);
         }
         if (ModState.TRINKETS_AND_BAUBLES) {
-            handlers.addIf(TRINKETS_AND_BAUBLES.TrinketsAndBaubles$Buttons,TrinketGuiButtonArea::new);
-            handlers.addIf(TRINKETS_AND_BAUBLES.TrinketsAndBaubles$Slots, TrinketGuiArea::new);
+            handlers.addIf(TRINKETS_AND_BAUBLES.buttons,TrinketGuiButtonArea::new);
+            handlers.addIf(TRINKETS_AND_BAUBLES.slots, TrinketGuiArea::new);
         }
         if (ModState.AE2WT_LIB) {
-            handlers.addIf(AE2WTLIB.AE2WTLib$Buttons, AE2WTLibButtonsArea::new);
-            handlers.addIf(AE2WTLIB.AE2WTLib$WirelessCraftingTerminal, WirelessCraftingAdditionalArea::new);
+            handlers.addIf(AE2WTLIB.buttons, AE2WTLibButtonsArea::new);
+            handlers.addIf(AE2WTLIB.wirelessCraftingTerminal, WirelessCraftingAdditionalArea::new);
         }
         if (ModState.DEEP_MOD_LEARNING) {
-            handlers.addIf(DEEP_MOB_LEARNING.DeepModLearning$Buttons, DMLRedstoneModeButtonArea::new);
-            handlers.addIf(DEEP_MOB_LEARNING.DeepModLearning$SimulationChamber, SimulationChamberArea::new);
+            handlers.addIf(DEEP_MOB_LEARNING.buttons, DMLRedstoneModeButtonArea::new);
+            handlers.addIf(DEEP_MOB_LEARNING.simulationChamber, SimulationChamberArea::new);
         }
     }
 
