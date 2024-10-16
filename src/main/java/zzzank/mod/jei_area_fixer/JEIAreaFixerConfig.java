@@ -21,7 +21,7 @@ public class JEIAreaFixerConfig {
     @Config.Comment("Draw areas provided by JEI Area Fixer onto the screen")
     public static boolean debug$drawing = false;
     @Config.Comment("Draw all exclusion areas posted to JEI onto the screen, requires `debug$drawing` to be `true`")
-    public static boolean debug$drawAll = false;
+    public static boolean debug$drawAll = true;
 
     @Config.RequiresMcRestart
     @Config.Comment("Global switch for AE2 support, disabling this will disable all AE2 specific patches")
