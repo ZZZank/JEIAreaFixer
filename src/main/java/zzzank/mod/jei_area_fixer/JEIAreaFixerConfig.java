@@ -1,5 +1,7 @@
 package zzzank.mod.jei_area_fixer;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
@@ -28,6 +30,7 @@ public class JEIAreaFixerConfig {
         ConfigManager.sync(Tags.MOD_ID, Config.Type.INSTANCE);
     }
 
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _Debug {
         @Config.Comment("print changed bounds to log every few seconds")
         public boolean print = false;
@@ -37,6 +40,7 @@ public class JEIAreaFixerConfig {
         public boolean drawAll = true;
     }
 
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _AE2 {
         @Config.RequiresMcRestart
         @Config.Comment("Global switch for AE2 support, disabling this will disable all AE2 specific patches")
@@ -60,36 +64,42 @@ public class JEIAreaFixerConfig {
         public boolean ignoreAreasTooHigh = true;
     }
 
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _ComputerCraft {
         @Config.RequiresMcRestart
         @Config.Comment("Support for Computer screen")
         public boolean ComputerCraft$Computer = true;
     }
 
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _General {
         @Config.RequiresMcRestart
         @Config.Comment("Disabled by default because many, many mod devs are not drawing buttons in a standard way")
         public static boolean General$Buttons = false;
     }
 
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _McjtyLib {
         @Config.RequiresMcRestart
         @Config.Comment("General support for mods made by mcjty, mostly affecting XNet")
         public static boolean McjtyLib$General = true;
     }
 
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _Cyclic {
         @Config.RequiresMcRestart
         @Config.Comment("Support for armor slots in extended player inventory")
         public static boolean Cyclic$ExtendedInventory = true;
     }
 
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _Forestry {
         @Config.RequiresMcRestart
         @Config.Comment("Support for tabs in Forestry machines")
         public static boolean Forestry$Tabs = true;
     }
 
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _RFTools {
         @Config.RequiresMcRestart
         @Config.Comment("Global switch for RFTools support, disabling this will disable all RFTools specific patches")
@@ -102,30 +112,35 @@ public class JEIAreaFixerConfig {
         public static boolean RFTools$StorageScanner = true;
     }
 
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _GamblingStyle {
         @Config.RequiresMcRestart
         @Config.Comment("Support for Gambling Style")
         public static boolean GamblingStyle$All = true;
     }
 
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _OpenMods {
         @Config.RequiresMcRestart
         @Config.Comment("For mods made by OpenMods, e.g. OpenBlocks")
         public static boolean OpenMods$All = true;
     }
 
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _Quark {
         @Config.RequiresMcRestart
         @Config.Comment("Support for Quark Chest Buttons")
         public static boolean Quark$ChestButtons = true;
     }
 
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _Reskillable {
         @Config.RequiresMcRestart
         @Config.Comment("Support for Reskillable player inventory tabs")
         public static boolean Reskillable$Tabs = true;
     }
 
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _SmelteryIO {
         @Config.RequiresMcRestart
         @Config.Comment("Global switch for Smeltery IO support, disabling this will disable all Smeltery IO specific patches")
@@ -138,6 +153,7 @@ public class JEIAreaFixerConfig {
         public static boolean SmelteryIO$CastingMachine = true;
     }
 
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _TinkerIO {
         @Config.RequiresMcRestart
         @Config.Comment("Global switch for TinkerIO support, disabling this will disable all TinkerIO specific patches")
@@ -150,18 +166,21 @@ public class JEIAreaFixerConfig {
         public static boolean TinkerIO$FuelInput = true;
     }
 
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _BlueSkies {
         @Config.RequiresMcRestart
         @Config.Comment("Support for Blue Skies tabs, usually located at the right side of your inventory")
         public static boolean BlueSkies$Tabs = true;
     }
 
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _CraftingTweaks {
         @Config.RequiresMcRestart
         @Config.Comment("Support for Crafting Tweaks")
         public static boolean CraftingTweaks$Buttons = true;
     }
 
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _TrinketsAndBaubles {
         @Config.RequiresMcRestart
         @Config.Comment("Support for Trinkets And Baubles switch button")
@@ -171,6 +190,7 @@ public class JEIAreaFixerConfig {
         public static boolean TrinketsAndBaubles$Slots = true;
     }
 
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _AE2WTLib {
         @Config.RequiresMcRestart
         @Config.Comment("Support for AE2WTLib, and its dependents: Wireless Crafting/Pattern/Fluid/Interface Terminal")
@@ -180,6 +200,7 @@ public class JEIAreaFixerConfig {
         public static boolean AE2WTLib$WirelessCraftingTerminal = true;
     }
 
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _DeepMobLearning {
         @Config.RequiresMcRestart
         @Config.Comment("Support for redstone mode button in Deep Mob Learning and its forks like Deep Mod Evolution")
