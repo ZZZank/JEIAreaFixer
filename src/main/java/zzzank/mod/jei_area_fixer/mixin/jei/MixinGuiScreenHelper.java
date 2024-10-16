@@ -19,7 +19,7 @@ public abstract class MixinGuiScreenHelper {
 
     @Inject(method = "getPluginsExclusionAreas", at = @At("RETURN"))
     public void jeiAreaFixer$captureExclusionArea(CallbackInfoReturnable<Set<Rectangle>> cir) {
-        if (JEIAreaFixerConfig.debug$drawAll) {
+        if (JEIAreaFixerConfig.DEBUG.drawAll) {
             JEIAreaFixerDebugAction.capturedAreas = cir.getReturnValue();
         }
     }

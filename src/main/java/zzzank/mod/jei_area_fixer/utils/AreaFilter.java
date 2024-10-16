@@ -14,7 +14,7 @@ public interface AreaFilter {
     int JEI_BOOKMARK_TOP_HEIGHT = 20;
 
     static boolean notShiftingBookmark(@Nonnull GuiButton button) {
-        return !JEIAreaFixerConfig.AE2$IgnoreAreasTooHigh || button.y > JEI_BOOKMARK_TOP_HEIGHT;
+        return !JEIAreaFixerConfig.AE2.ignoreAreasTooHigh || button.y > JEI_BOOKMARK_TOP_HEIGHT;
     }
 
     static boolean notInGui(@Nonnull GuiContainer gui, @Nonnull GuiButton button) {

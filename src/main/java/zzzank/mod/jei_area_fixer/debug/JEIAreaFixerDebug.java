@@ -29,7 +29,7 @@ public final class JEIAreaFixerDebug {
     }
 
     public static void accept(Class<? extends GuiContainer> target, List<Rectangle> bounds) {
-        if (bounds != null && (JEIAreaFixerConfig.debug$print || JEIAreaFixerConfig.debug$drawing)) {
+        if (bounds != null && (JEIAreaFixerConfig.DEBUG.print || JEIAreaFixerConfig.DEBUG.draw)) {
             boundsMap.put(target, bounds);
         }
     }

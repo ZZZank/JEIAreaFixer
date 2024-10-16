@@ -16,128 +16,9 @@ public class JEIAreaFixerConfig {
 
     private static final String LANG_PREFIX = "jei_area_fixer.config.";
 
-    @Config.Comment("print changed bounds to log every few seconds")
-    public static boolean debug$print = false;
-    @Config.Comment("Draw areas provided by JEI Area Fixer onto the screen")
-    public static boolean debug$drawing = false;
-    @Config.Comment("Draw all exclusion areas posted to JEI onto the screen, requires `debug$drawing` to be `true`")
-    public static boolean debug$drawAll = true;
-
-    @Config.RequiresMcRestart
-    @Config.Comment("Global switch for AE2 support, disabling this will disable all AE2 specific patches")
-    public static boolean AE2$All = true;
-    @Config.Comment({
-        "AE2-UEL has builtin JEI support, so you might want to disable AE2 support when using AE2-UEL, but it's supporting fewer AE GUIs than JEI Area Fixer does",
-        "Disable this if you don't want to force-disable AE2 patch when using AE2-UEL"
-    })
-    public static boolean AE2$DetectAE2UEL = true;
-    @Config.RequiresMcRestart
-    @Config.Comment({
-        "Support for AE2 buttons, usually located at the left side of AE2 GUI",
-        "Also noted that you might find some ghost button areas where buttons only show up after installing upgrades, this is a bug, not a feature.",
-        "Disable this if you find it annoying"
-    })
-    public static boolean AE2$Buttons = true;
-    @Config.RequiresMcRestart
-    @Config.Comment("Support for AE2 cell view, located at the upper right side of AE2 terminal")
-    public static boolean AE2$CellView = false;
-    @Config.Comment("Try to ignore areas that will make the whole JEI overlay shift")
-    public static boolean AE2$IgnoreAreasTooHigh = true;
-
-    @Config.RequiresMcRestart
-    @Config.Comment("Support for Computer screen")
-    public static boolean ComputerCraft$Computer = true;
-
-    @Config.RequiresMcRestart
-    @Config.Comment("Disabled by default because many, many mod devs are not drawing buttons in a standard way")
-    public static boolean General$Buttons = false;
-
-    @Config.RequiresMcRestart
-    @Config.Comment("General support for mods made by mcjty, mostly affecting XNet")
-    public static boolean McjtyLib$General = true;
-
-    @Config.RequiresMcRestart
-    @Config.Comment("Support for armor slots in extended player inventory")
-    public static boolean Cyclic$ExtendedInventory = true;
-
-    @Config.RequiresMcRestart
-    @Config.Comment("Support for tabs in Forestry machines")
-    public static boolean Forestry$Tabs = true;
-
-    @Config.RequiresMcRestart
-    @Config.Comment("Global switch for RFTools support, disabling this will disable all RFTools specific patches")
-    public static boolean RFTools$All = true;
-    @Config.RequiresMcRestart
-    @Config.Comment("Support crafting girds in Modular Storage")
-    public static boolean RFTools$ModularStorage = true;
-    @Config.RequiresMcRestart
-    @Config.Comment("Support crafting girds in Storage Scanner")
-    public static boolean RFTools$StorageScanner = true;
-
-    @Config.RequiresMcRestart
-    @Config.Comment("Support for Gambling Style")
-    public static boolean GamblingStyle$All = true;
-
-    @Config.RequiresMcRestart
-    @Config.Comment("For mods made by OpenMods, e.g. OpenBlocks")
-    public static boolean OpenMods$All = true;
-
-    @Config.RequiresMcRestart
-    @Config.Comment("Support for Quark Chest Buttons")
-    public static boolean Quark$ChestButtons = true;
-
-    @Config.RequiresMcRestart
-    @Config.Comment("Support for Reskillable player inventory tabs")
-    public static boolean Reskillable$Tabs = true;
-
-    @Config.RequiresMcRestart
-    @Config.Comment("Global switch for Smeltery IO support, disabling this will disable all Smeltery IO specific patches")
-    public static boolean SmelteryIO$All = true;
-    @Config.RequiresMcRestart
-    @Config.Comment("Support for Fuel Controller")
-    public static boolean SmelteryIO$FuelController = true;
-    @Config.RequiresMcRestart
-    @Config.Comment("Support for Casting Machine")
-    public static boolean SmelteryIO$CastingMachine = true;
-
-    @Config.RequiresMcRestart
-    @Config.Comment("Global switch for TinkerIO support, disabling this will disable all TinkerIO specific patches")
-    public static boolean TinkerIO$All = true;
-    @Config.RequiresMcRestart
-    @Config.Comment("Support for Smart Output")
-    public static boolean TinkerIO$SmartOutput = true;
-    @Config.RequiresMcRestart
-    @Config.Comment("Support for Fuel Input Machine")
-    public static boolean TinkerIO$FuelInput = true;
-
-    @Config.RequiresMcRestart
-    @Config.Comment("Support for Blue Skies tabs, usually located at the right side of your inventory")
-    public static boolean BlueSkies$Tabs = true;
-
-    @Config.RequiresMcRestart
-    @Config.Comment("Support for Crafting Tweaks")
-    public static boolean CraftingTweaks$Buttons = true;
-
-    @Config.RequiresMcRestart
-    @Config.Comment("Support for Trinkets And Baubles switch button")
-    public static boolean TrinketsAndBaubles$Buttons = true;
-    @Config.RequiresMcRestart
-    @Config.Comment("Support for Trinkets And Baubles trinket gui")
-    public static boolean TrinketsAndBaubles$Slots = true;
-
-    @Config.RequiresMcRestart
-    @Config.Comment("Support for AE2WTLib, and its dependents: Wireless Crafting/Pattern/Fluid/Interface Terminal")
-    public static boolean AE2WTLib$Buttons = true;
-    @Config.RequiresMcRestart
-    @Config.Comment("Additional support for Wireless Crafting Terminal")
-    public static boolean AE2WTLib$WirelessCraftingTerminal = true;
-
-    @Config.RequiresMcRestart
-    @Config.Comment("Support for redstone mode button in Deep Mob Learning and its forks like Deep Mod Evolution")
-    public static boolean DeepModLearning$Buttons = true;
-    @Config.RequiresMcRestart
-    @Config.Comment("Additional support for Simulation Chamber in Deep Mob Learning")
-    public static boolean DeepModLearning$SimulationChamber = true;
+    public static final _Debug DEBUG = new _Debug();
+    public static final _AE2 AE2 = new _AE2();
+    public static final _ComputerCraft COMPUTER_CRAFT = new _ComputerCraft();
 
     @SubscribeEvent
     public static void onConfigChanged(ConfigChangedEvent event) {
@@ -145,5 +26,166 @@ public class JEIAreaFixerConfig {
             return;
         }
         ConfigManager.sync(Tags.MOD_ID, Config.Type.INSTANCE);
+    }
+
+    public static class _Debug {
+        @Config.Comment("print changed bounds to log every few seconds")
+        public boolean print = false;
+        @Config.Comment("Draw areas provided by JEI Area Fixer onto the screen")
+        public boolean draw = false;
+        @Config.Comment("Draw all exclusion areas posted to JEI onto the screen, requires `drawing` to be `true`")
+        public boolean drawAll = true;
+    }
+
+    public static class _AE2 {
+        @Config.RequiresMcRestart
+        @Config.Comment("Global switch for AE2 support, disabling this will disable all AE2 specific patches")
+        public boolean all = true;
+        @Config.Comment({
+            "AE2-UEL has builtin JEI support, so you might want to disable AE2 support when using AE2-UEL, but it's supporting fewer AE GUIs than JEI Area Fixer does",
+            "Disable this if you don't want to force-disable AE2 patch when using AE2-UEL"
+        })
+        public boolean detectAE2UEL = true;
+        @Config.RequiresMcRestart
+        @Config.Comment({
+            "Support for AE2 buttons, usually located at the left side of AE2 GUI",
+            "Also noted that you might find some ghost button areas where buttons only show up after installing upgrades, this is a bug, not a feature.",
+            "Disable this if you find it annoying"
+        })
+        public boolean buttons = true;
+        @Config.RequiresMcRestart
+        @Config.Comment("Support for AE2 cell view, located at the upper right side of AE2 terminal")
+        public boolean cellView = false;
+        @Config.Comment("Try to ignore areas that will make the whole JEI overlay shift")
+        public boolean ignoreAreasTooHigh = true;
+    }
+
+    public static class _ComputerCraft {
+        @Config.RequiresMcRestart
+        @Config.Comment("Support for Computer screen")
+        public boolean ComputerCraft$Computer = true;
+    }
+
+    public static class _General {
+        @Config.RequiresMcRestart
+        @Config.Comment("Disabled by default because many, many mod devs are not drawing buttons in a standard way")
+        public static boolean General$Buttons = false;
+    }
+
+    public static class _McjtyLib {
+        @Config.RequiresMcRestart
+        @Config.Comment("General support for mods made by mcjty, mostly affecting XNet")
+        public static boolean McjtyLib$General = true;
+    }
+
+    public static class _Cyclic {
+        @Config.RequiresMcRestart
+        @Config.Comment("Support for armor slots in extended player inventory")
+        public static boolean Cyclic$ExtendedInventory = true;
+    }
+
+    public static class _Forestry {
+        @Config.RequiresMcRestart
+        @Config.Comment("Support for tabs in Forestry machines")
+        public static boolean Forestry$Tabs = true;
+    }
+
+    public static class _RFTools {
+        @Config.RequiresMcRestart
+        @Config.Comment("Global switch for RFTools support, disabling this will disable all RFTools specific patches")
+        public static boolean RFTools$All = true;
+        @Config.RequiresMcRestart
+        @Config.Comment("Support crafting girds in Modular Storage")
+        public static boolean RFTools$ModularStorage = true;
+        @Config.RequiresMcRestart
+        @Config.Comment("Support crafting girds in Storage Scanner")
+        public static boolean RFTools$StorageScanner = true;
+    }
+
+    public static class _GamblingStyle {
+        @Config.RequiresMcRestart
+        @Config.Comment("Support for Gambling Style")
+        public static boolean GamblingStyle$All = true;
+    }
+
+    public static class _OpenMods {
+        @Config.RequiresMcRestart
+        @Config.Comment("For mods made by OpenMods, e.g. OpenBlocks")
+        public static boolean OpenMods$All = true;
+    }
+
+    public static class _Quark {
+        @Config.RequiresMcRestart
+        @Config.Comment("Support for Quark Chest Buttons")
+        public static boolean Quark$ChestButtons = true;
+    }
+
+    public static class _Reskillable {
+        @Config.RequiresMcRestart
+        @Config.Comment("Support for Reskillable player inventory tabs")
+        public static boolean Reskillable$Tabs = true;
+    }
+
+    public static class _SmelteryIO {
+        @Config.RequiresMcRestart
+        @Config.Comment("Global switch for Smeltery IO support, disabling this will disable all Smeltery IO specific patches")
+        public static boolean SmelteryIO$All = true;
+        @Config.RequiresMcRestart
+        @Config.Comment("Support for Fuel Controller")
+        public static boolean SmelteryIO$FuelController = true;
+        @Config.RequiresMcRestart
+        @Config.Comment("Support for Casting Machine")
+        public static boolean SmelteryIO$CastingMachine = true;
+    }
+
+    public static class _TinkerIO {
+        @Config.RequiresMcRestart
+        @Config.Comment("Global switch for TinkerIO support, disabling this will disable all TinkerIO specific patches")
+        public static boolean TinkerIO$All = true;
+        @Config.RequiresMcRestart
+        @Config.Comment("Support for Smart Output")
+        public static boolean TinkerIO$SmartOutput = true;
+        @Config.RequiresMcRestart
+        @Config.Comment("Support for Fuel Input Machine")
+        public static boolean TinkerIO$FuelInput = true;
+    }
+
+    public static class _BlueSkies {
+        @Config.RequiresMcRestart
+        @Config.Comment("Support for Blue Skies tabs, usually located at the right side of your inventory")
+        public static boolean BlueSkies$Tabs = true;
+    }
+
+    public static class _CraftingTweaks {
+        @Config.RequiresMcRestart
+        @Config.Comment("Support for Crafting Tweaks")
+        public static boolean CraftingTweaks$Buttons = true;
+    }
+
+    public static class _TrinketsAndBaubles {
+        @Config.RequiresMcRestart
+        @Config.Comment("Support for Trinkets And Baubles switch button")
+        public static boolean TrinketsAndBaubles$Buttons = true;
+        @Config.RequiresMcRestart
+        @Config.Comment("Support for Trinkets And Baubles trinket gui")
+        public static boolean TrinketsAndBaubles$Slots = true;
+    }
+
+    public static class _AE2WTLib {
+        @Config.RequiresMcRestart
+        @Config.Comment("Support for AE2WTLib, and its dependents: Wireless Crafting/Pattern/Fluid/Interface Terminal")
+        public static boolean AE2WTLib$Buttons = true;
+        @Config.RequiresMcRestart
+        @Config.Comment("Additional support for Wireless Crafting Terminal")
+        public static boolean AE2WTLib$WirelessCraftingTerminal = true;
+    }
+
+    public static class _DeepMobLearning {
+        @Config.RequiresMcRestart
+        @Config.Comment("Support for redstone mode button in Deep Mob Learning and its forks like Deep Mod Evolution")
+        public static boolean DeepModLearning$Buttons = true;
+        @Config.RequiresMcRestart
+        @Config.Comment("Additional support for Simulation Chamber in Deep Mob Learning")
+        public static boolean DeepModLearning$SimulationChamber = true;
     }
 }

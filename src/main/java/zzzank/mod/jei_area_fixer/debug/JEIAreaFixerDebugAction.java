@@ -29,7 +29,7 @@ public class JEIAreaFixerDebugAction {
     public static Collection<Rectangle> capturedAreas = null;
 
     public static void print() {
-        if (!JEIAreaFixerConfig.debug$print || JEIAreaFixerDebug.boundsMap.isEmpty()) {
+        if (!JEIAreaFixerConfig.DEBUG.print || JEIAreaFixerDebug.boundsMap.isEmpty()) {
             return;
         }
         val joiner = new StringJoiner("\n");
@@ -75,11 +75,11 @@ public class JEIAreaFixerDebugAction {
      */
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void drawing(GuiScreenEvent.DrawScreenEvent.Post event) {
-        if (!JEIAreaFixerConfig.debug$drawing || !(event.getGui() instanceof GuiContainer)) {
+        if (!JEIAreaFixerConfig.DEBUG.draw || !(event.getGui() instanceof GuiContainer)) {
             return;
         }
         val guiContainer = (GuiContainer) event.getGui();
-        if (!JEIAreaFixerConfig.debug$drawAll) {
+        if (!JEIAreaFixerConfig.DEBUG.drawAll) {
             //if the config is enabled, we won't need to collect it by ourselves
             capturedAreas = collectActiveBounds(guiContainer.getClass());
         }
