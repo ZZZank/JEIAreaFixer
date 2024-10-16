@@ -4,6 +4,7 @@ import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import lombok.val;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
+import zzzank.mod.jei_area_fixer.JEIAreaFixerConfig;
 import zzzank.mod.jei_area_fixer.utils.AreaFilter;
 
 import java.util.ArrayList;
@@ -29,9 +30,12 @@ public interface ButtonsCacheHolder {
                 index.index,
                 k -> {
                     val list = new ArrayList<GuiButton>();
-                    for (val guiButton : this.jaf$getButtonList()) {
-                        if (index.filter.test(guiButton) && AreaFilter.notInGui(jaf$self(), guiButton)) {
-                            list.add(guiButton);
+                    for (val button : this.jaf$getButtonList()) {
+                        if (index.filter.test(button)
+                            && AreaFilter.notInGui(jaf$self(), button)
+                            && (!JEIAreaFixerConfig.GENERAL.preventShiftingBookmark || AreaFilter.notShiftingBookmark(button))
+                        ) {
+                            list.add(button);
                         }
                     }
                     return list;

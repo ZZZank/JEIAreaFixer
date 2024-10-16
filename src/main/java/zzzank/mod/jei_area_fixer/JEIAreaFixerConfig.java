@@ -92,8 +92,11 @@ public class JEIAreaFixerConfig {
         public boolean buttons = true;
         @Config.Comment("Support for AE2 cell view, located at the upper right side of AE2 terminal")
         public boolean cellView = false;
-        @Config.Comment("Try to ignore areas that will make the whole JEI overlay shift")
-        public boolean ignoreAreasTooHigh = true;
+        @Config.Comment({
+            "Ignore button areas that will make the whole JEI overlay shift",
+            "This is independent of the same-name config from 'general' category"
+        })
+        public boolean preventShiftingBookmark = true;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -104,8 +107,13 @@ public class JEIAreaFixerConfig {
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _General {
-        @Config.Comment("Disabled by default because many, many mod devs are not drawing buttons in a standard way")
-        public boolean buttons = false;
+        @Config.Comment({
+            "Try to capture all visible buttons and provide exclusion areas for it",
+            "Disabled by default because many, many mod devs are not drawing buttons in a standard way"
+        })
+        public boolean aggressiveButtonCapture = false;
+        @Config.Comment("Ignore all button areas that will make the whole JEI overlay shift")
+        public boolean preventShiftingBookmark = false;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)

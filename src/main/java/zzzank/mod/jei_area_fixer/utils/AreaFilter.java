@@ -13,8 +13,12 @@ import javax.annotation.Nonnull;
 public interface AreaFilter {
     int JEI_BOOKMARK_TOP_HEIGHT = 20;
 
+    static boolean notShiftingBookmarkAE(@Nonnull GuiButton button) {
+        return !JEIAreaFixerConfig.AE2.preventShiftingBookmark || notShiftingBookmark(button);
+    }
+
     static boolean notShiftingBookmark(@Nonnull GuiButton button) {
-        return !JEIAreaFixerConfig.AE2.ignoreAreasTooHigh || button.y > JEI_BOOKMARK_TOP_HEIGHT;
+        return button.y > JEI_BOOKMARK_TOP_HEIGHT;
     }
 
     static boolean notInGui(@Nonnull GuiContainer gui, @Nonnull GuiButton button) {

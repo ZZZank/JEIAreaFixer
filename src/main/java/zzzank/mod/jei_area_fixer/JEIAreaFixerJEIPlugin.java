@@ -50,7 +50,7 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
     @Override
     public void register(@Nonnull IModRegistry registry) {
         val handlers = new GuiHandlersRegistryHelper(registry);
-        if (GENERAL.buttons) {
+        if (GENERAL.aggressiveButtonCapture) {
             val buttonsArea = new GeneralButtonsArea();
             handlers.add(buttonsArea);
             MinecraftForge.EVENT_BUS.register(buttonsArea);

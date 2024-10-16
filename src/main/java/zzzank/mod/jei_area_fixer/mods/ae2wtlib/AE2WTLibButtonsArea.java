@@ -27,7 +27,7 @@ public class AE2WTLibButtonsArea extends ButtonsAreaProvider<GuiButton, GuiWT> {
     protected List<Rectangle> buttonsToAreas(@Nonnull List<GuiButton> buttons, @Nonnull GuiWT gui) {
         val areas = new ArrayList<Rectangle>(buttons.size());
         for (val button : buttons) {
-            if (button.visible && AreaFilter.notShiftingBookmark(button)) {
+            if (button.visible && AreaFilter.notShiftingBookmarkAE(button)) {
                 areas.add(JEIAreaFixer.rectFromButton(button));
             }
         }
