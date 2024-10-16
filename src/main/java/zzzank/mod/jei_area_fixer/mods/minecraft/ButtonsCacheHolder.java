@@ -18,18 +18,18 @@ public interface ButtonsCacheHolder {
         return (GuiContainer) this;
     }
 
-    Int2ObjectMap<List<GuiButton>> jeiAreaFixer$getCache();
+    Int2ObjectMap<List<GuiButton>> jaf$getCache();
 
-    List<GuiButton> jeiAreaFixer$getButtonList();
+    List<GuiButton> jaf$getButtonList();
 
     @SuppressWarnings("unchecked")
     default <T extends GuiButton> List<T> jaf$cacheIfAbsent(ButtonIndex<T> index) {
-        return (List<T>) this.jeiAreaFixer$getCache()
+        return (List<T>) this.jaf$getCache()
             .computeIfAbsent(
                 index.index,
                 k -> {
                     val list = new ArrayList<GuiButton>();
-                    for (val guiButton : this.jeiAreaFixer$getButtonList()) {
+                    for (val guiButton : this.jaf$getButtonList()) {
                         if (index.filter.test(guiButton) && AreaFilter.notInGui(jaf$self(), guiButton)) {
                             list.add(guiButton);
                         }

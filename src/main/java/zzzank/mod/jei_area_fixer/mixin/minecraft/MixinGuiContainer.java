@@ -24,12 +24,12 @@ public abstract class MixinGuiContainer extends GuiScreen implements ButtonsCach
     private final Int2ObjectMap<List<GuiButton>> jeiAreaFixer$buttonsCache = new Int2ObjectOpenHashMap<>();
 
     @Override
-    public Int2ObjectMap<List<GuiButton>> jeiAreaFixer$getCache() {
+    public Int2ObjectMap<List<GuiButton>> jaf$getCache() {
         return jeiAreaFixer$buttonsCache;
     }
 
     @Override
-    public List<GuiButton> jeiAreaFixer$getButtonList() {
+    public List<GuiButton> jaf$getButtonList() {
         return this.buttonList;
     }
 }
