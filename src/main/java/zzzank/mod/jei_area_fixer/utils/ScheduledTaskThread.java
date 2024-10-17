@@ -1,4 +1,4 @@
-package zzzank.mod.jei_area_fixer.debug;
+package zzzank.mod.jei_area_fixer.utils;
 
 import zzzank.mod.jei_area_fixer.Tags;
 
@@ -10,8 +10,8 @@ public class ScheduledTaskThread extends Thread {
     private final long interval;
     private final Runnable task;
 
-    public ScheduledTaskThread(long intervalMilliseconds, Runnable task) {
-        super(Tags.MOD_ID + " scheduled task");
+    public ScheduledTaskThread(String name, long intervalMilliseconds, Runnable task) {
+        super(name);
         this.interval = intervalMilliseconds;
         this.task = task;
     }

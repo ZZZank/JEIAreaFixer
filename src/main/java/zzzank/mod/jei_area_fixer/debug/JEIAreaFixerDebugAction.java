@@ -10,6 +10,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import zzzank.mod.jei_area_fixer.JEIAreaFixerConfig;
 import zzzank.mod.jei_area_fixer.Tags;
+import zzzank.mod.jei_area_fixer.utils.ScheduledTaskThread;
 
 import java.awt.*;
 import java.util.*;
@@ -22,11 +23,17 @@ import java.util.stream.Collectors;
 @Mod.EventBusSubscriber(value = Side.CLIENT, modid = Tags.MOD_ID)
 public class JEIAreaFixerDebugAction {
 
+    public static final ScheduledTaskThread messageSender = new ScheduledTaskThread(
+        Tags.MOD_ID + " scheduled print",
+        JEIAreaFixerDebug.PRINT_INTERVAL,
+        JEIAreaFixerDebugAction::print
+    );
     private static final Map<Class<? extends GuiContainer>, List<Rectangle>> lastBounds = new IdentityHashMap<>();
-    /**
-     * a collection of jei areas that will then be used for `debug$drawing`
-     */
-    public static Collection<Rectangle> capturedAreas = null;
+
+    static {
+        messageSender.setDaemon(true);
+        messageSender.start();
+    }
 
     public static void print() {
         if (!JEIAreaFixerConfig.DEBUG.print || JEIAreaFixerDebug.boundsMap.isEmpty()) {
@@ -59,17 +66,6 @@ public class JEIAreaFixerDebugAction {
         System.out.println("debug output from " + Tags.MOD_NAME + "\n" + joiner);
     }
 
-    private static ArrayList<Rectangle> collectActiveBounds(Class<? extends GuiContainer> target) {
-        val bounds = new ArrayList<Rectangle>();
-        for (val e : JEIAreaFixerDebug.boundsMap.entrySet()) {
-            if (!e.getKey().isAssignableFrom(target)) {
-                continue;
-            }
-            bounds.addAll(e.getValue());
-        }
-        return bounds;
-    }
-
     /**
      * lowest priority to make it at the front
      */
@@ -81,9 +77,9 @@ public class JEIAreaFixerDebugAction {
         val guiContainer = (GuiContainer) event.getGui();
         if (!JEIAreaFixerConfig.DEBUG.drawAll) {
             //if the config is enabled, we won't need to collect it by ourselves
-            capturedAreas = collectActiveBounds(guiContainer.getClass());
+            JEIAreaFixerDebug.capturedAreas = JEIAreaFixerDebug.collectActiveBounds(guiContainer.getClass());
         }
-        for (val area : capturedAreas) {
+        for (val area : JEIAreaFixerDebug.capturedAreas) {
             Gui.drawRect(
                 area.x,
                 area.y,

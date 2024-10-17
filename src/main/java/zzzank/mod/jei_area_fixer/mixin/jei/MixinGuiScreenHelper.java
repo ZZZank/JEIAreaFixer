@@ -6,7 +6,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import zzzank.mod.jei_area_fixer.JEIAreaFixerConfig;
-import zzzank.mod.jei_area_fixer.debug.JEIAreaFixerDebugAction;
+import zzzank.mod.jei_area_fixer.debug.JEIAreaFixerDebug;
 
 import java.awt.*;
 import java.util.Set;
@@ -20,7 +20,7 @@ public abstract class MixinGuiScreenHelper {
     @Inject(method = "getPluginsExclusionAreas", at = @At("RETURN"))
     public void jeiAreaFixer$captureExclusionArea(CallbackInfoReturnable<Set<Rectangle>> cir) {
         if (JEIAreaFixerConfig.DEBUG.drawAll) {
-            JEIAreaFixerDebugAction.capturedAreas = cir.getReturnValue();
+            JEIAreaFixerDebug.capturedAreas = cir.getReturnValue();
         }
     }
 }
