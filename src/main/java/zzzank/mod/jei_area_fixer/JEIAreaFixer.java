@@ -60,29 +60,4 @@ public class JEIAreaFixer {
         }
         ((ButtonsCacheHolder) gui).jaf$getCache().clear();
     }
-
-    /*
-    @SubscribeEvent
-    public static void captureCategoryLangkeys(EntityJoinWorldEvent event) {
-        if (event.getEntity() instanceof EntityPlayer) {
-            Configuration config;
-            try {
-                val f = ConfigManager.class.getDeclaredMethod("getConfiguration", String.class, String.class);
-                f.setAccessible(true);
-                config = ((Configuration) f.invoke(null, Tags.MOD_ID, Tags.MOD_ID));
-            } catch (Exception e) {
-                LOGGER.error(e);
-                return;
-            }
-            if (config == null) {
-                LOGGER.error("config for {} not found", Tags.MOD_ID);
-                return;
-            }
-            for (String categoryName : config.getCategoryNames()) {
-                val category = config.getCategory(categoryName);
-                System.out.println(category.getLanguagekey());
-            }
-        }
-    }
-     */
 }
