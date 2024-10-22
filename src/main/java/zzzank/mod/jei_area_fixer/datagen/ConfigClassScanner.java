@@ -3,8 +3,6 @@ package zzzank.mod.jei_area_fixer.datagen;
 import lombok.val;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.common.config.Config;
-import net.minecraftforge.common.config.ConfigManager;
-import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -22,8 +20,7 @@ import java.util.Locale;
 @Mod.EventBusSubscriber(modid = Tags.MOD_ID)
 public final class ConfigClassScanner {
 
-    public static final boolean ENABLED_OLD = false;
-    public static final boolean ENABLED_SCAN = true;
+    public static final boolean ENABLE_SCAN = true;
 
     static void scan(@Nonnull Config anno, @Nonnull Class<?> clazz) {
         val prefix = anno.modid() + "." + (anno.category().isEmpty() ? "" : anno.category() + ".");
@@ -60,30 +57,11 @@ public final class ConfigClassScanner {
 
     @SubscribeEvent
     public static void captureCategoryLangkeys(EntityJoinWorldEvent event) {
-        if (!(event.getEntity() instanceof EntityPlayer)) {
+        if (!(event.getEntity() instanceof EntityPlayer) || !event.getWorld().isRemote) {
             return;
         }
-        if (ENABLED_SCAN) {
+        if (ENABLE_SCAN) {
             scan(JEIAreaFixerConfig.class.getAnnotation(Config.class), JEIAreaFixerConfig.class);
-        }
-        if (ENABLED_OLD) {
-            Configuration config;
-            try {
-                val f = ConfigManager.class.getDeclaredMethod("getConfiguration", String.class, String.class);
-                f.setAccessible(true);
-                config = ((Configuration) f.invoke(null, Tags.MOD_ID, Tags.MOD_ID));
-            } catch (Exception e) {
-                JEIAreaFixer.LOGGER.error(e);
-                return;
-            }
-            if (config == null) {
-                JEIAreaFixer.LOGGER.error("config for {} not found", Tags.MOD_ID);
-                return;
-            }
-            for (val categoryName : config.getCategoryNames()) {
-                val category = config.getCategory(categoryName);
-                JEIAreaFixer.LOGGER.info(category.getLanguagekey());
-            }
         }
     }
 }
