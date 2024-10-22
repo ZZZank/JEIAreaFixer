@@ -14,7 +14,9 @@ import zzzank.mod.jei_area_fixer.utils.NameUtils;
 import javax.annotation.Nonnull;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.util.Arrays;
 import java.util.Locale;
+import java.util.stream.Collectors;
 
 /**
  * langKey: modid + "." + (category.isEmpty() ? "" : category+".") + f.getName().toLowerCase(Locale.ENGLISH);
@@ -48,7 +50,7 @@ public final class ConfigClassScanner {
             "{}.tooltip={}",
             key,
             field.isAnnotationPresent(Config.Comment.class)
-                ? field.getAnnotation(Config.Comment.class).value()
+                ? Arrays.stream(field.getAnnotation(Config.Comment.class).value()).collect(Collectors.joining("\\n"))
                 : "Unresolved"
         );
     }
