@@ -1,4 +1,4 @@
-package zzzank.mod.jei_area_fixer.datagen;
+package zzzank.mod.jei_area_fixer.utils;
 
 import lombok.val;
 import net.minecraft.entity.player.EntityPlayer;
@@ -9,7 +9,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import zzzank.mod.jei_area_fixer.JEIAreaFixer;
 import zzzank.mod.jei_area_fixer.JEIAreaFixerConfig;
 import zzzank.mod.jei_area_fixer.Tags;
-import zzzank.mod.jei_area_fixer.utils.NameUtils;
 
 import javax.annotation.Nonnull;
 import java.lang.reflect.Field;
@@ -32,7 +31,7 @@ public final class ConfigClassScanner {
         val prefix = anno.modid() + "." + (anno.category().isEmpty() ? "" : anno.category() + ".");
         try {
             scanImpl(clazz, null, prefix);
-        } catch (IllegalAccessException e) {
+        } catch (IllegalAccessException ignored) {
         }
     }
 
