@@ -65,160 +65,112 @@ public class JEIAreaFixerConfig {
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _Debug {
-        @Config.Comment("print changed bounds to log every few seconds")
         public boolean print = false;
-        @Config.Comment("Draw areas provided by JEI Area Fixer onto the screen")
         public boolean draw = false;
-        @Config.Comment("Draw all exclusion areas posted to JEI onto the screen, requires `drawing` to be `true`")
         public boolean drawAll = true;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _AE2 {
-        @Config.Comment("Global switch for AE2 support, disabling this will disable all AE2 specific patches")
         public boolean all = true;
-        @Config.Comment({
-            "AE2-UEL has builtin JEI support, so you might want to disable AE2 support when using AE2-UEL, but it's supporting fewer AE GUIs than JEI Area Fixer does",
-            "Disable this if you don't want to force-disable AE2 patch when using AE2-UEL"
-        })
         public boolean detectAE2UEL = true;
-        @Config.Comment({
-            "Support for AE2 buttons, usually located at the left side of AE2 GUI",
-            "Also noted that you might find some ghost button areas where buttons only show up after installing upgrades, this is a bug, not a feature.",
-            "Disable this if you find it annoying"
-        })
         public boolean buttons = true;
-        @Config.Comment("Support for AE2 cell view, located at the upper right side of AE2 terminal")
         public boolean cellView = false;
-        @Config.Comment({
-            "Ignore button areas that will make the whole JEI overlay shift",
-            "This is independent of the same-name config from 'general' category"
-        })
         public boolean preventShiftingBookmark = true;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _ComputerCraft {
-        @Config.Comment("Support for Computer screen")
         public boolean computer = true;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _General {
-        @Config.Comment({
-            "Try to capture all visible buttons and provide exclusion areas for it",
-            "Disabled by default because many, many mod devs are not drawing buttons in a standard way"
-        })
         public boolean aggressiveButtonCapture = false;
-        @Config.Comment("Ignore all button areas that will make the whole JEI overlay shift")
         public boolean preventShiftingBookmark = false;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _McjtyLib {
-        @Config.Comment("General support for mods made by mcjty, mostly affecting XNet and RFTools")
         public boolean all = true;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _Cyclic {
-        @Config.Comment("Support for armor slots in extended player inventory")
         public boolean extendedInventory = true;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _Forestry {
-        @Config.Comment("Support for tabs in Forestry machines")
         public boolean tabs = true;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _RFTools {
-        @Config.Comment("Global switch for RFTools support, disabling this will disable all RFTools specific patches")
         public boolean all = true;
-        @Config.Comment("Support crafting girds in Modular Storage")
         public boolean modularStorage = true;
-        @Config.Comment("Support crafting girds in Storage Scanner")
         public boolean storageScanner = true;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _GamblingStyle {
-        @Config.Comment("Support for Gambling Style")
         public boolean all = true;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _OpenMods {
-        @Config.Comment("For mods made by OpenMods, e.g. OpenBlocks")
         public boolean all = true;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _Quark {
-        @Config.Comment("Support for Quark Chest Buttons")
         public boolean chestButtons = true;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _Reskillable {
-        @Config.Comment("Support for Reskillable player inventory tabs")
         public boolean tabs = true;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _SmelteryIO {
-        @Config.Comment("Global switch for Smeltery IO support, disabling this will disable all Smeltery IO specific patches")
         public boolean all = true;
-        @Config.Comment("Support for Fuel Controller")
         public boolean fuelController = true;
-        @Config.Comment("Support for Casting Machine")
         public boolean castingMachine = true;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _TinkerIO {
-        @Config.Comment("Global switch for TinkerIO support, disabling this will disable all TinkerIO specific patches")
         public boolean all = true;
-        @Config.Comment("Support for Smart Output")
         public boolean smartOutput = true;
-        @Config.Comment("Support for Fuel Input Machine")
         public boolean fuelInput = true;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _BlueSkies {
-        @Config.Comment("Support for Blue Skies tabs, usually located at the right side of your inventory")
         public boolean tabs = true;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _CraftingTweaks {
-        @Config.Comment("Support for Crafting Tweaks")
         public boolean buttons = true;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _TrinketsAndBaubles {
-        @Config.Comment("Support for Trinkets And Baubles switch button")
         public boolean buttons = true;
-        @Config.Comment("Support for Trinkets And Baubles trinket gui")
         public boolean slots = true;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _AE2WTLib {
-        @Config.Comment("Support for AE2WTLib, and its dependents: Wireless Crafting/Pattern/Fluid/Interface Terminal")
         public boolean buttons = true;
-        @Config.Comment("Additional support for Wireless Crafting Terminal")
         public boolean wirelessCraftingTerminal = true;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _DeepMobLearning {
-        @Config.Comment("Support for redstone mode button in Deep Mob Learning and its forks like Deep Mod Evolution")
         public boolean buttons = true;
-        @Config.Comment("Additional support for Simulation Chamber in Deep Mob Learning")
         public boolean simulationChamber = true;
     }
 }

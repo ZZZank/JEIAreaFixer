@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
 @Mod.EventBusSubscriber(modid = Tags.MOD_ID)
 public final class ConfigClassScanner {
 
-    public static final boolean ENABLE_SCAN = true;
+    public static final boolean ENABLE_SCAN = false;
 
     static void scan(@Nonnull Config anno, @Nonnull Class<?> clazz) {
         val prefix = anno.modid() + "." + (anno.category().isEmpty() ? "" : anno.category() + ".");
