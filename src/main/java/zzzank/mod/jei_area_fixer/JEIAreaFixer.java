@@ -8,6 +8,8 @@ import net.minecraftforge.client.event.GuiScreenEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsCacheHolder;
 
 import javax.annotation.Nonnull;
@@ -28,6 +30,8 @@ import java.util.List;
 )
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class JEIAreaFixer {
+
+    public static final Logger LOGGER = LogManager.getLogger(Tags.MOD_ID);
 
     /**
      * @return null if provided null, otherwise a singleton list
@@ -56,4 +60,29 @@ public class JEIAreaFixer {
         }
         ((ButtonsCacheHolder) gui).jaf$getCache().clear();
     }
+
+    /*
+    @SubscribeEvent
+    public static void captureCategoryLangkeys(EntityJoinWorldEvent event) {
+        if (event.getEntity() instanceof EntityPlayer) {
+            Configuration config;
+            try {
+                val f = ConfigManager.class.getDeclaredMethod("getConfiguration", String.class, String.class);
+                f.setAccessible(true);
+                config = ((Configuration) f.invoke(null, Tags.MOD_ID, Tags.MOD_ID));
+            } catch (Exception e) {
+                LOGGER.error(e);
+                return;
+            }
+            if (config == null) {
+                LOGGER.error("config for {} not found", Tags.MOD_ID);
+                return;
+            }
+            for (String categoryName : config.getCategoryNames()) {
+                val category = config.getCategory(categoryName);
+                System.out.println(category.getLanguagekey());
+            }
+        }
+    }
+     */
 }

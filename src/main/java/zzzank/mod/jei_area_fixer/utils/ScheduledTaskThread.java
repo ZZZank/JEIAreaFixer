@@ -5,7 +5,7 @@ import zzzank.mod.jei_area_fixer.Tags;
 /**
  * @author ZZZank
  */
-public class ScheduledTaskThread extends Thread {
+public final class ScheduledTaskThread extends Thread {
 
     private final long interval;
     private final Runnable task;
