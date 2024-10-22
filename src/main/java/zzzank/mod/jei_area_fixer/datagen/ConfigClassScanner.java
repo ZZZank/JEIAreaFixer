@@ -9,12 +9,16 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import zzzank.mod.jei_area_fixer.JEIAreaFixer;
 import zzzank.mod.jei_area_fixer.JEIAreaFixerConfig;
 import zzzank.mod.jei_area_fixer.Tags;
+import zzzank.mod.jei_area_fixer.utils.NameUtils;
 
 import javax.annotation.Nonnull;
+import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.Locale;
 
 /**
+ * langKey: modid + "." + (category.isEmpty() ? "" : category+".") + f.getName().toLowerCase(Locale.ENGLISH);
+ * tooltop langKey: langKey + ".tooltip"
  * @author ZZZank
  */
 @Mod.EventBusSubscriber(modid = Tags.MOD_ID)
@@ -30,9 +34,23 @@ public final class ConfigClassScanner {
         }
     }
 
-    static void print(String name) {
-        JEIAreaFixer.LOGGER.info("{}=Unresolved", name);
-        JEIAreaFixer.LOGGER.info("{}.tooltip=Unresolved(Tooltips)", name);
+    static void print(String key, Field field) {
+        JEIAreaFixer.LOGGER.info(
+            "{}={}",
+            key,
+            NameUtils.titleToSplitTitle(
+                Modifier.isFinal(field.getModifiers())
+                    ? field.getName().toLowerCase(Locale.ROOT)
+                    : field.getName()
+            )
+        );
+        JEIAreaFixer.LOGGER.info(
+            "{}.tooltip={}",
+            key,
+            field.isAnnotationPresent(Config.Comment.class)
+                ? field.getAnnotation(Config.Comment.class).value()
+                : "Unresolved"
+        );
     }
 
     static void scanImpl(Class<?> clazz, Object instance, String prefix) throws IllegalAccessException {
@@ -43,14 +61,11 @@ public final class ConfigClassScanner {
             ) {
                 continue;
             }
+            val sub = prefix + field.getName().toLowerCase(Locale.ROOT);
+            print(sub, field);
             val type = field.getType();
             if (type.getSimpleName().startsWith("_")) {
-                val sub = prefix + field.getName().toLowerCase(Locale.ROOT);
-                print(sub);
                 scanImpl(type, field.get(instance), sub + ".");
-            } else {
-                val sub = prefix + field.getName();
-                print(sub);
             }
         }
     }

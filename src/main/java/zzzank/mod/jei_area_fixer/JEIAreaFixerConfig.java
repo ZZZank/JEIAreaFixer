@@ -10,15 +10,11 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 
 /**
- * langKey: modid + "." + (category.isEmpty() ? "" : category+".") + f.getName().toLowerCase(Locale.ENGLISH);
- * tooltop langKey: langKey + ".tooltip"
  * @author ZZZank
  */
 @Config(modid = Tags.MOD_ID, category = "client")
 @Mod.EventBusSubscriber(value = Side.CLIENT, modid = Tags.MOD_ID)
 public class JEIAreaFixerConfig {
-
-    private static final String LANG_PREFIX = Tags.MOD_ID + ".config.";
 
     public static final _Debug DEBUG = new _Debug();
     @Config.RequiresMcRestart
