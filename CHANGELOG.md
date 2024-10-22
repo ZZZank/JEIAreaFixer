@@ -1,5 +1,24 @@
 # Changelog
 
+## JEIAreaFixer 1.6.0 -> 2.0.0
+
+new config & window resize fix & DME support
+
+- new config structure
+    - please DELETE old config file before update to prevent unused values from jamming mod config file/screen
+    - config entries in different categories are now actually in different category, instead of many `namespace$value` in
+    a single category
+    - localization support for config description
+    - added localizable name for all config entries
+    - some config entries are renamed for clarity
+- Deep Mod Evolution (DME) support
+    - also Deep Mob Learning (DML)
+- button area positions will now be force refreshed on window resize
+- AE cell view area is now more adaptive
+- debug option: `draw all` is now `true` by default
+
+---
+
 ## JEIAreaFixer 1.5.0 -> 1.6.0
 
 perf++ & support 10 more mods
