@@ -85,7 +85,7 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
             handlers.addIf(MCJTY_LIB.all, GenericGuiContainerArea::new);
         }
         if (ModState.COMPUTER_CRAFT) {
-            handlers.addIf(COMPUTER_CRAFT.ComputerCraft$Computer, ComputerScreenArea::new);
+            handlers.addIf(COMPUTER_CRAFT.computer, ComputerScreenArea::new);
         }
         if (ModState.AE2 && shouldEnableForAE2()) {
             handlers.addIf(AE2.buttons, AE2ButtonsArea::new);

@@ -100,7 +100,7 @@ public class JEIAreaFixerConfig {
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _ComputerCraft {
         @Config.Comment("Support for Computer screen")
-        public boolean ComputerCraft$Computer = true;
+        public boolean computer = true;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
