@@ -30,6 +30,7 @@ import zzzank.mod.jei_area_fixer.mods.quark.ChestButtonsArea;
 import zzzank.mod.jei_area_fixer.mods.reskillable.ReskillableTabArea;
 import zzzank.mod.jei_area_fixer.mods.rftools.ModularStorageArea;
 import zzzank.mod.jei_area_fixer.mods.rftools.StorageScannerArea;
+import zzzank.mod.jei_area_fixer.mods.thaumcraft.FocalManipulatorArea;
 import zzzank.mod.jei_area_fixer.mods.tinker_io.TinkerIOFuelInputMachineArea;
 import zzzank.mod.jei_area_fixer.mods.tinker_io.TinkerIOSmartOutputArea;
 import zzzank.mod.jei_area_fixer.mods.trinkets_and_baubles.TrinketGuiArea;
@@ -112,6 +113,9 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
         if (ModState.DEEP_MOD_LEARNING) {
             handlers.addIf(DEEP_MOB_LEARNING.buttons, DMLRedstoneModeButtonArea::new);
             handlers.addIf(DEEP_MOB_LEARNING.simulationChamber, SimulationChamberArea::new);
+        }
+        if (ModState.THAUMCRAFT) {
+            handlers.addIf(THAUMCRAFT.focalManipulator, FocalManipulatorArea::new);
         }
     }
 

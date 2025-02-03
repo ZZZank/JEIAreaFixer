@@ -29,6 +29,7 @@ public interface ModState {
     boolean BAUBLES = loaded("baubles");
     boolean AE2WT_LIB = loaded("ae2wtlib");
     boolean DEEP_MOD_LEARNING = loaded("deepmoblearning");
+    boolean THAUMCRAFT = loaded("thaumcraft");
 
     static boolean loaded(String modid) {
         return Loader.isModLoaded(modid);

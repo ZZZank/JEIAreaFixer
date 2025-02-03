@@ -54,6 +54,8 @@ public class JEIAreaFixerConfig {
     public static final _AE2WTLib AE2WTLIB = new _AE2WTLib();
     @Config.RequiresMcRestart
     public static final _DeepMobLearning DEEP_MOB_LEARNING = new _DeepMobLearning();
+    @Config.RequiresMcRestart
+    public static final _Thaumcraft THAUMCRAFT = new _Thaumcraft();
 
     @SubscribeEvent
     public static void onConfigChanged(ConfigChangedEvent event) {
@@ -172,5 +174,10 @@ public class JEIAreaFixerConfig {
     public static class _DeepMobLearning {
         public boolean buttons = true;
         public boolean simulationChamber = true;
+    }
+
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
+    public static class _Thaumcraft {
+        public boolean focalManipulator = true;
     }
 }
