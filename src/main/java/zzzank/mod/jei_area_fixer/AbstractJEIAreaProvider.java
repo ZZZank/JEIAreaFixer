@@ -8,34 +8,35 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.awt.*;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * @author ZZZank
  */
 public abstract class AbstractJEIAreaProvider<T extends GuiContainer> implements IAdvancedGuiHandler<T> {
 
-    private final Class<T> target;
-
-    public AbstractJEIAreaProvider(@Nonnull Class<T> target) {
-        this.target = Objects.requireNonNull(target);
-    }
-
     @Override
     @Nonnull
     public final Class<T> getGuiContainerClass() {
-        return target;
+        return getTarget();
     }
 
     @Deprecated
     @Nullable
     @Override
     public final List<Rectangle> getGuiExtraAreas(@Nonnull T gui) {
-        final List<Rectangle> areas = getExtraAreas(gui);
-        JEIAreaFixerDebug.accept(target, areas);
+        final List<Rectangle> areas = getExclusionAreas(gui);
+        JEIAreaFixerDebug.accept(getTarget(), areas);
         return areas;
     }
 
+    @Nonnull
+    protected abstract Class<T> getTarget();
+
     @Nullable
-    public abstract List<Rectangle> getExtraAreas(@Nonnull T gui);
+    protected abstract List<Rectangle> getExclusionAreas(@Nonnull T gui);
+
+    @SuppressWarnings("unchecked")
+    protected <T_> Class<T_> cast(Class<?> c) {
+        return (Class<T_>) c;
+    }
 }
