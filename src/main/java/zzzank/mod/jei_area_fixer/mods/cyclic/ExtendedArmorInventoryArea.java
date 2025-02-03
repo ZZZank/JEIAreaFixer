@@ -16,13 +16,16 @@ import java.util.List;
  * @see GuiPlayerExtended#drawGuiContainerBackgroundLayer(float, int, int)
  */
 public class ExtendedArmorInventoryArea extends AbstractJEIAreaProvider<GuiPlayerExtended> {
-    public ExtendedArmorInventoryArea() {
-        super(GuiPlayerExtended.class);
+
+    @Nonnull
+    @Override
+    protected Class<GuiPlayerExtended> getTarget() {
+        return GuiPlayerExtended.class;
     }
 
     @Nullable
     @Override
-    public List<Rectangle> getExtraAreas(@Nonnull GuiPlayerExtended gui) {
+    protected List<Rectangle> getExclusionAreas(@Nonnull GuiPlayerExtended gui) {
         final int w = 47; //width
         final int h = 85; //height
 //        Gui.drawModalRectWithCustomSizedTexture(this.guiLeft - w, this.guiTop, (float)u, (float)v, w, h, (float)w, (float)h);

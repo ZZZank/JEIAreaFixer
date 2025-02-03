@@ -12,8 +12,11 @@ import java.util.List;
  * @author ZZZank
  */
 public class TrinketGuiArea extends AbstractJEIAreaProvider<TrinketGui> {
-    public TrinketGuiArea() {
-        super(TrinketGui.class);
+
+    @Nonnull
+    @Override
+    protected Class<TrinketGui> getTarget() {
+        return TrinketGui.class;
     }
 
     /**
@@ -21,7 +24,7 @@ public class TrinketGuiArea extends AbstractJEIAreaProvider<TrinketGui> {
      */
     @Nullable
     @Override
-    public List<Rectangle> getExtraAreas(@Nonnull TrinketGui gui) {
+    protected List<Rectangle> getExclusionAreas(@Nonnull TrinketGui gui) {
         return ((TrinketGuiAreaProvider) gui).jaf$getAreas();
     }
 }

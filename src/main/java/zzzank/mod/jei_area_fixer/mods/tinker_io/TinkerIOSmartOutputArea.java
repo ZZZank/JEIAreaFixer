@@ -13,13 +13,16 @@ import java.util.List;
  * @author ZZZank
  */
 public class TinkerIOSmartOutputArea extends AbstractJEIAreaProvider<GuiSmartOutput> {
-    public TinkerIOSmartOutputArea() {
-        super(GuiSmartOutput.class);
+
+    @Nonnull
+    @Override
+    protected Class<GuiSmartOutput> getTarget() {
+        return GuiSmartOutput.class;
     }
 
     @Nullable
     @Override
-    public List<Rectangle> getExtraAreas(@Nonnull GuiSmartOutput gui) {
+    protected List<Rectangle> getExclusionAreas(@Nonnull GuiSmartOutput gui) {
         return ((JEIAreaProvider) gui).jei_area_fixer$getAreas();
     }
 }

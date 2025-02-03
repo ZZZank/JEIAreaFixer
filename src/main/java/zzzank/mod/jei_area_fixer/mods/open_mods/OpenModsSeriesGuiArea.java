@@ -17,13 +17,15 @@ import java.util.List;
  */
 public class OpenModsSeriesGuiArea extends AbstractJEIAreaProvider<ComponentGui> {
 
-    public OpenModsSeriesGuiArea() {
-        super(ComponentGui.class);
+    @Nonnull
+    @Override
+    protected Class<ComponentGui> getTarget() {
+        return ComponentGui.class;
     }
 
     @Nullable
     @Override
-    public List<Rectangle> getExtraAreas(@Nonnull ComponentGui gui) {
+    protected List<Rectangle> getExclusionAreas(@Nonnull ComponentGui gui) {
         val root = ((AccessComponentGui) gui).jaf$root();
         val components = ((AccessBaseComposite) root).jaf$components();
         val areas = new ArrayList<Rectangle>(components.size());

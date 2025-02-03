@@ -17,13 +17,15 @@ import java.util.List;
  */
 public class ModularStorageArea extends AbstractJEIAreaProvider<GuiModularStorage> {
 
-    public ModularStorageArea() {
-        super(GuiModularStorage.class);
+    @Nonnull
+    @Override
+    protected Class<GuiModularStorage> getTarget() {
+        return GuiModularStorage.class;
     }
 
     @Nullable
     @Override
-    public List<Rectangle> getExtraAreas(@Nonnull GuiModularStorage gui) {
+    protected List<Rectangle> getExclusionAreas(@Nonnull GuiModularStorage gui) {
         val craftingGrid = ((AccessStorageWithCraftGui) gui).jaf$craftingGrid();
         val window = ((AccessGuiCraftingGrid) craftingGrid).jaf$craftWindow();
         return JEIAreaFixer.nullableWrap(window.getToplevel().getBounds());

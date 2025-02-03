@@ -17,13 +17,15 @@ import java.util.List;
  */
 public class StorageScannerArea extends AbstractJEIAreaProvider<GuiStorageScanner> {
 
-    public StorageScannerArea() {
-        super(GuiStorageScanner.class);
+    @Nonnull
+    @Override
+    protected Class<GuiStorageScanner> getTarget() {
+        return GuiStorageScanner.class;
     }
 
     @Nullable
     @Override
-    public List<Rectangle> getExtraAreas(@Nonnull GuiStorageScanner gui) {
+    protected List<Rectangle> getExclusionAreas(@Nonnull GuiStorageScanner gui) {
         val craftingGrid = ((AccessStorageWithCraftGui) gui).jaf$craftingGrid();
         val window = ((AccessGuiCraftingGrid) craftingGrid).jaf$craftWindow();
         return JEIAreaFixer.nullableWrap(window.getToplevel().getBounds());

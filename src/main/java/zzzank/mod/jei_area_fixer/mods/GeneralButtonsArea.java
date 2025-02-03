@@ -32,8 +32,10 @@ public class GeneralButtonsArea extends AbstractJEIAreaProvider<GuiContainer> {
      */
     private static final long INTERVAL = 1000;
 
-    public GeneralButtonsArea() {
-        super(GuiContainer.class);
+    @Nonnull
+    @Override
+    protected Class<GuiContainer> getTarget() {
+        return GuiContainer.class;
     }
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
@@ -46,7 +48,7 @@ public class GeneralButtonsArea extends AbstractJEIAreaProvider<GuiContainer> {
 
     @Nullable
     @Override
-    public List<Rectangle> getExtraAreas(@Nonnull GuiContainer gui) {
+    protected List<Rectangle> getExclusionAreas(@Nonnull GuiContainer gui) {
         val buttons = buttonsMap.get(gui.getClass());
         if (buttons == null || buttons.isEmpty()) {
             return Collections.emptyList();

@@ -14,8 +14,11 @@ import java.util.List;
  * @author ZZZank
  */
 public class FocalManipulatorArea extends AbstractJEIAreaProvider<GuiFocalManipulator> {
-    public FocalManipulatorArea() {
-        super(GuiFocalManipulator.class);
+
+    @Nonnull
+    @Override
+    protected Class<GuiFocalManipulator> getTarget() {
+        return GuiFocalManipulator.class;
     }
 
     /**
@@ -23,7 +26,7 @@ public class FocalManipulatorArea extends AbstractJEIAreaProvider<GuiFocalManipu
      */
     @Nullable
     @Override
-    public List<Rectangle> getExtraAreas(@Nonnull GuiFocalManipulator gui) {
+    protected List<Rectangle> getExclusionAreas(@Nonnull GuiFocalManipulator gui) {
         val k = (gui.width - gui.getXSize()) / 2;
         val l = (gui.height - gui.getYSize()) / 2;
         return Collections.singletonList(

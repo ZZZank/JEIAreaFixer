@@ -13,13 +13,16 @@ import java.util.List;
  * @author ZZZank
  */
 public class TinkerIOFuelInputMachineArea extends AbstractJEIAreaProvider<GuiFuelInputMachine> {
-    public TinkerIOFuelInputMachineArea() {
-        super(GuiFuelInputMachine.class);
+
+    @Nonnull
+    @Override
+    protected Class<GuiFuelInputMachine> getTarget() {
+        return GuiFuelInputMachine.class;
     }
 
     @Nullable
     @Override
-    public List<Rectangle> getExtraAreas(@Nonnull GuiFuelInputMachine gui) {
+    protected List<Rectangle> getExclusionAreas(@Nonnull GuiFuelInputMachine gui) {
         return ((JEIAreaProvider) gui).jei_area_fixer$getAreas();
     }
 }

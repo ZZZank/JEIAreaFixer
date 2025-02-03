@@ -17,13 +17,15 @@ import java.util.List;
  */
 public class GuiVillagerArea extends AbstractJEIAreaProvider<GuiVillager> {
 
-    public GuiVillagerArea() {
-        super(GuiVillager.class);
+    @Nonnull
+    @Override
+    protected Class<GuiVillager> getTarget() {
+        return GuiVillager.class;
     }
 
     @Nullable
     @Override
-    public List<Rectangle> getExtraAreas(@Nonnull GuiVillager gui) {
+    protected List<Rectangle> getExclusionAreas(@Nonnull GuiVillager gui) {
         val book = ((AccessGuiVillager) gui).jaf$tradingBookGui();
         val access = ((AccessGuiTradingBook) book);
         return Collections.singletonList(

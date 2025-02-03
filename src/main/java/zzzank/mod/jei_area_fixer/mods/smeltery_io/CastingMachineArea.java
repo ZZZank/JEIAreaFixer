@@ -14,13 +14,15 @@ import java.util.List;
  */
 public class CastingMachineArea extends AbstractJEIAreaProvider<GuiCM> {
 
-    public CastingMachineArea() {
-        super(GuiCM.class);
+    @Nonnull
+    @Override
+    protected Class<GuiCM> getTarget() {
+        return GuiCM.class;
     }
 
     @Nullable
     @Override
-    public List<Rectangle> getExtraAreas(@Nonnull GuiCM gui) {
+    protected List<Rectangle> getExclusionAreas(@Nonnull GuiCM gui) {
         return ((JEIAreaProvider) gui).jei_area_fixer$getAreas();
     }
 }

@@ -19,7 +19,13 @@ import java.util.List;
  */
 public class DMLRedstoneModeButtonArea extends ButtonsAreaProvider<ButtonRedstoneMode, GuiMachine> {
     public DMLRedstoneModeButtonArea() {
-        super(ButtonIndex.DME_REDSTONE, GuiMachine.class);
+        super(ButtonIndex.DME_REDSTONE);
+    }
+
+    @Nonnull
+    @Override
+    protected Class<GuiMachine> getTarget() {
+        return GuiMachine.class;
     }
 
     @Nullable

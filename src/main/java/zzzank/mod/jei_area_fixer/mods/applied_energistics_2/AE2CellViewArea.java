@@ -16,8 +16,11 @@ import java.util.List;
  * @author ZZZank
  */
 public class AE2CellViewArea extends AbstractJEIAreaProvider<GuiMEMonitorable> {
-    public AE2CellViewArea() {
-        super(GuiMEMonitorable.class);
+
+    @Nonnull
+    @Override
+    protected Class<GuiMEMonitorable> getTarget() {
+        return GuiMEMonitorable.class;
     }
 
     /**
@@ -25,7 +28,7 @@ public class AE2CellViewArea extends AbstractJEIAreaProvider<GuiMEMonitorable> {
      */
     @Nullable
     @Override
-    public List<Rectangle> getExtraAreas(@Nonnull GuiMEMonitorable gui) {
+    protected List<Rectangle> getExclusionAreas(@Nonnull GuiMEMonitorable gui) {
         val access = ((AccessGuiMEMonitorable) gui);
 
         return access.jaf$viewCell() || gui instanceof GuiSecurityStation

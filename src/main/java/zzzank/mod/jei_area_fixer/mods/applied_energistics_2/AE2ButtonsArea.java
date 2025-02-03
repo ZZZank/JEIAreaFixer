@@ -22,7 +22,13 @@ import java.util.Set;
  */
 public class AE2ButtonsArea extends ButtonsAreaProvider<GuiButton, AEBaseGui> {
     public AE2ButtonsArea() {
-        super(ButtonIndex.AE2, AEBaseGui.class);
+        super(ButtonIndex.AE2);
+    }
+
+    @Nonnull
+    @Override
+    protected Class<AEBaseGui> getTarget() {
+        return AEBaseGui.class;
     }
 
     /**

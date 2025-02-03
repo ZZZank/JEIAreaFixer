@@ -19,14 +19,13 @@ public abstract class ButtonsAreaProvider<T extends GuiButton, G extends GuiCont
 
     private final ButtonIndex<T> index;
 
-    public ButtonsAreaProvider(@Nonnull ButtonIndex<T> index, @Nonnull Class<G> type) {
-        super(type);
+    public ButtonsAreaProvider(@Nonnull ButtonIndex<T> index) {
         this.index = Objects.requireNonNull(index);
     }
 
     @Nullable
     @Override
-    public final List<Rectangle> getExtraAreas(@Nonnull G gui) {
+    protected final List<Rectangle> getExclusionAreas(@Nonnull G gui) {
         val cache = ((ButtonsCacheHolder) gui).jaf$cacheIfAbsent(index);
         return cache.isEmpty() ? null : buttonsToAreas(cache, gui);
     }

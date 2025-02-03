@@ -18,8 +18,10 @@ public class ComputerScreenArea extends AbstractJEIAreaProvider<GuiComputer> {
 
     private static final int BORDER_WIDTH = 12;
 
-    public ComputerScreenArea() {
-        super(GuiComputer.class);
+    @Nonnull
+    @Override
+    protected Class<GuiComputer> getTarget() {
+        return GuiComputer.class;
     }
 
     /**
@@ -27,7 +29,7 @@ public class ComputerScreenArea extends AbstractJEIAreaProvider<GuiComputer> {
      */
     @Nullable
     @Override
-    public List<Rectangle> getExtraAreas(@Nonnull GuiComputer gui) {
+    protected List<Rectangle> getExclusionAreas(@Nonnull GuiComputer gui) {
         val terminal = ((AccessGuiComputer) gui).jaf$terminal();
         val startX = (gui.width - terminal.getWidth()) / 2;
         val startY = (gui.height - terminal.getHeight()) / 2;

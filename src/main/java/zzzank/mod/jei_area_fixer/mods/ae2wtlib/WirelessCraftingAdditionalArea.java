@@ -19,7 +19,13 @@ import java.util.List;
  */
 public class WirelessCraftingAdditionalArea extends ButtonsAreaProvider<GuiButton, GuiWCT> {
     public WirelessCraftingAdditionalArea() {
-        super(ButtonIndex.WIRELESS_CRAFTING_TERMINAL, GuiWCT.class);
+        super(ButtonIndex.WIRELESS_CRAFTING_TERMINAL);
+    }
+
+    @Nonnull
+    @Override
+    protected Class<GuiWCT> getTarget() {
+        return GuiWCT.class;
     }
 
     @Nullable

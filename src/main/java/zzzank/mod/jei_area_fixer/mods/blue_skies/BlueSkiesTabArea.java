@@ -22,7 +22,13 @@ import java.util.List;
  */
 public class BlueSkiesTabArea extends ButtonsAreaProvider<SkyTab, InventoryEffectRenderer> {
     public BlueSkiesTabArea() {
-        super(ButtonIndex.BLUE_SKIES, InventoryEffectRenderer.class);
+        super(ButtonIndex.BLUE_SKIES);
+    }
+
+    @Nonnull
+    @Override
+    protected Class<InventoryEffectRenderer> getTarget() {
+        return InventoryEffectRenderer.class;
     }
 
     @Nullable

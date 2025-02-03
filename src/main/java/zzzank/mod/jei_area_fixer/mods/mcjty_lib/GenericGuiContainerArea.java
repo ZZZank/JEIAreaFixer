@@ -13,13 +13,16 @@ import java.util.List;
  * @author ZZZank
  */
 public class GenericGuiContainerArea extends AbstractJEIAreaProvider<GenericGuiContainer<?>> {
-    public GenericGuiContainerArea() {
-        super(JEIAreaFixer.cast(GenericGuiContainer.class));
+
+    @Nonnull
+    @Override
+    protected Class<GenericGuiContainer<?>> getTarget() {
+        return cast(GenericGuiContainer.class);
     }
 
     @Nullable
     @Override
-    public List<Rectangle> getExtraAreas(@Nonnull GenericGuiContainer<?> gui) {
+    protected List<Rectangle> getExclusionAreas(@Nonnull GenericGuiContainer<?> gui) {
         return JEIAreaFixer.nullableWrap(gui.getWindow().getToplevel().getBounds());
     }
 }

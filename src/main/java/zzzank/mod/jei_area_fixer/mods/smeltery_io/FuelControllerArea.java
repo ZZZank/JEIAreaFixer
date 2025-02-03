@@ -14,13 +14,15 @@ import java.util.List;
  */
 public class FuelControllerArea extends AbstractJEIAreaProvider<GuiFC> {
 
-    public FuelControllerArea() {
-        super(GuiFC.class);
+    @Nonnull
+    @Override
+    protected Class<GuiFC> getTarget() {
+        return GuiFC.class;
     }
 
     @Nullable
     @Override
-    public List<Rectangle> getExtraAreas(@Nonnull GuiFC gui) {
+    protected List<Rectangle> getExclusionAreas(@Nonnull GuiFC gui) {
         //this.drawTexturedModalRect(this.guiLeft - 110, this.guiTop, 146, 170, 110, 60);
         return Collections.singletonList(
             new Rectangle(

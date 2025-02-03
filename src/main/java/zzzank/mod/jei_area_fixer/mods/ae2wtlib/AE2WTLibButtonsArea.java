@@ -19,7 +19,13 @@ import java.util.List;
  */
 public class AE2WTLibButtonsArea extends ButtonsAreaProvider<GuiButton, GuiWT> {
     public AE2WTLibButtonsArea() {
-        super(ButtonIndex.AE2WT_LIB, GuiWT.class);
+        super(ButtonIndex.AE2WT_LIB);
+    }
+
+    @Nonnull
+    @Override
+    protected Class<GuiWT> getTarget() {
+        return GuiWT.class;
     }
 
     @Nullable

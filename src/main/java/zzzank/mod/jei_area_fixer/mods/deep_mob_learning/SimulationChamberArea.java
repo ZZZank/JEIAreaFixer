@@ -14,8 +14,11 @@ import java.util.List;
  * @author ZZZank
  */
 public class SimulationChamberArea extends AbstractJEIAreaProvider<GuiSimulationChamber> {
-    public SimulationChamberArea() {
-        super(GuiSimulationChamber.class);
+
+    @Nonnull
+    @Override
+    protected Class<GuiSimulationChamber> getTarget() {
+        return GuiSimulationChamber.class;
     }
 
     /**
@@ -23,7 +26,7 @@ public class SimulationChamberArea extends AbstractJEIAreaProvider<GuiSimulation
      */
     @Nullable
     @Override
-    public List<Rectangle> getExtraAreas(@Nonnull GuiSimulationChamber gui) {
+    protected List<Rectangle> getExclusionAreas(@Nonnull GuiSimulationChamber gui) {
         //this.drawTexturedModalRect(this.guiLeft + DMLConstants.Gui.SimulationChamber.DATA_MODEL_SLOT.LEFT, this.guiTop + DMLConstants.Gui.SimulationChamber.DATA_MODEL_SLOT.TOP, GuiSimulationChamber.TextureCoords.DATA_MODEL_SLOT.X, GuiSimulationChamber.TextureCoords.DATA_MODEL_SLOT.Y, DMLConstants.Gui.SimulationChamber.DATA_MODEL_SLOT.WIDTH, DMLConstants.Gui.SimulationChamber.DATA_MODEL_SLOT.HEIGHT);
         return Collections.singletonList(new Rectangle(
             DMLConstants.Gui.SimulationChamber.DATA_MODEL_SLOT.LEFT + gui.getGuiLeft(),
