@@ -3,6 +3,7 @@ package zzzank.mod.jei_area_fixer.mods.computer_craft;
 import dan200.computercraft.client.gui.GuiComputer;
 import lombok.val;
 import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;
+import zzzank.mod.jei_area_fixer.mixin.computercraft.AccessGuiComputer;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -27,7 +28,7 @@ public class ComputerScreenArea extends AbstractJEIAreaProvider<GuiComputer> {
     @Nullable
     @Override
     public List<Rectangle> getExtraAreas(@Nonnull GuiComputer gui) {
-        val terminal = ((GuiComputerAccessor) gui).jaf$terminal();
+        val terminal = ((AccessGuiComputer) gui).jaf$terminal();
         val startX = (gui.width - terminal.getWidth()) / 2;
         val startY = (gui.height - terminal.getHeight()) / 2;
         return Collections.singletonList(

@@ -5,6 +5,7 @@ import lombok.val;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.InventoryEffectRenderer;
 import net.minecraftforge.client.event.GuiScreenEvent;
+import zzzank.mod.jei_area_fixer.mixin.blue_skies.AccessSkyTab;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsAreaProvider;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonIndex;
 
@@ -43,7 +44,7 @@ public class BlueSkiesTabArea extends ButtonsAreaProvider<SkyTab, InventoryEffec
         return new Rectangle(
             tab.x,
             tab.y,
-            tab.enabled ? 185 - ((SkyTabAccessor) tab).jaf$slidePos() : tab.width,
+            tab.enabled ? 185 - ((AccessSkyTab) tab).jaf$slidePos() : tab.width,
             tab.height
         );
     }

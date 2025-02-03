@@ -4,6 +4,8 @@ import lombok.val;
 import mcjty.rftools.blocks.storage.GuiModularStorage;
 import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;
 import zzzank.mod.jei_area_fixer.JEIAreaFixer;
+import zzzank.mod.jei_area_fixer.mixin.rftools.AccessGuiCraftingGrid;
+import zzzank.mod.jei_area_fixer.mixin.rftools.AccessStorageWithCraftGui;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -22,8 +24,8 @@ public class ModularStorageArea extends AbstractJEIAreaProvider<GuiModularStorag
     @Nullable
     @Override
     public List<Rectangle> getExtraAreas(@Nonnull GuiModularStorage gui) {
-        val craftingGrid = ((StorageWithCraftGuiAccessor) gui).jaf$craftingGrid();
-        val window = ((GuiCraftingGridAccessor) craftingGrid).jaf$craftWindow();
+        val craftingGrid = ((AccessStorageWithCraftGui) gui).jaf$craftingGrid();
+        val window = ((AccessGuiCraftingGrid) craftingGrid).jaf$craftWindow();
         return JEIAreaFixer.nullableWrap(window.getToplevel().getBounds());
     }
 }

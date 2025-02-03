@@ -4,15 +4,13 @@ import forestry.core.gui.GuiForestry;
 import forestry.core.gui.ledgers.LedgerManager;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
-import zzzank.mod.jei_area_fixer.mods.forestry.GuiForestryAccessor;
 
 /**
  * @author ZZZank
  */
 @Mixin(value = GuiForestry.class,remap = false)
-public interface AccessGuiForestry extends GuiForestryAccessor {
+public interface AccessGuiForestry {
 
     @Accessor("ledgerManager")
-    @Override
     LedgerManager jaf$ledgerManager();
 }

@@ -3,6 +3,8 @@ package zzzank.mod.jei_area_fixer.mods.open_mods;
 import lombok.val;
 import openmods.gui.ComponentGui;
 import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;
+import zzzank.mod.jei_area_fixer.mixin.openmods.AccessBaseComposite;
+import zzzank.mod.jei_area_fixer.mixin.openmods.AccessComponentGui;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -22,8 +24,8 @@ public class OpenModsSeriesGuiArea extends AbstractJEIAreaProvider<ComponentGui>
     @Nullable
     @Override
     public List<Rectangle> getExtraAreas(@Nonnull ComponentGui gui) {
-        val root = ((ComponentGuiAccessor) gui).jaf$root();
-        val components = ((BaseCompositeAccessor) root).jaf$components();
+        val root = ((AccessComponentGui) gui).jaf$root();
+        val components = ((AccessBaseComposite) root).jaf$components();
         val areas = new ArrayList<Rectangle>(components.size());
         for (val component : components) {
             areas.add(new Rectangle(

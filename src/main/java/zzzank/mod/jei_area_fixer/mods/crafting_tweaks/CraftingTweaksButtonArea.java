@@ -4,6 +4,7 @@ import lombok.val;
 import net.blay09.mods.craftingtweaks.client.GuiTweakButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.inventory.Container;
+import zzzank.mod.jei_area_fixer.mixin.craftingtweaks.AccessGuiTweakButton;
 import zzzank.mod.jei_area_fixer.mods.minecraft.GeneralButtonsAreaProvider;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonIndex;
 
@@ -27,7 +28,7 @@ public class CraftingTweaksButtonArea extends GeneralButtonsAreaProvider<GuiTwea
     protected List<Rectangle> buttonsToAreas(@Nonnull List<GuiTweakButton> buttons, @Nonnull GuiContainer gui) {
         val areas = new ArrayList<Rectangle>();
         for (val button : buttons) {
-            val access = ((GuiTweakButtonAccessor) button);
+            val access = ((AccessGuiTweakButton) button);
             areas.add(new Rectangle(
                 button.x + access.jaf$lastGuiLeft(),
                 button.y + access.jaf$lastGuiTop(),

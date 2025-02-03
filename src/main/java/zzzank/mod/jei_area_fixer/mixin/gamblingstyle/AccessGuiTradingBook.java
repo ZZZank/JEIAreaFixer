@@ -3,13 +3,12 @@ package zzzank.mod.jei_area_fixer.mixin.gamblingstyle;
 import com.fuzs.gamblingstyle.client.gui.GuiTradingBook;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
-import zzzank.mod.jei_area_fixer.mods.gambling_style.GuiTradingBookAccessor;
 
 /**
  * @author ZZZank
  */
 @Mixin(GuiTradingBook.class)
-public interface AccessGuiTradingBook extends GuiTradingBookAccessor {
+public interface AccessGuiTradingBook {
 
     @Accessor(value = "xSize", remap = false)
     int jaf$xSize();
