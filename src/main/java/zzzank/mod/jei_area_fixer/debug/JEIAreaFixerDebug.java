@@ -29,7 +29,12 @@ public final class JEIAreaFixerDebug {
     public static Collection<Rectangle> capturedAreas = null;
 
     public static void accept(Class<? extends GuiContainer> target, List<Rectangle> bounds) {
-        if (bounds != null && (JEIAreaFixerConfig.DEBUG.print || JEIAreaFixerConfig.DEBUG.draw)) {
+        if (bounds == null) {
+            return;
+        }
+        if (JEIAreaFixerConfig.DEBUG.print
+            || (JEIAreaFixerConfig.DEBUG.draw && !JEIAreaFixerConfig.DEBUG.drawAll)
+        ) {
             boundsMap.put(target, bounds);
         }
     }
