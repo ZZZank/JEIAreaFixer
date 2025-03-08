@@ -4,10 +4,7 @@ import appeng.client.gui.widgets.GuiImgButton;
 import appeng.client.gui.widgets.GuiTabButton;
 import appeng.client.gui.widgets.GuiToggleButton;
 import codersafterdark.reskillable.client.gui.button.GuiButtonInventoryTab;
-import com.google.common.base.Supplier;
-import com.google.common.base.Suppliers;
 import com.legacy.blue_skies.client.gui.tabs.SkyTab;
-import lombok.val;
 import mustapelto.deepmoblearning.client.gui.buttons.ButtonRedstoneMode;
 import net.blay09.mods.craftingtweaks.client.GuiTweakButton;
 import net.minecraft.client.gui.GuiButton;
@@ -19,6 +16,7 @@ import p455w0rd.wct.client.gui.widgets.GuiImgButtonShiftCraft;
 import vazkii.quark.management.client.gui.GuiButtonChest;
 import xzeroair.trinkets.client.gui.TrinketGuiButton;
 
+import java.util.Objects;
 import java.util.function.Predicate;
 
 /**
@@ -27,32 +25,32 @@ import java.util.function.Predicate;
 public final class ButtonIndex<T extends GuiButton> {
 
     private static int currentOrdinal = 0;
-    public static final ButtonIndex<GuiButtonChest> QUARK = register(() -> GuiButtonChest.class);
-    public static final ButtonIndex<GuiButtonInventoryTab> RESKILLABLE = register(() -> GuiButtonInventoryTab.class);
-    public static final ButtonIndex<GuiButton> AE2 = registerMulti(() -> arr(
-        GuiImgButton.class,
-        GuiTabButton.class,
-        GuiToggleButton.class
-    ));
-    public static final ButtonIndex<SkyTab> BLUE_SKIES = register(() -> SkyTab.class);
-    public static final ButtonIndex<GuiTweakButton> CRAFTING_TWEAKS = register(() -> GuiTweakButton.class);
-    public static final ButtonIndex<TrinketGuiButton> TRINKET = register(() -> TrinketGuiButton.class);
-    public static final ButtonIndex<GuiButton> AE2WT_LIB = registerMulti(() -> arr(
+    public static final ButtonIndex<GuiButtonChest> QUARK = register((b) -> b instanceof GuiButtonChest);
+    public static final ButtonIndex<GuiButtonInventoryTab> RESKILLABLE = register((b) -> b instanceof GuiButtonInventoryTab);
+    public static final ButtonIndex<GuiButton> AE2 = register((b) ->
+        b instanceof GuiImgButton
+        || b instanceof GuiTabButton
+        || b instanceof GuiToggleButton
+    );
+    public static final ButtonIndex<SkyTab> BLUE_SKIES = register((b) -> b instanceof SkyTab);
+    public static final ButtonIndex<GuiTweakButton> CRAFTING_TWEAKS = register((b) -> b instanceof GuiTweakButton);
+    public static final ButtonIndex<TrinketGuiButton> TRINKET = register((b) -> b instanceof TrinketGuiButton);
+    public static final ButtonIndex<GuiButton> AE2WT_LIB = register((b) ->
         //from AE2WTLib
-        p455w0rd.ae2wtlib.api.client.gui.widgets.GuiTabButton.class,
-        GuiTrashButton.class,
-        GuiItemIconButton.class,
+        b instanceof p455w0rd.ae2wtlib.api.client.gui.widgets.GuiTabButton ||
+        b instanceof GuiTrashButton ||
+        b instanceof GuiItemIconButton ||
         //from AE2
-        GuiImgButton.class,
-//        GuiTabButton.class,
-        GuiToggleButton.class
-    ));
-    public static final ButtonIndex<GuiButton> WIRELESS_CRAFTING_TERMINAL = registerMulti(() -> arr(
-        GuiImgButtonBooster.class,
-        GuiImgButtonMagnetMode.class,
-        GuiImgButtonShiftCraft.class
-    ));
-    public static final ButtonIndex<ButtonRedstoneMode> DME_REDSTONE = register(() -> ButtonRedstoneMode.class);
+        b instanceof GuiImgButton ||
+//        GuiTabButton,
+        b instanceof GuiToggleButton
+    );
+    public static final ButtonIndex<GuiButton> WIRELESS_CRAFTING_TERMINAL = register((b) ->
+        b instanceof GuiImgButtonBooster ||
+        b instanceof GuiImgButtonMagnetMode ||
+        b instanceof GuiImgButtonShiftCraft
+    );
+    public static final ButtonIndex<ButtonRedstoneMode> DME_REDSTONE = register((b) -> b instanceof ButtonRedstoneMode);
 
     public final Predicate<GuiButton> filter;
     public final int index;
@@ -62,27 +60,7 @@ public final class ButtonIndex<T extends GuiButton> {
         this.index = index;
     }
 
-    private static <T extends GuiButton> ButtonIndex<T> register(Supplier<Class<T>> type) {
-        return new ButtonIndex<>((b) -> type.get().isInstance(b), currentOrdinal++);
-    }
-
-    private static <T extends GuiButton> ButtonIndex<T> registerMulti(Supplier<Class<? extends T>[]> types) {
-        val cachedTypes = Suppliers.memoize(types);
-        return new ButtonIndex<>(
-            b -> {
-                for (val type : cachedTypes.get()) {
-                    if (type.isInstance(b)) {
-                        return true;
-                    }
-                }
-                return false;
-            },
-            currentOrdinal++
-        );
-    }
-
-    @SuppressWarnings("unchecked")
-    private static <T extends GuiButton> Class<? extends T>[] arr(Class<? extends T>... buttons) {
-        return buttons;
+    private static <T extends GuiButton> ButtonIndex<T> register(Predicate<GuiButton> predicate) {
+        return new ButtonIndex<>(Objects.requireNonNull(predicate), currentOrdinal++);
     }
 }
