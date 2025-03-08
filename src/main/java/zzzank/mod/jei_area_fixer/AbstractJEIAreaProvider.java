@@ -20,7 +20,6 @@ public abstract class AbstractJEIAreaProvider<T extends GuiContainer> implements
         return getTarget();
     }
 
-    @Deprecated
     @Nullable
     @Override
     public final List<Rectangle> getGuiExtraAreas(@Nonnull T gui) {
@@ -36,7 +35,7 @@ public abstract class AbstractJEIAreaProvider<T extends GuiContainer> implements
     protected abstract List<Rectangle> getExclusionAreas(@Nonnull T gui);
 
     @SuppressWarnings("unchecked")
-    protected <T_> Class<T_> cast(Class<?> c) {
+    protected final <T_> Class<T_> cast(Class<?> c) {
         return (Class<T_>) c;
     }
 }

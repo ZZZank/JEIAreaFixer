@@ -71,7 +71,11 @@ dependencies {
     compileOnly(rfg.deobf("curse.maven:quark-243121:2924091"))
 
     //MCTSmelteryIO-1.12.2-1.2.63
-    compileOnly(rfg.deobf(files("./gradle/local_libs/MCTSmelteryIO-1.12.2-1.2.63.jar")))
+    file("./gradle/local_libs/").eachFile {f ->
+        if (f.isFile() && f.name.endsWith(".jar")) {
+            compileOnly(rfg.deobf(files(f)))
+        }
+    }
 
     //[Reskillable-1.12.2-1.13.0](https://www.curseforge.com/minecraft/mc-mods/reskillable/files/2815686)
     compileOnly(rfg.deobf("curse.maven:reskillable-286382:2815686"))
