@@ -105,6 +105,7 @@ public class JEIAreaFixerConfig {
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _Forestry {
         public boolean tabs = true;
+        public boolean fixLedgerAreaComputation = true;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)

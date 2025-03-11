@@ -9,6 +9,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import zzzank.mod.jei_area_fixer.JEIAreaFixerConfig;
 
 import java.awt.*;
 
@@ -46,7 +47,7 @@ public abstract class MixinLedger {
 
     @Inject(method = "getArea", at = @At("HEAD"), cancellable = true)
     public void fixLeftLedgerArea(CallbackInfoReturnable<Rectangle> cir) {
-        if (jeiAreaFixer$atRight) {
+        if (jeiAreaFixer$atRight || !JEIAreaFixerConfig.FORESTRY.fixLedgerAreaComputation) {
             return;
         }
         cir.setReturnValue(new Rectangle(

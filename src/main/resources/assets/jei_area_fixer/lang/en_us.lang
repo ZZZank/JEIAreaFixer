@@ -53,6 +53,8 @@ jei_area_fixer.client.cyclic.extendedinventory.tooltip=Support for armor slots i
 
 jei_area_fixer.client.forestry.tabs=Tabs
 jei_area_fixer.client.forestry.tabs.tooltip=Support for tabs in Forestry machines
+jei_area_fixer.client.forestry.fixledgerareacomputation=Fix Ledger Area Computation
+jei_area_fixer.client.forestry.fixledgerareacomputation.tooltip=Fix ledger area computation when the ledger is placed at the left side of GUI
 
 jei_area_fixer.client.rf_tools.all=All
 jei_area_fixer.client.rf_tools.all.tooltip=Global switch for RFTools support, disabling this will disable all RFTools specific patches
