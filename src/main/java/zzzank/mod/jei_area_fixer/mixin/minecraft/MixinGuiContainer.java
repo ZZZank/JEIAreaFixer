@@ -7,6 +7,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsCacheHolder;
 
+import javax.annotation.Nonnull;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,11 +24,13 @@ public abstract class MixinGuiContainer extends GuiScreen implements ButtonsCach
     @Unique
     private final Map<Integer, List<GuiButton>> jeiAreaFixer$buttonsCache = new HashMap<>();
 
+    @Nonnull
     @Override
     public Map<Integer, List<GuiButton>> jaf$getCache() {
         return jeiAreaFixer$buttonsCache;
     }
 
+    @Nonnull
     @Override
     public List<GuiButton> jaf$getButtonList() {
         return this.buttonList;

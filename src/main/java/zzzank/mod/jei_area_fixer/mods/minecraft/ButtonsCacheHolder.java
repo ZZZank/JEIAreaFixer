@@ -1,12 +1,12 @@
 package zzzank.mod.jei_area_fixer.mods.minecraft;
 
 import com.google.common.collect.ImmutableList;
-import com.sun.istack.internal.NotNull;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import zzzank.mod.jei_area_fixer.JEIAreaFixerConfig;
 import zzzank.mod.jei_area_fixer.utils.AreaFilter;
 
+import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.Map;
 
@@ -19,10 +19,10 @@ public interface ButtonsCacheHolder {
         return (GuiContainer) this;
     }
 
-    @NotNull
+    @Nonnull
     Map<Integer, List<GuiButton>> jaf$getCache();
 
-    @NotNull
+    @Nonnull
     List<GuiButton> jaf$getButtonList();
 
     @SuppressWarnings("unchecked")
