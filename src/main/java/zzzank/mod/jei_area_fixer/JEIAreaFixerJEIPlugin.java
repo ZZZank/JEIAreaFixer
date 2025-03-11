@@ -20,6 +20,7 @@ import zzzank.mod.jei_area_fixer.mods.crafting_tweaks.CraftingTweaksButtonArea;
 import zzzank.mod.jei_area_fixer.mods.cyclic.ExtendedArmorInventoryArea;
 import zzzank.mod.jei_area_fixer.mods.deep_mob_learning.DMLRedstoneModeButtonArea;
 import zzzank.mod.jei_area_fixer.mods.deep_mob_learning.SimulationChamberArea;
+import zzzank.mod.jei_area_fixer.mods.extrautils2.ExtraUtils2DynamicGuiArea;
 import zzzank.mod.jei_area_fixer.mods.forestry.ForestryLedgersArea;
 import zzzank.mod.jei_area_fixer.mods.gambling_style.GuiVillagerArea;
 import zzzank.mod.jei_area_fixer.mods.mcjty_lib.GenericGuiContainerArea;
@@ -116,6 +117,9 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
         }
         if (ModState.THAUMCRAFT) {
             handlers.addIf(THAUMCRAFT.focalManipulator, FocalManipulatorArea::new);
+        }
+        if (ModState.EXTRA_UTILS_2) {
+            handlers.addIf(EXTRA_UTILS_2.widgets, ExtraUtils2DynamicGuiArea::new);
         }
     }
 

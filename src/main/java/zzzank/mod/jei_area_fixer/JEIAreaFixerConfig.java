@@ -56,6 +56,8 @@ public class JEIAreaFixerConfig {
     public static final _DeepMobLearning DEEP_MOB_LEARNING = new _DeepMobLearning();
     @Config.RequiresMcRestart
     public static final _Thaumcraft THAUMCRAFT = new _Thaumcraft();
+    @Config.RequiresMcRestart
+    public static final _ExtraUtils2 EXTRA_UTILS_2 = new _ExtraUtils2();
 
     @SubscribeEvent
     public static void onConfigChanged(ConfigChangedEvent event) {
@@ -180,5 +182,10 @@ public class JEIAreaFixerConfig {
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _Thaumcraft {
         public boolean focalManipulator = true;
+    }
+
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
+    public static class _ExtraUtils2 {
+        public boolean widgets = true;
     }
 }

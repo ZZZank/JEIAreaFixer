@@ -113,3 +113,7 @@ jei_area_fixer.client.deep_mob_learning.simulationchamber.tooltip=Additional sup
 jei_area_fixer.client.thaumcraft=Thaumcraft Support
 jei_area_fixer.client.thaumcraft.focalmanipulator=Focal Manipulator
 jei_area_fixer.client.thaumcraft.focalmanipulator.tooltip=Support for Focal Manipulator
+
+jei_area_fixer.client.extra_utils_2=Extra Utilities 2 Support
+jei_area_fixer.client.extra_utils_2.widgets=Widgets
+jei_area_fixer.client.extra_utils_2.widgets.tooltip=Support for Widgets in GUI
