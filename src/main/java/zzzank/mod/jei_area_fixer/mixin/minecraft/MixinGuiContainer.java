@@ -1,7 +1,5 @@
 package zzzank.mod.jei_area_fixer.mixin.minecraft;
 
-import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
-import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -9,7 +7,9 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsCacheHolder;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author ZZZank
@@ -21,10 +21,10 @@ public abstract class MixinGuiContainer extends GuiScreen implements ButtonsCach
      * caching buttons to prevent button lookup at every render request
      */
     @Unique
-    private final Int2ObjectMap<List<GuiButton>> jeiAreaFixer$buttonsCache = new Int2ObjectOpenHashMap<>();
+    private final Map<Integer, List<GuiButton>> jeiAreaFixer$buttonsCache = new HashMap<>();
 
     @Override
-    public Int2ObjectMap<List<GuiButton>> jaf$getCache() {
+    public Map<Integer, List<GuiButton>> jaf$getCache() {
         return jeiAreaFixer$buttonsCache;
     }
 
