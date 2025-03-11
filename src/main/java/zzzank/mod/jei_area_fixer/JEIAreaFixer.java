@@ -45,19 +45,14 @@ public class JEIAreaFixer {
         return new Rectangle(button.x, button.y, button.width, button.height);
     }
 
-    public static <T> Class<T> cast(Class c) {
-        return c;
-    }
-
     /**
      * @see GuiScreen#initGui() javadoc of initGui(), where it mentions that buttonList will be rebuilt on windows resize
      */
     @SubscribeEvent
     public static void rebuildCacheOnResize(GuiScreenEvent.InitGuiEvent event) {
         val gui = event.getGui();
-        if (!(gui instanceof GuiContainer)) {
-            return;
+        if (gui instanceof ButtonsCacheHolder) {
+            ((ButtonsCacheHolder) gui).jaf$getCache().clear();
         }
-        ((ButtonsCacheHolder) gui).jaf$getCache().clear();
     }
 }
