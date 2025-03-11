@@ -139,10 +139,13 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
             registry.addAdvancedGuiHandlers(handlers);
         }
 
-        public void addIf(boolean condition, @Nonnull Supplier<IAdvancedGuiHandler<?>> handler) {
+        public <T extends IAdvancedGuiHandler<?>> T addIf(boolean condition, @Nonnull Supplier<T> handler) {
             if (condition) {
-                add(handler.get());
+                val got = handler.get();
+                add(got);
+                return got;
             }
+            return null;
         }
     }
 }

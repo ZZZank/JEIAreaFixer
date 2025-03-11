@@ -42,7 +42,6 @@ public final class ButtonIndex<T extends GuiButton> {
         b instanceof GuiItemIconButton ||
         //from AE2
         b instanceof GuiImgButton ||
-//        GuiTabButton,
         b instanceof GuiToggleButton
     );
     public static final ButtonIndex<GuiButton> WIRELESS_CRAFTING_TERMINAL = register((b) ->
@@ -53,7 +52,7 @@ public final class ButtonIndex<T extends GuiButton> {
     public static final ButtonIndex<ButtonRedstoneMode> DME_REDSTONE = register((b) -> b instanceof ButtonRedstoneMode);
 
     public final Predicate<GuiButton> filter;
-    public final int index;
+    public final Integer index;
 
     private ButtonIndex(Predicate<GuiButton> filter, int index) {
         this.filter = filter;
