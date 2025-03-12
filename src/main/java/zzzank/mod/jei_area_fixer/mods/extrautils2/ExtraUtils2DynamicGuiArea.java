@@ -2,6 +2,7 @@ package zzzank.mod.jei_area_fixer.mods.extrautils2;
 
 import com.rwtema.extrautils2.gui.backend.DynamicGui;
 import com.rwtema.extrautils2.gui.backend.IWidget;
+import lombok.AllArgsConstructor;
 import lombok.val;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;
@@ -10,6 +11,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.awt.*;
 import java.util.List;
+import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 /**
@@ -25,19 +28,32 @@ public class ExtraUtils2DynamicGuiArea extends AbstractJEIAreaProvider<DynamicGu
     @Nullable
     @Override
     protected List<Rectangle> getExclusionAreas(@Nonnull DynamicGui gui) {
-        val widgets = gui.container.getWidgets();
-        return widgets.stream()
-            .filter(w -> notInGui(gui, w))
-            .map(ExtraUtils2DynamicGuiArea::toRect)
+        val processor = new Widget2Area(gui);
+        return gui.container.getWidgets()
+            .stream()
+            .filter(processor)
+            .map(processor)
             .collect(Collectors.toList());
     }
 
-    public static boolean notInGui(@Nonnull GuiContainer gui, @Nonnull IWidget button) {
-        return button.getX() < gui.getGuiLeft()
-            || button.getX() + button.getW() > gui.getGuiLeft() + gui.getXSize();
-    }
+    @AllArgsConstructor
+    public static final class Widget2Area implements Predicate<IWidget>, Function<IWidget, Rectangle> {
+        private final GuiContainer gui;
 
-    public static Rectangle toRect(@Nonnull IWidget widget) {
-        return new Rectangle(widget.getX(), widget.getY(), widget.getW(), widget.getH());
+        @Override
+        public boolean test(IWidget widget) {
+            return widget.getX() < 0
+                || widget.getX() + widget.getW() > gui.getXSize();
+        }
+
+        @Override
+        public Rectangle apply(IWidget widget) {
+            return new Rectangle(
+                gui.getGuiLeft() + widget.getX(),
+                gui.getGuiTop() + widget.getY(),
+                widget.getW(),
+                widget.getH()
+            );
+        }
     }
 }
