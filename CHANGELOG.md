@@ -1,5 +1,18 @@
 # Changelog
 
+## JEIAreaFixer 2.0.0 -> 2.1.0
+
+Thaumcraft support & internal cleanup
+
+- Thaumcraft Focal Manipulator support
+  - with two new config `Focal Manipulator` and `Focal Manipulator Extra Area`
+  - If you don't want exclusion areas on the right side of Focal Manipulator GUI, it can be toggled on/off using the latter config
+- Forestry Ledger area fixing is now toggleable
+- internal cleanup to improve code efficiency and simplify codes
+- support for ExtU2 widgets, but disabled by default. JEI support from ExtU2 itself is good enough in most working conditions
+
+---
+
 ## JEIAreaFixer 1.6.0 -> 2.0.0
 
 new config & window resize fix & DME support
