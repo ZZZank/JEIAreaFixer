@@ -187,6 +187,6 @@ public class JEIAreaFixerConfig {
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _ExtraUtils2 {
-        public boolean widgets = true;
+        public boolean widgets = false;
     }
 }
