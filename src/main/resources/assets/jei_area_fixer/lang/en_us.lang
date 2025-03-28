@@ -113,6 +113,8 @@ jei_area_fixer.client.deep_mob_learning.simulationchamber.tooltip=Additional sup
 jei_area_fixer.client.thaumcraft=Thaumcraft Support
 jei_area_fixer.client.thaumcraft.focalmanipulator=Focal Manipulator
 jei_area_fixer.client.thaumcraft.focalmanipulator.tooltip=Support for Focal Manipulator
+jei_area_fixer.client.thaumcraft.focalmanipulatorextra=Focal Manipulator Extra Area
+jei_area_fixer.client.thaumcraft.focalmanipulatorextra.tooltip=Add additional area when there's focus item in the Focal Manipulator. The area might not be able to fit perfectly with rendered parts, because Thaumcraft codes for this GUI is quite messy. This config option does NOT require restart.
 
 jei_area_fixer.client.extra_utils_2=Extra Utilities 2 Support
 jei_area_fixer.client.extra_utils_2.widgets=Widgets

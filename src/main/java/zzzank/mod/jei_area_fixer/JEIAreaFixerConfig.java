@@ -182,6 +182,7 @@ public class JEIAreaFixerConfig {
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _Thaumcraft {
         public boolean focalManipulator = true;
+        public boolean focalManipulatorExtra = true;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)

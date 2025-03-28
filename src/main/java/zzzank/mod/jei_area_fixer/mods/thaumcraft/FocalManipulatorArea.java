@@ -3,6 +3,7 @@ package zzzank.mod.jei_area_fixer.mods.thaumcraft;
 import lombok.val;
 import thaumcraft.client.gui.GuiFocalManipulator;
 import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;
+import zzzank.mod.jei_area_fixer.JEIAreaFixerConfig;
 import zzzank.mod.jei_area_fixer.utils.AreaFilter;
 
 import javax.annotation.Nonnull;
@@ -33,7 +34,7 @@ public class FocalManipulatorArea extends AbstractJEIAreaProvider<GuiFocalManipu
         val l = (gui.height - gui.getYSize()) / 2;
         val invArea = new Rectangle(k - 71, l - 3, 71, 239); //this.drawTexturedModalRect(k - 71, l - 3, 0, 0, 71, 239);
 
-        if (!gui.inventorySlots.getSlot(0).getHasStack()) {
+        if (!JEIAreaFixerConfig.THAUMCRAFT.focalManipulatorExtra || !gui.inventorySlots.getSlot(0).getHasStack()) {
             return Collections.singletonList(invArea);
         }
 
