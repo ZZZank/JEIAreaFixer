@@ -32,6 +32,9 @@ jobs:
         env:
           FTB_MAVEN_TOKEN: ${{ secrets.FTB_MAVEN_TOKEN }}
           SAPS_TOKEN: ${{ secrets.SAPS_TOKEN }}
+        # 1. grant permission
+        # 2. download libraries
+        # 3. build
         run: |
           chmod +x ./gradlew
           ./gradlew --no-daemon downloadLocalLibs
