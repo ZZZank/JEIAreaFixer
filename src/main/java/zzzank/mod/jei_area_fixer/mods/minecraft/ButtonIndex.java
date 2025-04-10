@@ -37,15 +37,15 @@ public final class ButtonIndex<T extends GuiButton> {
     public static final ButtonIndex<TrinketGuiButton> TRINKET = register((b) -> b instanceof TrinketGuiButton);
     public static final ButtonIndex<GuiButton> AE2WT_LIB = register((b) ->
         //from AE2WTLib
+        b instanceof GuiImgButtonBooster ||
         b instanceof p455w0rd.ae2wtlib.api.client.gui.widgets.GuiTabButton ||
         b instanceof GuiTrashButton ||
         b instanceof GuiItemIconButton ||
-        //from AE2
+        //from AE2, doing so because the target class, GUiWT, is not inherited from AE screen classes
         b instanceof GuiImgButton ||
         b instanceof GuiToggleButton
     );
     public static final ButtonIndex<GuiButton> WIRELESS_CRAFTING_TERMINAL = register((b) ->
-        b instanceof GuiImgButtonBooster ||
         b instanceof GuiImgButtonMagnetMode ||
         b instanceof GuiImgButtonShiftCraft
     );
