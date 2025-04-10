@@ -26,7 +26,7 @@ jobs:
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
-          distribution: 'adopt'
+          distribution: 'zulu'
           java-version: '21'
       - name: Build with Gradle
         env:
@@ -37,8 +37,8 @@ jobs:
         # 3. build
         run: |
           chmod +x ./gradlew
-          ./gradlew --no-daemon downloadLocalLibs
-          ./gradlew build publish --stacktrace --no-daemon
+          ./gradlew downloadLocalLibs
+          ./gradlew build --stacktrace
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
         with:
