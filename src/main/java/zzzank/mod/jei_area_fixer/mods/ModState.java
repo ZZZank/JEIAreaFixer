@@ -31,6 +31,7 @@ public interface ModState {
     boolean DEEP_MOD_LEARNING = loaded("deepmoblearning");
     boolean THAUMCRAFT = loaded("thaumcraft");
     boolean EXTRA_UTILS_2 = loaded("extrautils2");
+    boolean WIRELESS_CRAFTING_TERMINAL = loaded("wct");
 
     static boolean loaded(String modid) {
         return Loader.isModLoaded(modid);

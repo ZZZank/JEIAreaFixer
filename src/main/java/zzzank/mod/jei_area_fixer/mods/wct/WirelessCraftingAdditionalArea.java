@@ -1,4 +1,4 @@
-package zzzank.mod.jei_area_fixer.mods.ae2wtlib;
+package zzzank.mod.jei_area_fixer.mods.wct;
 
 import lombok.val;
 import net.minecraft.client.gui.GuiButton;
