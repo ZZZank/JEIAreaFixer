@@ -149,3 +149,10 @@ dependencies {
     //     transitive = false
     // }
 }
+
+task downloadLocalLibs(type: Download) {
+    src([
+        "https://edge.forgecdn.net/files/3151/6/MCTSmelteryIO-1.12.2-1.2.63.jar"
+    ])
+    dest(layout.projectDirectory.dir('./gradle/local_libs/'))
+}

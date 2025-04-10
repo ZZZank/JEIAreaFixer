@@ -34,6 +34,7 @@ jobs:
           SAPS_TOKEN: ${{ secrets.SAPS_TOKEN }}
         run: |
           chmod +x ./gradlew
+          ./gradlew --no-daemon downloadLocalLibs
           ./gradlew build publish --stacktrace --no-daemon
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
