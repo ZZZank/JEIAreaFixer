@@ -1,9 +1,17 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+# This workflow will build a Java project with Gradle and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-gradle
+
 name: Java CI
 
 on:
-  push:
-    branches:
-      - "master"
+  [workflow_dispatch, push]
+
+permissions:
+  contents: read
 
 jobs:
   build:
@@ -19,29 +27,33 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
+
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 30 # Gets the last 30 commits so the changelog might work
-      # Always run on Java 17 or higher, Loom needs it
+
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
-          distribution: 'zulu'
+          distribution: 'temurin'
           java-version: '21'
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4.3.1
+        with:
+          gradle-version: 8.13
+
+      - name: Add permission
+        run: chmod +x ./gradlew
+
+      - name: Download local libraries
+        run: ./gradlew downloadLocalLibs
+
       - name: Build with Gradle
+        run: ./gradlew build
         env:
           FTB_MAVEN_TOKEN: ${{ secrets.FTB_MAVEN_TOKEN }}
           SAPS_TOKEN: ${{ secrets.SAPS_TOKEN }}
-        # 1. grant permission
-        # 2. download libraries
-        # 3. build
-        run: |
-          chmod +x ./gradlew
-          ./gradlew downloadLocalLibs
-          ./gradlew setupDecompWorkspace
-          ./gradlew build --stacktrace
+
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
         with:
-          path: |
-            build/libs
+          path: build/libs
