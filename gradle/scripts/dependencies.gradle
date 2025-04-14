@@ -118,6 +118,10 @@ dependencies {
     //[Extra Utilities 2 - 1.12 - 1.9.9](https://www.curseforge.com/minecraft/mc-mods/extra-utilities/files/2678374)
     compileOnly(rfg.deobf("curse.maven:extra-utilities-225561:2678374"))
 
+    //[ProjectRed-1.12.2-4.9.4.120-Base](https://www.curseforge.com/minecraft/mc-mods/project-red-core/files/2745545)
+    compileOnly(rfg.deobf("curse.maven:project-red-core-228702:2745545"))
+
+
     // Example - Dependency descriptor:
     // 'com.google.code.gson:gson:2.8.6' << group: com.google.code.gson, name:gson, version:2.8.6
     // 'group:name:version:classifier' where classifier is optional
