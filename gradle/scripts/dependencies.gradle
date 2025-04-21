@@ -120,6 +120,12 @@ dependencies {
 
     //[ProjectRed-1.12.2-4.9.4.120-Base](https://www.curseforge.com/minecraft/mc-mods/project-red-core/files/2745545)
     compileOnly(rfg.deobf("curse.maven:project-red-core-228702:2745545"))
+    //[ProjectRed-1.12.2-4.9.4.120-mechanical](https://www.curseforge.com/minecraft/mc-mods/project-red-expansion/files/2745550)
+    compileOnly(rfg.deobf("curse.maven:project-red-expansion-229048:2745550"))
+    //[MrTJPCore-1.12.2-2.1.4.43-universal.jar](https://www.curseforge.com/minecraft/mc-mods/mrtjpcore/files/2735197)
+    compileOnly(rfg.deobf("curse.maven:mrtjpcore-229002:2735197"))
+    //[CodeChicken Lib 1.12.2-3.2.3.358-universal](https://www.curseforge.com/minecraft/mc-mods/codechicken-lib-1-8/files/2779848)
+    compileOnly(rfg.deobf("curse.maven:codechicken-lib-1-8-242818:2779848"))
 
 
     // Example - Dependency descriptor:
