@@ -11,6 +11,7 @@ import net.minecraftforge.fml.common.Loader;
 import zzzank.mod.jei_area_fixer.mods.GeneralButtonsArea;
 import zzzank.mod.jei_area_fixer.mods.ModState;
 import zzzank.mod.jei_area_fixer.mods.ae2wtlib.AE2WTLibButtonsArea;
+import zzzank.mod.jei_area_fixer.mods.mrtjpcore.NodeGuiArea;
 import zzzank.mod.jei_area_fixer.mods.wct.WirelessCraftingAdditionalArea;
 import zzzank.mod.jei_area_fixer.mods.applied_energistics_2.AE2ButtonsArea;
 import zzzank.mod.jei_area_fixer.mods.applied_energistics_2.AE2CellViewArea;
@@ -122,6 +123,9 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
         }
         if (ModState.EXTRA_UTILS_2) {
             handlers.addIf(EXTRA_UTILS_2.widgets, ExtraUtils2DynamicGuiArea::new);
+        }
+        if (ModState.MRTJPCORE) {
+            handlers.addIf(MRTJP_CORE.nodeGui, NodeGuiArea::new);
         }
     }
 

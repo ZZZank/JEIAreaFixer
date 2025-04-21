@@ -58,6 +58,8 @@ public class JEIAreaFixerConfig {
     public static final _Thaumcraft THAUMCRAFT = new _Thaumcraft();
     @Config.RequiresMcRestart
     public static final _ExtraUtils2 EXTRA_UTILS_2 = new _ExtraUtils2();
+    @Config.RequiresMcRestart
+    public static final _MrtjpCore MRTJP_CORE = new _MrtjpCore();
 
     @SubscribeEvent
     public static void onConfigChanged(ConfigChangedEvent event) {
@@ -188,5 +190,10 @@ public class JEIAreaFixerConfig {
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _ExtraUtils2 {
         public boolean widgets = false;
+    }
+
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
+    public static class _MrtjpCore {
+        public boolean nodeGui = true;
     }
 }

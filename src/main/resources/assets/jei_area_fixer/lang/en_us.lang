@@ -119,3 +119,7 @@ jei_area_fixer.client.thaumcraft.focalmanipulatorextra.tooltip=Add additional ar
 jei_area_fixer.client.extra_utils_2=Extra Utilities 2 Support
 jei_area_fixer.client.extra_utils_2.widgets=Widgets
 jei_area_fixer.client.extra_utils_2.widgets.tooltip=Support for Widgets in GUI
+
+jei_area_fixer.client.mrtjp_core=MrtjpCode (ProjectRed) Support
+jei_area_fixer.client.mrtjp_core.nodegui=NodeGui
+jei_area_fixer.client.mrtjp_core.nodegui.tooltip=Support common parent of GUIs used by ProjectRed

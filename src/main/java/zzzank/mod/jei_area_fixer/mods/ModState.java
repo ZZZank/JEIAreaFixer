@@ -32,6 +32,7 @@ public interface ModState {
     boolean THAUMCRAFT = loaded("thaumcraft");
     boolean EXTRA_UTILS_2 = loaded("extrautils2");
     boolean WIRELESS_CRAFTING_TERMINAL = loaded("wct");
+    boolean MRTJPCORE = loaded("mrtjpcore");
 
     static boolean loaded(String modid) {
         return Loader.isModLoaded(modid);
