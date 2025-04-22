@@ -1,5 +1,14 @@
 # Changelog
 
+## JEIAreaFixer 2.1.0 -> 2.2.0
+
+ProjectRed support & WCT fix
+
+- fixed Wireless crafting terminal support enabled when AE2WTLib (but not WCT itself) is installed
+- Added ProjectRed support
+
+---
+
 ## JEIAreaFixer 2.0.0 -> 2.1.0
 
 Thaumcraft support & internal cleanup
