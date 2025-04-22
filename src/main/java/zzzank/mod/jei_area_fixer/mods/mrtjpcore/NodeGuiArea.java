@@ -28,6 +28,9 @@ public class NodeGuiArea extends AbstractJEIAreaProvider<NodeGui> {
         while (itr.hasNext()) {
             val node = itr.next();
             val frame = node.frame();
+            if (node.hidden()) {
+                continue;
+            }
             areas.add(new Rectangle(
                 gui.getGuiLeft() + frame.x(),
                 gui.getGuiTop() + frame.y(),
