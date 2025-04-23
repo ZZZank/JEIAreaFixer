@@ -2,6 +2,7 @@ package zzzank.mod.jei_area_fixer.mods.trinkets_and_baubles;
 
 import xzeroair.trinkets.client.gui.TrinketGui;
 import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;
+import zzzank.mod.jei_area_fixer.JEIAreaProvider;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -25,6 +26,6 @@ public class TrinketGuiArea extends AbstractJEIAreaProvider<TrinketGui> {
     @Nullable
     @Override
     protected List<Rectangle> getExclusionAreas(@Nonnull TrinketGui gui) {
-        return ((TrinketGuiAreaProvider) gui).jaf$getAreas();
+        return ((JEIAreaProvider) gui).jei_area_fixer$getAreas();
     }
 }

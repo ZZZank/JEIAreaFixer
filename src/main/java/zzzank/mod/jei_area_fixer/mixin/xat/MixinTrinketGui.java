@@ -8,8 +8,9 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 import xzeroair.trinkets.client.gui.TrinketGui;
-import zzzank.mod.jei_area_fixer.mods.trinkets_and_baubles.TrinketGuiAreaProvider;
+import zzzank.mod.jei_area_fixer.JEIAreaProvider;
 
+import javax.annotation.Nullable;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,22 +19,18 @@ import java.util.List;
  * @author ZZZank
  */
 @Mixin(TrinketGui.class)
-public abstract class MixinTrinketGui implements TrinketGuiAreaProvider {
+public abstract class MixinTrinketGui implements JEIAreaProvider {
 
     @Unique
-    private final ArrayList<Rectangle> jaf$areas = new ArrayList<>();
+    private final List<Rectangle> jaf$areas = new ArrayList<>();
 
     @Inject(
         method = "renderTrinketInventory",
-        at = @At(
-            value = "CONSTANT",
-            ordinal = 0,
-            args = "intValue=64"
-        ),
+        at = @At("RETURN"),
         remap = false,
         locals = LocalCapture.CAPTURE_FAILSOFT
     )
-    public void jaf$clearCachedArea(int x, int y, CallbackInfo ci, int slots, int columnLength, int maxColumns) {
+    public void jaf$refreshCachedArea(int x, int y, CallbackInfo ci, int slots, int columnLength, int maxColumns) {
         jaf$areas.clear();
         for (int col = 0; col < maxColumns; col++) {
             val rows = Math.min(slots, columnLength);
@@ -55,8 +52,9 @@ public abstract class MixinTrinketGui implements TrinketGuiAreaProvider {
         }
     }
 
+    @Nullable
     @Override
-    public List<Rectangle> jaf$getAreas() {
+    public List<Rectangle> jei_area_fixer$getAreas() {
         return jaf$areas;
     }
 }
