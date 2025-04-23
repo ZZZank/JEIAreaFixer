@@ -1,5 +1,5 @@
 {
-	"package": "zzzank.mod.jei_area_fixer.mixin.xat",
+	"package": "",
 	"required": true,
 	"refmap": "mixins.jei_area_fixer.refmap.json",
 	"target": "@env(DEFAULT)",
@@ -7,7 +7,5 @@
 	"compatibilityLevel": "JAVA_8",
 	"mixins": [],
 	"server": [],
-	"client": [
-		"MixinTrinketGui"
-	]
+	"client": []
 }
