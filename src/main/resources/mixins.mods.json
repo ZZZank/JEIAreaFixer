@@ -1,11 +1,31 @@
 {
-	"package": "",
+	"package": "zzzank.mod.jei_area_fixer.mixin",
 	"required": true,
+	"plugin": "zzzank.mod.jei_area_fixer.mixin.JEIAreaFixerLateMixin",
 	"refmap": "mixins.jei_area_fixer.refmap.json",
 	"target": "@env(DEFAULT)",
 	"minVersion": "0.8.5",
 	"compatibilityLevel": "JAVA_8",
 	"mixins": [],
 	"server": [],
-	"client": []
+	"client": [
+		"appliedenergistics2.AccessGuiMEMonitorable",
+		"blue_skies.AccessSkyTab",
+		"computercraft.AccessGuiComputer",
+		"craftingtweaks.AccessGuiTweakButton",
+		"forestry.AccessGuiForestry",
+		"forestry.AccessLedgerManager",
+		"forestry.MixinLedger",
+		"gamblingstyle.AccessGuiTradingBook",
+		"gamblingstyle.AccessGuiVillager",
+		"jei.MixinGuiScreenHelper",
+		"mctsmelteryio.MixinGuiCM",
+		"openmods.AccessBaseComposite",
+		"openmods.AccessComponentGui",
+		"rftools.AccessGuiCraftingGrid",
+		"rftools.AccessStorageWithCraftGui",
+		"tinker_io.MixinGuiFuelInput",
+		"tinker_io.MixinGuiSmartOutput",
+		"xat.MixinTrinketGui"
+	]
 }
