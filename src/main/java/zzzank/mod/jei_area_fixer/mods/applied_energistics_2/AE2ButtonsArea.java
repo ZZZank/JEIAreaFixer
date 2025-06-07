@@ -1,6 +1,9 @@
 package zzzank.mod.jei_area_fixer.mods.applied_energistics_2;
 
 import appeng.client.gui.AEBaseGui;
+import appeng.client.gui.widgets.GuiImgButton;
+import appeng.client.gui.widgets.GuiTabButton;
+import appeng.client.gui.widgets.GuiToggleButton;
 import lombok.val;
 import net.minecraft.client.gui.GuiButton;
 import zzzank.mod.jei_area_fixer.JEIAreaFixer;
@@ -21,8 +24,14 @@ import java.util.Set;
  * @author ZZZank
  */
 public class AE2ButtonsArea extends ButtonsAreaProvider<GuiButton, AEBaseGui> {
+    public static final ButtonIndex<GuiButton> AE2 = ButtonIndex.register((b) ->
+        b instanceof GuiImgButton
+        || b instanceof GuiTabButton
+        || b instanceof GuiToggleButton
+    );
+
     public AE2ButtonsArea() {
-        super(ButtonIndex.AE2);
+        super(AE2);
     }
 
     @Nonnull

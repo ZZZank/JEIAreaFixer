@@ -3,6 +3,8 @@ package zzzank.mod.jei_area_fixer.mods.wct;
 import lombok.val;
 import net.minecraft.client.gui.GuiButton;
 import p455w0rd.wct.client.gui.GuiWCT;
+import p455w0rd.wct.client.gui.widgets.GuiImgButtonMagnetMode;
+import p455w0rd.wct.client.gui.widgets.GuiImgButtonShiftCraft;
 import zzzank.mod.jei_area_fixer.JEIAreaFixer;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonIndex;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsAreaProvider;
@@ -18,8 +20,13 @@ import java.util.List;
  * @author ZZZank
  */
 public class WirelessCraftingAdditionalArea extends ButtonsAreaProvider<GuiButton, GuiWCT> {
+    public static final ButtonIndex<GuiButton> WIRELESS_CRAFTING_TERMINAL = ButtonIndex.register((b) ->
+        b instanceof GuiImgButtonMagnetMode ||
+        b instanceof GuiImgButtonShiftCraft
+    );
+
     public WirelessCraftingAdditionalArea() {
-        super(ButtonIndex.WIRELESS_CRAFTING_TERMINAL);
+        super(WIRELESS_CRAFTING_TERMINAL);
     }
 
     @Nonnull

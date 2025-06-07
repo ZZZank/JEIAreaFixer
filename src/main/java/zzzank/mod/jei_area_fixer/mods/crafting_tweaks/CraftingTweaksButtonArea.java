@@ -19,8 +19,10 @@ import java.util.List;
  * @author ZZZank
  */
 public class CraftingTweaksButtonArea extends GeneralButtonsAreaProvider<GuiTweakButton> {
+    public static final ButtonIndex<GuiTweakButton> CRAFTING_TWEAKS = ButtonIndex.register((b) -> b instanceof GuiTweakButton);
+
     public CraftingTweaksButtonArea() {
-        super(ButtonIndex.CRAFTING_TWEAKS);
+        super(CRAFTING_TWEAKS);
     }
 
     @Nullable

@@ -21,8 +21,10 @@ import java.util.List;
  * @author ZZZank
  */
 public class BlueSkiesTabArea extends ButtonsAreaProvider<SkyTab, InventoryEffectRenderer> {
+    public static final ButtonIndex<SkyTab> BLUE_SKIES = ButtonIndex.register((b) -> b instanceof SkyTab);
+
     public BlueSkiesTabArea() {
-        super(ButtonIndex.BLUE_SKIES);
+        super(BLUE_SKIES);
     }
 
     @Nonnull

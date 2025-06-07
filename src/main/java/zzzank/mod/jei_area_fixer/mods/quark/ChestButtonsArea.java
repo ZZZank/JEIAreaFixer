@@ -21,8 +21,10 @@ import java.util.List;
  */
 public class ChestButtonsArea extends GeneralButtonsAreaProvider<GuiButtonChest> {
 
+    public static final ButtonIndex<GuiButtonChest> QUARK = ButtonIndex.register((b) -> b instanceof GuiButtonChest);
+
     public ChestButtonsArea() {
-        super(ButtonIndex.QUARK);
+        super(QUARK);
     }
 
     @Nullable
