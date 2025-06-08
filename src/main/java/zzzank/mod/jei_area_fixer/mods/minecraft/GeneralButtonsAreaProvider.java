@@ -11,10 +11,6 @@ import javax.annotation.Nonnull;
 public abstract class GeneralButtonsAreaProvider<T extends GuiButton>
     extends ButtonsAreaProvider<T, GuiContainer> {
 
-    public GeneralButtonsAreaProvider(ButtonIndex<T> index) {
-        super(index);
-    }
-
     @Nonnull
     @Override
     protected Class<GuiContainer> getTarget() {

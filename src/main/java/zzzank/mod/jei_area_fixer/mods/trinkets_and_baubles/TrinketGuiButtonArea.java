@@ -21,10 +21,12 @@ import java.util.List;
  * @author ZZZank
  */
 public class TrinketGuiButtonArea extends GeneralButtonsAreaProvider<TrinketGuiButton> {
-    public static final ButtonIndex<TrinketGuiButton> TRINKET = ButtonIndex.register((b) -> b instanceof TrinketGuiButton);
+    public static final ButtonIndex<TrinketGuiButton> BUTTON_INDEX =
+        ButtonIndex.register((b) -> b instanceof TrinketGuiButton);
 
-    public TrinketGuiButtonArea() {
-        super(TRINKET);
+    @Override
+    protected ButtonIndex<TrinketGuiButton> getButtonIndex() {
+        return BUTTON_INDEX;
     }
 
     /**

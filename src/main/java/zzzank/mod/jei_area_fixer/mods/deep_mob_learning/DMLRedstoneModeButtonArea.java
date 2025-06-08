@@ -18,10 +18,12 @@ import java.util.List;
  * @author ZZZank
  */
 public class DMLRedstoneModeButtonArea extends ButtonsAreaProvider<ButtonRedstoneMode, GuiMachine> {
-    public static final ButtonIndex<ButtonRedstoneMode> DME_REDSTONE = ButtonIndex.register((b) -> b instanceof ButtonRedstoneMode);
+    public static final ButtonIndex<ButtonRedstoneMode> BUTTON_INDEX =
+        ButtonIndex.register((b) -> b instanceof ButtonRedstoneMode);
 
-    public DMLRedstoneModeButtonArea() {
-        super(DME_REDSTONE);
+    @Override
+    protected ButtonIndex<ButtonRedstoneMode> getButtonIndex() {
+        return BUTTON_INDEX;
     }
 
     @Nonnull

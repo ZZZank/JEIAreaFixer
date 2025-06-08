@@ -24,7 +24,7 @@ import java.util.List;
  * @author ZZZank
  */
 public class AE2WTLibButtonsArea extends ButtonsAreaProvider<GuiButton, GuiWT> {
-    public static final ButtonIndex<GuiButton> AE2WT_LIB = ButtonIndex.register((b) ->
+    public static final ButtonIndex<GuiButton> BUTTON_INDEX = ButtonIndex.register((b) ->
         //from AE2WTLib
         b instanceof GuiImgButtonBooster ||
         b instanceof GuiTabButton ||
@@ -35,8 +35,9 @@ public class AE2WTLibButtonsArea extends ButtonsAreaProvider<GuiButton, GuiWT> {
         b instanceof GuiToggleButton
     );
 
-    public AE2WTLibButtonsArea() {
-        super(AE2WT_LIB);
+    @Override
+    protected ButtonIndex<GuiButton> getButtonIndex() {
+        return BUTTON_INDEX;
     }
 
     @Nonnull

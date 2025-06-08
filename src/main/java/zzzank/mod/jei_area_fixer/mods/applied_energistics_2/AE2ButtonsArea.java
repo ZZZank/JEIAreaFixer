@@ -24,14 +24,15 @@ import java.util.Set;
  * @author ZZZank
  */
 public class AE2ButtonsArea extends ButtonsAreaProvider<GuiButton, AEBaseGui> {
-    public static final ButtonIndex<GuiButton> AE2 = ButtonIndex.register((b) ->
+    public static final ButtonIndex<GuiButton> BUTTON_INDEX = ButtonIndex.register((b) ->
         b instanceof GuiImgButton
         || b instanceof GuiTabButton
         || b instanceof GuiToggleButton
     );
 
-    public AE2ButtonsArea() {
-        super(AE2);
+    @Override
+    protected ButtonIndex<GuiButton> getButtonIndex() {
+        return BUTTON_INDEX;
     }
 
     @Nonnull

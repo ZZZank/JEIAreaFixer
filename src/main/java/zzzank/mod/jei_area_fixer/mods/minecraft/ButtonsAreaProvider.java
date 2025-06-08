@@ -9,7 +9,6 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.awt.*;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * @author ZZZank
@@ -17,16 +16,12 @@ import java.util.Objects;
 public abstract class ButtonsAreaProvider<T extends GuiButton, G extends GuiContainer>
     extends AbstractJEIAreaProvider<G> {
 
-    private final ButtonIndex<T> index;
-
-    public ButtonsAreaProvider(@Nonnull ButtonIndex<T> index) {
-        this.index = Objects.requireNonNull(index);
-    }
+    protected abstract ButtonIndex<T> getButtonIndex();
 
     @Nullable
     @Override
     protected final List<Rectangle> getExclusionAreas(@Nonnull G gui) {
-        val cache = ((ButtonsCacheHolder) gui).jaf$cacheIfAbsent(index);
+        val cache = ((ButtonsCacheHolder) gui).jaf$cacheIfAbsent(getButtonIndex());
         return cache.isEmpty() ? null : buttonsToAreas(cache, gui);
     }
 

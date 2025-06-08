@@ -20,13 +20,14 @@ import java.util.List;
  * @author ZZZank
  */
 public class WirelessCraftingAdditionalArea extends ButtonsAreaProvider<GuiButton, GuiWCT> {
-    public static final ButtonIndex<GuiButton> WIRELESS_CRAFTING_TERMINAL = ButtonIndex.register((b) ->
+    public static final ButtonIndex<GuiButton> BUTTON_INDEX = ButtonIndex.register((b) ->
         b instanceof GuiImgButtonMagnetMode ||
         b instanceof GuiImgButtonShiftCraft
     );
 
-    public WirelessCraftingAdditionalArea() {
-        super(WIRELESS_CRAFTING_TERMINAL);
+    @Override
+    protected ButtonIndex<GuiButton> getButtonIndex() {
+        return BUTTON_INDEX;
     }
 
     @Nonnull

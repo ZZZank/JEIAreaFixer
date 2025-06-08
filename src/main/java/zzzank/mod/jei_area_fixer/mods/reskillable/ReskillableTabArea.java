@@ -20,10 +20,12 @@ import java.util.List;
  */
 public class ReskillableTabArea extends GeneralButtonsAreaProvider<GuiButtonInventoryTab> {
 
-    public static final ButtonIndex<GuiButtonInventoryTab> RESKILLABLE = ButtonIndex.register((b) -> b instanceof GuiButtonInventoryTab);
+    public static final ButtonIndex<GuiButtonInventoryTab> BUTTON_INDEX =
+        ButtonIndex.register((b) -> b instanceof GuiButtonInventoryTab);
 
-    public ReskillableTabArea() {
-        super(RESKILLABLE);
+    @Override
+    protected ButtonIndex<GuiButtonInventoryTab> getButtonIndex() {
+        return BUTTON_INDEX;
     }
 
     @Nullable
