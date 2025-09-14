@@ -5,6 +5,7 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
+import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonIndex;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonsCacheHolder;
 
 import javax.annotation.Nonnull;
@@ -22,11 +23,11 @@ public abstract class MixinGuiContainer extends GuiScreen implements ButtonsCach
      * caching buttons to prevent button lookup at every render request
      */
     @Unique
-    private final Map<Integer, List<GuiButton>> jeiAreaFixer$buttonsCache = new HashMap<>();
+    private final Map<ButtonIndex<?>, List<GuiButton>> jeiAreaFixer$buttonsCache = new HashMap<>();
 
     @Nonnull
     @Override
-    public Map<Integer, List<GuiButton>> jaf$getCache() {
+    public Map<ButtonIndex<?>, List<GuiButton>> jaf$getCache() {
         return jeiAreaFixer$buttonsCache;
     }
 

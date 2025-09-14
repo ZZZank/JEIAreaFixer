@@ -15,12 +15,8 @@ import java.util.Map;
  */
 public interface ButtonsCacheHolder {
 
-    default GuiContainer jaf$self() {
-        return (GuiContainer) this;
-    }
-
     @Nonnull
-    Map<Integer, List<GuiButton>> jaf$getCache();
+    Map<ButtonIndex<?>, List<GuiButton>> jaf$getCache();
 
     @Nonnull
     List<GuiButton> jaf$getButtonList();
@@ -29,11 +25,11 @@ public interface ButtonsCacheHolder {
     default <T extends GuiButton> List<T> jaf$cacheIfAbsent(ButtonIndex<T> index) {
         return (List<T>) this.jaf$getCache()
             .computeIfAbsent(
-                index.index,
-                (k) -> this.jaf$getButtonList()
+                index,
+                (buttonIndex) -> this.jaf$getButtonList()
                     .stream()
-                    .filter(index.filter)
-                    .filter(b -> AreaFilter.notInGui(jaf$self(), b)
+                    .filter(buttonIndex.filter)
+                    .filter(b -> AreaFilter.notInGui((GuiContainer) this, b)
                         && (!JEIAreaFixerConfig.GENERAL.preventShiftingBookmark || AreaFilter.notShiftingBookmark(b)))
                     .collect(ImmutableList.toImmutableList())
             );

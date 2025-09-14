@@ -14,7 +14,7 @@ public final class ButtonIndex<T extends GuiButton> {
     private static final AtomicInteger currentOrdinal = new AtomicInteger();
 
     public final Predicate<GuiButton> filter;
-    public final Integer index;
+    public final int index;
 
     private ButtonIndex(Predicate<GuiButton> filter, int index) {
         this.filter = filter;
@@ -23,5 +23,15 @@ public final class ButtonIndex<T extends GuiButton> {
 
     public synchronized static <T extends GuiButton> ButtonIndex<T> register(Predicate<GuiButton> predicate) {
         return new ButtonIndex<>(Objects.requireNonNull(predicate), currentOrdinal.incrementAndGet());
+    }
+
+    @Override
+    public int hashCode() {
+        return this.index;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return this == obj || (obj instanceof ButtonIndex<?> && ((ButtonIndex<?>) obj).index == this.index);
     }
 }
