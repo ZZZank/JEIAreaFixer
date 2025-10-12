@@ -32,13 +32,15 @@ public class CraftingTweaksButtonArea extends GeneralButtonsAreaProvider<GuiTwea
     protected List<Rectangle> buttonsToAreas(@Nonnull List<GuiTweakButton> buttons, @Nonnull GuiContainer gui) {
         val areas = new ArrayList<Rectangle>();
         for (val button : buttons) {
-            val access = ((AccessGuiTweakButton) button);
-            areas.add(new Rectangle(
-                button.x + access.jaf$lastGuiLeft(),
-                button.y + access.jaf$lastGuiTop(),
-                button.width,
-                button.height
-            ));
+            if (button instanceof AccessGuiTweakButton) { // may be `false` for some reason
+                val access = (AccessGuiTweakButton) button;
+                areas.add(new Rectangle(
+                    button.x + access.jaf$lastGuiLeft(),
+                    button.y + access.jaf$lastGuiTop(),
+                    button.width,
+                    button.height
+                ));
+            }
         }
         return areas;
     }
