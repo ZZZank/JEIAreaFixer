@@ -109,6 +109,9 @@ dependencies {
     //https://www.curseforge.com/minecraft/mc-mods/wireless-crafting-terminal/files/2830252
     compileOnly(rfg.deobf("curse.maven:wireless-crafting-terminal-244559:2830252"))
 
+    //[deepmoblearning-1.12.2-2.5.4-universal.jar](https://www.curseforge.com/minecraft/mc-mods/deep-mob-learning/files/2968355)
+    compileOnly(rfg.deobf("curse.maven:deep-mob-learning-284229:2968355"))
+
     //[DeepMobEvolution-1.12.2-1.2.2](https://www.curseforge.com/minecraft/mc-mods/dme/files/5043404)
     compileOnly(rfg.deobf("curse.maven:dme-737252:5043404"))
 

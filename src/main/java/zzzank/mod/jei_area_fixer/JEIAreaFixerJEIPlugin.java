@@ -11,7 +11,9 @@ import net.minecraftforge.fml.common.Loader;
 import zzzank.mod.jei_area_fixer.mods.GeneralButtonsArea;
 import zzzank.mod.jei_area_fixer.mods.ModState;
 import zzzank.mod.jei_area_fixer.mods.ae2wtlib.AE2WTLibButtonsArea;
+import zzzank.mod.jei_area_fixer.mods.deep_mob_learning.SimulationChamberArea;
 import zzzank.mod.jei_area_fixer.mods.deep_mob_learning.TrialKeystoneArea;
+import zzzank.mod.jei_area_fixer.mods.dme.DMETrialKeystoneArea;
 import zzzank.mod.jei_area_fixer.mods.mrtjpcore.NodeGuiArea;
 import zzzank.mod.jei_area_fixer.mods.wct.WirelessCraftingAdditionalArea;
 import zzzank.mod.jei_area_fixer.mods.applied_energistics_2.AE2ButtonsArea;
@@ -20,8 +22,8 @@ import zzzank.mod.jei_area_fixer.mods.blue_skies.BlueSkiesTabArea;
 import zzzank.mod.jei_area_fixer.mods.computer_craft.ComputerScreenArea;
 import zzzank.mod.jei_area_fixer.mods.crafting_tweaks.CraftingTweaksButtonArea;
 import zzzank.mod.jei_area_fixer.mods.cyclic.ExtendedArmorInventoryArea;
-import zzzank.mod.jei_area_fixer.mods.deep_mob_learning.DMLRedstoneModeButtonArea;
-import zzzank.mod.jei_area_fixer.mods.deep_mob_learning.SimulationChamberArea;
+import zzzank.mod.jei_area_fixer.mods.dme.DMERedstoneModeButtonArea;
+import zzzank.mod.jei_area_fixer.mods.dme.DMESimulationChamberArea;
 import zzzank.mod.jei_area_fixer.mods.extrautils2.ExtraUtils2DynamicGuiArea;
 import zzzank.mod.jei_area_fixer.mods.forestry.ForestryLedgersArea;
 import zzzank.mod.jei_area_fixer.mods.gambling_style.GuiVillagerArea;
@@ -106,7 +108,7 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
             handlers.addIf(CRAFTING_TWEAKS.buttons, CraftingTweaksButtonArea::new);
         }
         if (ModState.TRINKETS_AND_BAUBLES) {
-            handlers.addIf(TRINKETS_AND_BAUBLES.buttons,TrinketGuiButtonArea::new);
+            handlers.addIf(TRINKETS_AND_BAUBLES.buttons, TrinketGuiButtonArea::new);
             handlers.addIf(TRINKETS_AND_BAUBLES.slots, TrinketGuiArea::new);
         }
         if (ModState.AE2WT_LIB) {
@@ -116,9 +118,16 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
             handlers.addIf(AE2WTLIB.wirelessCraftingTerminal, WirelessCraftingAdditionalArea::new);
         }
         if (ModState.DEEP_MOD_LEARNING) {
-            handlers.addIf(DEEP_MOB_LEARNING.buttons, DMLRedstoneModeButtonArea::new);
-            handlers.addIf(DEEP_MOB_LEARNING.simulationChamber, SimulationChamberArea::new);
-            handlers.addIf(DEEP_MOB_LEARNING.trialKeystone, TrialKeystoneArea::new);
+            if ("Deep Mob Learning".equals(Loader.instance().getIndexedModList().get("deepmoblearning").getName())) {
+                // Deep Mob Learning
+                handlers.addIf(DEEP_MOB_LEARNING.simulationChamber, SimulationChamberArea::new);
+                handlers.addIf(DEEP_MOB_LEARNING.trialKeystone, TrialKeystoneArea::new);
+            } else {
+                // DeepMobEvolution
+                handlers.addIf(DEEP_MOB_LEARNING.buttons, DMERedstoneModeButtonArea::new);
+                handlers.addIf(DEEP_MOB_LEARNING.simulationChamber, DMESimulationChamberArea::new);
+                handlers.addIf(DEEP_MOB_LEARNING.trialKeystone, DMETrialKeystoneArea::new);
+            }
         }
         if (ModState.THAUMCRAFT) {
             handlers.addIf(THAUMCRAFT.focalManipulator, FocalManipulatorArea::new);

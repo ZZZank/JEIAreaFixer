@@ -1,4 +1,4 @@
-package zzzank.mod.jei_area_fixer.mods.deep_mob_learning;
+package zzzank.mod.jei_area_fixer.mods.dme;
 
 import lombok.val;
 import mustapelto.deepmoblearning.client.gui.GuiMachine;
@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * @author ZZZank
  */
-public class DMLRedstoneModeButtonArea extends ButtonsAreaProvider<ButtonRedstoneMode, GuiMachine> {
+public class DMERedstoneModeButtonArea extends ButtonsAreaProvider<ButtonRedstoneMode, GuiMachine> {
     public static final ButtonIndex<ButtonRedstoneMode> BUTTON_INDEX =
         ButtonIndex.register((b) -> b instanceof ButtonRedstoneMode);
 

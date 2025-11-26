@@ -105,8 +105,8 @@ jei_area_fixer.client.ae2wtlib.buttons.tooltip=Support for AE2WTLib, and its dep
 jei_area_fixer.client.ae2wtlib.wirelesscraftingterminal=Wireless Crafting Terminal
 jei_area_fixer.client.ae2wtlib.wirelesscraftingterminal.tooltip=Additional support for Wireless Crafting Terminal
 
-jei_area_fixer.client.deep_mob_learning.buttons=Buttons
-jei_area_fixer.client.deep_mob_learning.buttons.tooltip=Support for redstone mode button in Deep Mob Learning and its forks like Deep Mod Evolution
+jei_area_fixer.client.deep_mob_learning.buttons=DME Buttons
+jei_area_fixer.client.deep_mob_learning.buttons.tooltip=Support for redstone mode button in Deep Mob Evolution
 jei_area_fixer.client.deep_mob_learning.simulationchamber=Simulation Chamber
 jei_area_fixer.client.deep_mob_learning.simulationchamber.tooltip=Additional support for Simulation Chamber in Deep Mob Learning
 jei_area_fixer.client.deep_mob_learning.trialkeystone=Trial Keystone

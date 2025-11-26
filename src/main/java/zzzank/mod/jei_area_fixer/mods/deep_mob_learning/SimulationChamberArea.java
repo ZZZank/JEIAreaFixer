@@ -1,7 +1,6 @@
 package zzzank.mod.jei_area_fixer.mods.deep_mob_learning;
 
-import mustapelto.deepmoblearning.DMLConstants;
-import mustapelto.deepmoblearning.client.gui.GuiSimulationChamber;
+import xt9.deepmoblearning.client.gui.SimulationChamberGui;
 import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;
 
 import javax.annotation.Nonnull;
@@ -13,26 +12,26 @@ import java.util.List;
 /**
  * @author ZZZank
  */
-public class SimulationChamberArea extends AbstractJEIAreaProvider<GuiSimulationChamber> {
+public class SimulationChamberArea extends AbstractJEIAreaProvider<SimulationChamberGui> {
 
     @Nonnull
     @Override
-    protected Class<GuiSimulationChamber> getTarget() {
-        return GuiSimulationChamber.class;
+    protected Class<SimulationChamberGui> getTarget() {
+        return SimulationChamberGui.class;
     }
 
     /**
-     * @see GuiSimulationChamber#drawGuiContainerBackgroundLayer(float, int, int)
+     * @see SimulationChamberGui#drawGuiContainerBackgroundLayer(float, int, int)
      */
     @Nullable
     @Override
-    protected List<Rectangle> getExclusionAreas(@Nonnull GuiSimulationChamber gui) {
-        //this.drawTexturedModalRect(this.guiLeft + DMLConstants.Gui.SimulationChamber.DATA_MODEL_SLOT.LEFT, this.guiTop + DMLConstants.Gui.SimulationChamber.DATA_MODEL_SLOT.TOP, GuiSimulationChamber.TextureCoords.DATA_MODEL_SLOT.X, GuiSimulationChamber.TextureCoords.DATA_MODEL_SLOT.Y, DMLConstants.Gui.SimulationChamber.DATA_MODEL_SLOT.WIDTH, DMLConstants.Gui.SimulationChamber.DATA_MODEL_SLOT.HEIGHT);
+    protected List<Rectangle> getExclusionAreas(@Nonnull SimulationChamberGui gui) {
+        // this.drawTexturedModalRect(left - 22, top, 0, 141, 18, 18);
         return Collections.singletonList(new Rectangle(
-            DMLConstants.Gui.SimulationChamber.DATA_MODEL_SLOT.LEFT + gui.getGuiLeft(),
-            DMLConstants.Gui.SimulationChamber.DATA_MODEL_SLOT.TOP + gui.getGuiTop(),
-            DMLConstants.Gui.SimulationChamber.DATA_MODEL_SLOT.WIDTH,
-            DMLConstants.Gui.SimulationChamber.DATA_MODEL_SLOT.HEIGHT
+            gui.getGuiLeft() - 22,
+            gui.getGuiTop(),
+            18,
+            18
         ));
     }
 }

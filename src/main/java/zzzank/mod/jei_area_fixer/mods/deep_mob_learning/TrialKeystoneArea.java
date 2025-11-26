@@ -1,6 +1,6 @@
 package zzzank.mod.jei_area_fixer.mods.deep_mob_learning;
 
-import mustapelto.deepmoblearning.client.gui.GuiTrialKeystone;
+import xt9.deepmoblearning.client.gui.TrialKeystoneGui;
 import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;
 
 import javax.annotation.Nonnull;
@@ -9,28 +9,27 @@ import java.awt.*;
 import java.util.Collections;
 import java.util.List;
 
-import static mustapelto.deepmoblearning.DMLConstants.Gui.TrialKeystone.TRIAL_KEY_SLOT;
-
 /**
  * @author ZZZank
  */
-public class TrialKeystoneArea extends AbstractJEIAreaProvider<GuiTrialKeystone> {
+public class TrialKeystoneArea extends AbstractJEIAreaProvider<TrialKeystoneGui> {
     @Nonnull
     @Override
-    protected Class<GuiTrialKeystone> getTarget() {
-        return GuiTrialKeystone.class;
+    protected Class<TrialKeystoneGui> getTarget() {
+        return TrialKeystoneGui.class;
     }
 
-    /// @see GuiTrialKeystone#drawGuiContainerBackgroundLayer(float, int, int)
+    /// @see TrialKeystoneGui#drawGuiContainerBackgroundLayer(float, int, int)
     @Nullable
     @Override
-    protected List<Rectangle> getExclusionAreas(@Nonnull GuiTrialKeystone gui) {
+    protected List<Rectangle> getExclusionAreas(@Nonnull TrialKeystoneGui gui) {
+        // this.drawTexturedModalRect(left - 20, top, 0, 100, 18, 18);
         return Collections.singletonList(
             new Rectangle(
-                gui.getGuiLeft() + TRIAL_KEY_SLOT.LEFT,
-                gui.getGuiTop() + TRIAL_KEY_SLOT.TOP,
-                TRIAL_KEY_SLOT.WIDTH,
-                TRIAL_KEY_SLOT.HEIGHT
+                gui.getGuiLeft() - 20,
+                gui.getGuiTop(),
+                18,
+                18
             )
         );
     }
