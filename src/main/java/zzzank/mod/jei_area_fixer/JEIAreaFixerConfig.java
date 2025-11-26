@@ -179,6 +179,7 @@ public class JEIAreaFixerConfig {
     public static class _DeepMobLearning {
         public boolean buttons = true;
         public boolean simulationChamber = true;
+        public boolean trialKeystone = true;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)

@@ -11,6 +11,7 @@ import net.minecraftforge.fml.common.Loader;
 import zzzank.mod.jei_area_fixer.mods.GeneralButtonsArea;
 import zzzank.mod.jei_area_fixer.mods.ModState;
 import zzzank.mod.jei_area_fixer.mods.ae2wtlib.AE2WTLibButtonsArea;
+import zzzank.mod.jei_area_fixer.mods.deep_mob_learning.TrialKeystoneArea;
 import zzzank.mod.jei_area_fixer.mods.mrtjpcore.NodeGuiArea;
 import zzzank.mod.jei_area_fixer.mods.wct.WirelessCraftingAdditionalArea;
 import zzzank.mod.jei_area_fixer.mods.applied_energistics_2.AE2ButtonsArea;
@@ -117,6 +118,7 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
         if (ModState.DEEP_MOD_LEARNING) {
             handlers.addIf(DEEP_MOB_LEARNING.buttons, DMLRedstoneModeButtonArea::new);
             handlers.addIf(DEEP_MOB_LEARNING.simulationChamber, SimulationChamberArea::new);
+            handlers.addIf(DEEP_MOB_LEARNING.trialKeystone, TrialKeystoneArea::new);
         }
         if (ModState.THAUMCRAFT) {
             handlers.addIf(THAUMCRAFT.focalManipulator, FocalManipulatorArea::new);

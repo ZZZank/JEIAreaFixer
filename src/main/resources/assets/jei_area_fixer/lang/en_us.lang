@@ -109,6 +109,8 @@ jei_area_fixer.client.deep_mob_learning.buttons=Buttons
 jei_area_fixer.client.deep_mob_learning.buttons.tooltip=Support for redstone mode button in Deep Mob Learning and its forks like Deep Mod Evolution
 jei_area_fixer.client.deep_mob_learning.simulationchamber=Simulation Chamber
 jei_area_fixer.client.deep_mob_learning.simulationchamber.tooltip=Additional support for Simulation Chamber in Deep Mob Learning
+jei_area_fixer.client.deep_mob_learning.trialkeystone=Trial Keystone
+jei_area_fixer.client.deep_mob_learning.trialkeystone.tooltip=Support for Trial Keystone in Deep Mob Learning
 
 jei_area_fixer.client.thaumcraft=Thaumcraft Support
 jei_area_fixer.client.thaumcraft.focalmanipulator=Focal Manipulator
