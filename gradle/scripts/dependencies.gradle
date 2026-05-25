@@ -50,8 +50,8 @@ repositories {
 
 dependencies {
     //https://projectlombok.org/setup/gradle
-    compileOnly 'org.projectlombok:lombok:1.18.34'
-    annotationProcessor 'org.projectlombok:lombok:1.18.34'
+    compileOnly 'org.projectlombok:lombok:1.18.46'
+    annotationProcessor 'org.projectlombok:lombok:1.18.46'
 
     //jei
     compileOnly(rfg.deobf("mezz.jei:jei_1.12.2:4.16.1.1012"))
