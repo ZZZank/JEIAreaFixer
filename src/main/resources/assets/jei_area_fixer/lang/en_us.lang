@@ -129,3 +129,5 @@ jei_area_fixer.client.mrtjp_core.nodegui.tooltip=Support common parent of GUIs u
 jei_area_fixer.client.refined_storage=Refined Storage Support
 jei_area_fixer.client.refined_storage.sidebutton=Side Button
 jei_area_fixer.client.refined_storage.sidebutton.tooltip=Support for side buttons in Refined Storage grids
+jei_area_fixer.client.refined_storage.preventshiftingbookmark=Prevent Shifting Bookmark
+jei_area_fixer.client.refined_storage.preventshiftingbookmark.tooltip=Ignore button areas that will make the whole JEI overlay shift\n This is independent of the same-name config from 'general' category

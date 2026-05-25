@@ -17,6 +17,10 @@ public interface AreaFilter {
         return !JEIAreaFixerConfig.AE2.preventShiftingBookmark || notShiftingBookmark(button);
     }
 
+    static boolean notShiftingBookmarkRS(@Nonnull GuiButton button) {
+        return !JEIAreaFixerConfig.REFINED_STORAGE.preventShiftingBookmark || notShiftingBookmark(button);
+    }
+
     static boolean notShiftingBookmark(@Nonnull GuiButton button) {
         return button.y > JEI_BOOKMARK_TOP_HEIGHT;
     }

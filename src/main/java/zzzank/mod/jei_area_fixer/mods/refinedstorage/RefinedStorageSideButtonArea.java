@@ -4,6 +4,7 @@ import com.raoulvdberge.refinedstorage.gui.control.SideButton;
 import lombok.val;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonIndex;
 import zzzank.mod.jei_area_fixer.mods.minecraft.GeneralButtonsAreaProvider;
+import zzzank.mod.jei_area_fixer.utils.AreaFilter;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -29,7 +30,7 @@ public class RefinedStorageSideButtonArea extends GeneralButtonsAreaProvider<Sid
     protected List<Rectangle> buttonsToAreas(@Nonnull List<SideButton> buttons, @Nonnull GuiContainer gui) {
         val result = new ArrayList<Rectangle>();
         for (val button : buttons) {
-            if (button.visible) {
+            if (button.visible && AreaFilter.notShiftingBookmarkRS(button)) {
                 result.add(new Rectangle(button.x, button.y, SideButton.WIDTH, SideButton.HEIGHT));
             }
         }

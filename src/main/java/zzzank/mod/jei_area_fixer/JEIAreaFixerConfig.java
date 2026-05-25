@@ -203,5 +203,6 @@ public class JEIAreaFixerConfig {
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _RefinedStorage {
         public boolean sideButton = true;
+        public boolean preventShiftingBookmark = true;
     }
 }
