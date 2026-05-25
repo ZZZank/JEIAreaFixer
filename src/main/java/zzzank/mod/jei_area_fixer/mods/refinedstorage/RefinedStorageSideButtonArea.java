@@ -2,6 +2,7 @@ package zzzank.mod.jei_area_fixer.mods.refinedstorage;
 
 import com.raoulvdberge.refinedstorage.gui.control.SideButton;
 import lombok.val;
+import net.minecraft.client.gui.inventory.GuiContainer;
 import zzzank.mod.jei_area_fixer.mods.minecraft.ButtonIndex;
 import zzzank.mod.jei_area_fixer.mods.minecraft.GeneralButtonsAreaProvider;
 import zzzank.mod.jei_area_fixer.utils.AreaFilter;
