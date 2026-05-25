@@ -60,6 +60,8 @@ public class JEIAreaFixerConfig {
     public static final _ExtraUtils2 EXTRA_UTILS_2 = new _ExtraUtils2();
     @Config.RequiresMcRestart
     public static final _MrtjpCore MRTJP_CORE = new _MrtjpCore();
+    @Config.RequiresMcRestart
+    public static final _RefinedStorage REFINED_STORAGE = new _RefinedStorage();
 
     @SubscribeEvent
     public static void onConfigChanged(ConfigChangedEvent event) {
@@ -196,5 +198,10 @@ public class JEIAreaFixerConfig {
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class _MrtjpCore {
         public boolean nodeGui = true;
+    }
+
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
+    public static class _RefinedStorage {
+        public boolean sideButton = true;
     }
 }

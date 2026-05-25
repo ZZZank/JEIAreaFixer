@@ -15,6 +15,7 @@ import zzzank.mod.jei_area_fixer.mods.deep_mob_learning.SimulationChamberArea;
 import zzzank.mod.jei_area_fixer.mods.deep_mob_learning.TrialKeystoneArea;
 import zzzank.mod.jei_area_fixer.mods.dme.DMETrialKeystoneArea;
 import zzzank.mod.jei_area_fixer.mods.mrtjpcore.NodeGuiArea;
+import zzzank.mod.jei_area_fixer.mods.refinedstorage.RefinedStorageSideButtonArea;
 import zzzank.mod.jei_area_fixer.mods.wct.WirelessCraftingAdditionalArea;
 import zzzank.mod.jei_area_fixer.mods.applied_energistics_2.AE2ButtonsArea;
 import zzzank.mod.jei_area_fixer.mods.applied_energistics_2.AE2CellViewArea;
@@ -137,6 +138,9 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
         }
         if (ModState.MRTJPCORE) {
             handlers.addIf(MRTJP_CORE.nodeGui, NodeGuiArea::new);
+        }
+        if (ModState.REFINED_STORAGE) {
+            handlers.addIf(REFINED_STORAGE.sideButton, RefinedStorageSideButtonArea::new);
         }
     }
 

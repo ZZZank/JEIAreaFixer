@@ -125,3 +125,7 @@ jei_area_fixer.client.extra_utils_2.widgets.tooltip=Support for Widgets in GUI
 jei_area_fixer.client.mrtjp_core=MrtjpCode (ProjectRed) Support
 jei_area_fixer.client.mrtjp_core.nodegui=NodeGui
 jei_area_fixer.client.mrtjp_core.nodegui.tooltip=Support common parent of GUIs used by ProjectRed
+
+jei_area_fixer.client.refined_storage=Refined Storage Support
+jei_area_fixer.client.refined_storage.sidebutton=Side Button
+jei_area_fixer.client.refined_storage.sidebutton.tooltip=Support for side buttons in Refined Storage grids
