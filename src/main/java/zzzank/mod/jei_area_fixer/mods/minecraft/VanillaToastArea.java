@@ -1,6 +1,7 @@
 package zzzank.mod.jei_area_fixer.mods.minecraft;
 
 import lombok.val;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;
@@ -8,7 +9,7 @@ import zzzank.mod.jei_area_fixer.AbstractJEIAreaProvider;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.awt.*;
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,25 +25,20 @@ public class VanillaToastArea extends AbstractJEIAreaProvider<GuiContainer> {
     @Nullable
     @Override
     protected List<Rectangle> getExclusionAreas(@Nonnull GuiContainer gui) {
-        val toastGui = gui.mc.getToastGui();
+        val scaledResolution = new ScaledResolution(gui.mc);
 
-        int maxIndex = 0;
-        for (int i = 0; i < toastGui.visible.length; i++) {
-            if (toastGui.visible[i] != null) {
-                maxIndex = i;
+        val result = new ArrayList<Rectangle>();
+
+        val visible = gui.mc.getToastGui().visible;
+        for (int i = 0; i < visible.length; i++) {
+            val toastInstance = visible[i];
+            if (toastInstance != null) {
+                val visibility = toastInstance.getVisibility(Minecraft.getSystemTime());
+                val visibleWidth = (int) (160 * visibility);
+                result.add(new Rectangle(scaledResolution.getScaledWidth() - visibleWidth, i * 32, visibleWidth, 32));
             }
         }
 
-        if (maxIndex == 0) {
-            return Collections.emptyList();
-        }
-
-        val scaledResolution = new ScaledResolution(gui.mc);
-        return Collections.singletonList(new Rectangle(
-            scaledResolution.getScaledWidth() - 160,
-            0,
-            160,
-            (maxIndex + 1) * 32
-        ));
+        return result;
     }
 }
