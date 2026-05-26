@@ -14,6 +14,7 @@ import zzzank.mod.jei_area_fixer.mods.ae2wtlib.AE2WTLibButtonsArea;
 import zzzank.mod.jei_area_fixer.mods.deep_mob_learning.SimulationChamberArea;
 import zzzank.mod.jei_area_fixer.mods.deep_mob_learning.TrialKeystoneArea;
 import zzzank.mod.jei_area_fixer.mods.dme.DMETrialKeystoneArea;
+import zzzank.mod.jei_area_fixer.mods.minecraft.VanillaToastArea;
 import zzzank.mod.jei_area_fixer.mods.mrtjpcore.NodeGuiArea;
 import zzzank.mod.jei_area_fixer.mods.refinedstorage.RefinedStorageSideButtonArea;
 import zzzank.mod.jei_area_fixer.mods.wct.WirelessCraftingAdditionalArea;
@@ -61,6 +62,9 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
             val buttonsArea = new GeneralButtonsArea();
             handlers.add(buttonsArea);
             MinecraftForge.EVENT_BUS.register(buttonsArea);
+        }
+        if (GENERAL.vanillaToast) {
+            handlers.add(new VanillaToastArea());
         }
         if (ModState.RF_TOOLS && RF_TOOLS.all) {
             handlers.addIf(RF_TOOLS.modularStorage, ModularStorageArea::new);

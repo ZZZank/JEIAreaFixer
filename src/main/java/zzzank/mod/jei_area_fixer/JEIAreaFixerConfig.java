@@ -96,6 +96,7 @@ public class JEIAreaFixerConfig {
     public static class _General {
         public boolean aggressiveButtonCapture = false;
         public boolean preventShiftingBookmark = false;
+        public boolean vanillaToast = true;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
