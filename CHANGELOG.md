@@ -1,5 +1,24 @@
 # Changelog
 
+## 2.4.0
+
+Refined Storage & vanilla Toast
+
+- add support for side buttons in RS grids
+- add support for vanilla Toasts
+- better implementation of `aggressiveButtonCapture`
+
+---
+
+## 2.3.0
+
+Deep Mob Learning support
+
+- add proper support for Deep Mob Learning. DeepMobEvolution (fork of DML) support was added before.
+- fix a possible error when Deep Mob Learning is installed
+
+---
+
 ## JEIAreaFixer 2.1.0 -> 2.2.0
 
 ProjectRed support & WCT fix
