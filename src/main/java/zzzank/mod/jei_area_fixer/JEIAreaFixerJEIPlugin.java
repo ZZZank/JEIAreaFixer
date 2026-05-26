@@ -6,14 +6,13 @@ import mezz.jei.api.IModPlugin;
 import mezz.jei.api.IModRegistry;
 import mezz.jei.api.JEIPlugin;
 import mezz.jei.api.gui.IAdvancedGuiHandler;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Loader;
-import zzzank.mod.jei_area_fixer.mods.GeneralButtonsArea;
 import zzzank.mod.jei_area_fixer.mods.ModState;
 import zzzank.mod.jei_area_fixer.mods.ae2wtlib.AE2WTLibButtonsArea;
 import zzzank.mod.jei_area_fixer.mods.deep_mob_learning.SimulationChamberArea;
 import zzzank.mod.jei_area_fixer.mods.deep_mob_learning.TrialKeystoneArea;
 import zzzank.mod.jei_area_fixer.mods.dme.DMETrialKeystoneArea;
+import zzzank.mod.jei_area_fixer.mods.minecraft.AggressiveButtonArea;
 import zzzank.mod.jei_area_fixer.mods.minecraft.VanillaToastArea;
 import zzzank.mod.jei_area_fixer.mods.mrtjpcore.NodeGuiArea;
 import zzzank.mod.jei_area_fixer.mods.refinedstorage.RefinedStorageSideButtonArea;
@@ -59,9 +58,7 @@ public class JEIAreaFixerJEIPlugin implements IModPlugin {
     public void register(@Nonnull IModRegistry registry) {
         val handlers = new GuiHandlersRegistryHelper(registry);
         if (GENERAL.aggressiveButtonCapture) {
-            val buttonsArea = new GeneralButtonsArea();
-            handlers.add(buttonsArea);
-            MinecraftForge.EVENT_BUS.register(buttonsArea);
+            handlers.add(new AggressiveButtonArea());
         }
         if (GENERAL.vanillaToast) {
             handlers.add(new VanillaToastArea());
